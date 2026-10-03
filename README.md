@@ -1,8 +1,10 @@
 # Payrail Web SDK
 
 Framework-agnostic TypeScript for adding Payrail checkout to a website. The SDK
-creates immutable fixed-amount payment sessions, produces the hosted-wallet URL
-and QR payload, and waits for an independently loaded final receipt.
+creates immutable fixed-amount payment sessions, produces hosted-wallet, QR and
+SMS payloads, and waits for an independently loaded final receipt. The Payrail
+Code module adds a short-lived six-digit, BLIK-inspired locator: a merchant can
+claim the code, but only the customer's wallet can review and sign the payment.
 
 The repository also contains the lower-level API, canonical money and browser
 wallet packages used by the Payrail demos. Private keys remain client-side and
@@ -62,12 +64,54 @@ Never place merchant custody keys, wallet seeds or privileged credentials in a
 browser bundle. Opening a checkout does not authorize payment; authorization
 occurs only inside the customer's Payrail wallet.
 
+## Payrail Code and SMS
+
+The wallet issues a two-minute code from a signed, device-bound request and
+waits on an opaque session token:
+
+```ts
+import {
+  PayrailCodeWalletClient,
+  createPayrailDeviceId,
+} from '@payrail-one/sdk/sms';
+
+const codes = new PayrailCodeWalletClient({ apiBaseUrl: '/api' });
+const issued = await codes.issue({
+  wallet,
+  networkId: network.networkId,
+  deviceId: createPayrailDeviceId(), // persist one ID per wallet device
+});
+
+showSixDigits(issued.code);
+const challenge = await codes.waitForChallenge(issued.sessionToken);
+showCheckoutForExplicitApproval(challenge.checkout);
+```
+
+The merchant claim runs only on a trusted backend. Never put the merchant token
+in browser JavaScript:
+
+```ts
+import { PayrailCodeMerchantClient } from '@payrail-one/sdk/sms';
+
+const codes = new PayrailCodeMerchantClient({
+  apiBaseUrl: process.env.PAYRAIL_API_URL!,
+  merchantToken: process.env.PAYRAIL_CODE_MERCHANT_TOKEN!,
+});
+await codes.claim(checkoutId, sixDigitCode);
+```
+
+`checkoutSmsMessage` and `smsComposerUrl` create the provider-neutral SMS link.
+An SMS or six-digit code never authorizes payment by itself; the wallet still
+shows the immutable recipient and amount and produces the normal signed
+transaction.
+
 ## Packages and exports
 
 - `@payrail-one/sdk` — checkout integration, amount helpers and public types;
 - `@payrail-one/sdk/api-client` — typed development-network API client;
 - `@payrail-one/sdk/money` — canonical decimal and atomic-unit conversion;
 - `@payrail-one/sdk/wallet-core` — client-side signing and encrypted vaults.
+- `@payrail-one/sdk/sms` — SMS composition and Payrail Code wallet/merchant clients.
 
 ## Develop and verify
 

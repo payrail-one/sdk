@@ -17,3 +17,18 @@ export type {
 } from '../packages/api-client/src/index.js';
 
 export { formatAmount, parseAmount } from '../packages/money/src/index.js';
+
+export {
+  PayrailCodeInvariantError,
+  PayrailCodeMerchantClient,
+  PayrailCodeTimeoutError,
+  PayrailCodeWalletClient,
+  checkoutSmsMessage,
+  createPayrailDeviceId,
+  smsComposerUrl,
+  type IssuePayrailCodeInput,
+  type PayrailCodeClientOptions,
+  type PayrailCodeMerchantOptions,
+  type SmsComposerInput,
+  type WaitForChallengeOptions,
+} from '../packages/sms/src/index.js';

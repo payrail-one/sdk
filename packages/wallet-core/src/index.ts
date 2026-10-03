@@ -1,16 +1,25 @@
 import { bech32m } from '@scure/base';
-import { fromHex } from '../../api-client/src/index.js';
+import {
+  fromHex,
+  type IssueApprovalCodeRequest,
+} from '../../api-client/src/index.js';
 
 const AUTHORIZATION_DOMAIN = new TextEncoder().encode('ledger.authorization\0');
 const ENVELOPE_DOMAIN = new TextEncoder().encode('ledger.envelope\0');
 const VAULT_DOMAIN = 'payrail.wallet.v1';
 const VAULT_ITERATIONS = 600_000;
 const ACCOUNT_ADDRESS_TYPE = 0;
+const APPROVAL_ISSUE_DOMAIN = new TextEncoder().encode(
+  'payrail.approval.issue.v1\0',
+);
 
 export interface PayrailWallet {
   readonly address: string;
   readonly accountId: string;
   readonly publicKey: Uint8Array<ArrayBuffer>;
+  createApprovalCodeIssue(
+    input: ApprovalCodeIssueInput,
+  ): Promise<IssueApprovalCodeRequest>;
   signTransfer(input: TransferInput): Promise<Uint8Array<ArrayBuffer>>;
 }
 
@@ -72,6 +81,12 @@ export interface TransferInput {
   readonly fee: bigint;
   readonly nonce: bigint;
   readonly validUntilHeight: bigint;
+}
+
+export interface ApprovalCodeIssueInput {
+  readonly networkId: string;
+  readonly deviceId: Uint8Array;
+  readonly issuedAtMs?: number;
 }
 
 export async function createEphemeralWallet(
@@ -193,6 +208,37 @@ function walletFromKey(
     address,
     accountId,
     publicKey,
+    async createApprovalCodeIssue(
+      input: ApprovalCodeIssueInput,
+    ): Promise<IssueApprovalCodeRequest> {
+      if (input.deviceId.length !== 32) {
+        throw new Error('Payrail Code deviceId must contain 32 bytes.');
+      }
+      const issuedAtMs = input.issuedAtMs ?? Date.now();
+      if (!Number.isSafeInteger(issuedAtMs) || issuedAtMs < 0) {
+        throw new Error('Payrail Code issue timestamp is invalid.');
+      }
+      const network = fromHex(input.networkId, 32);
+      const nonce = crypto.getRandomValues(new Uint8Array(32));
+      const message = concat(
+        APPROVAL_ISSUE_DOMAIN,
+        network,
+        publicKey,
+        input.deviceId,
+        encodeUnsigned(BigInt(issuedAtMs), 8),
+        nonce,
+      );
+      const signature = new Uint8Array(
+        await crypto.subtle.sign('Ed25519', privateKey, message),
+      );
+      return {
+        accountAddress: address,
+        deviceId: toHex(input.deviceId),
+        issuedAtMs: issuedAtMs.toString(),
+        nonce: toHex(nonce),
+        signature: toHex(signature),
+      };
+    },
     async signTransfer(input: TransferInput): Promise<Uint8Array<ArrayBuffer>> {
       const operation = encodeTransfer(publicKey, input);
       const message = concat(AUTHORIZATION_DOMAIN, Uint8Array.of(0), operation);

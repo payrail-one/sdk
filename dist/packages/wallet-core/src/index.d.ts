@@ -1,7 +1,9 @@
+import { type IssueApprovalCodeRequest } from '../../api-client/src/index.js';
 export interface PayrailWallet {
     readonly address: string;
     readonly accountId: string;
     readonly publicKey: Uint8Array<ArrayBuffer>;
+    createApprovalCodeIssue(input: ApprovalCodeIssueInput): Promise<IssueApprovalCodeRequest>;
     signTransfer(input: TransferInput): Promise<Uint8Array<ArrayBuffer>>;
 }
 export type EphemeralWallet = PayrailWallet;
@@ -27,6 +29,11 @@ export interface TransferInput {
     readonly fee: bigint;
     readonly nonce: bigint;
     readonly validUntilHeight: bigint;
+}
+export interface ApprovalCodeIssueInput {
+    readonly networkId: string;
+    readonly deviceId: Uint8Array;
+    readonly issuedAtMs?: number;
 }
 export declare function createEphemeralWallet(prefix: string): Promise<EphemeralWallet>;
 export declare function createEncryptedWallet(prefix: string, password: string): Promise<CreatedWalletVault>;

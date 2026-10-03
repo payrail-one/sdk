@@ -1,0 +1,14 @@
+{
+  "name": "@payrail-one/sms",
+  "private": true,
+  "version": "0.2.0",
+  "license": "Apache-2.0",
+  "type": "module",
+  "exports": "./src/index.ts",
+  "scripts": {
+    "check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "6.0.3"
+  }
+}

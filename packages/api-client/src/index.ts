@@ -70,6 +70,30 @@ export interface CreateCheckoutRequest {
   readonly orderReference: string;
 }
 
+export interface IssueApprovalCodeRequest {
+  readonly accountAddress: string;
+  readonly deviceId: string;
+  readonly issuedAtMs: string;
+  readonly nonce: string;
+  readonly signature: string;
+}
+
+export interface IssuedApprovalCode {
+  readonly code: string;
+  readonly sessionToken: string;
+  readonly expiresAtMs: string;
+}
+
+export interface ApprovalCodeChallenge {
+  readonly status: 'waiting' | 'claimed' | 'finalized';
+  readonly checkout: Checkout | null;
+}
+
+export interface ApprovalCodeClaim {
+  readonly status: 'claimed';
+  readonly checkoutId: string;
+}
+
 export class PlatformApiError extends Error {
   constructor(
     message: string,
@@ -130,6 +154,40 @@ export class PlatformApiClient {
 
   checkout(id: string): Promise<Checkout> {
     return this.#request(`/checkouts/${encodeURIComponent(id)}`);
+  }
+
+  issueApprovalCode(
+    request: IssueApprovalCodeRequest,
+  ): Promise<IssuedApprovalCode> {
+    return this.#request('/approval-codes', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(request),
+    });
+  }
+
+  approvalCodeChallenge(sessionToken: string): Promise<ApprovalCodeChallenge> {
+    return this.#request(
+      `/approval-codes/sessions/${encodeURIComponent(sessionToken)}`,
+    );
+  }
+
+  claimApprovalCode(
+    checkoutId: string,
+    code: string,
+    merchantToken: string,
+  ): Promise<ApprovalCodeClaim> {
+    return this.#request(
+      `/checkouts/${encodeURIComponent(checkoutId)}/approval-code`,
+      {
+        method: 'POST',
+        headers: {
+          authorization: `Bearer ${merchantToken}`,
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({ code }),
+      },
+    );
   }
 
   submitCheckout(id: string, envelope: Uint8Array): Promise<Checkout> {

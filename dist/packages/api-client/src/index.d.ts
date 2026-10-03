@@ -61,6 +61,26 @@ export interface CreateCheckoutRequest {
     readonly amount: string;
     readonly orderReference: string;
 }
+export interface IssueApprovalCodeRequest {
+    readonly accountAddress: string;
+    readonly deviceId: string;
+    readonly issuedAtMs: string;
+    readonly nonce: string;
+    readonly signature: string;
+}
+export interface IssuedApprovalCode {
+    readonly code: string;
+    readonly sessionToken: string;
+    readonly expiresAtMs: string;
+}
+export interface ApprovalCodeChallenge {
+    readonly status: 'waiting' | 'claimed' | 'finalized';
+    readonly checkout: Checkout | null;
+}
+export interface ApprovalCodeClaim {
+    readonly status: 'claimed';
+    readonly checkoutId: string;
+}
 export declare class PlatformApiError extends Error {
     readonly status: number;
     constructor(message: string, status: number);
@@ -75,6 +95,9 @@ export declare class PlatformApiClient {
     submit(envelope: Uint8Array): Promise<SubmissionResult>;
     createCheckout(request: CreateCheckoutRequest): Promise<Checkout>;
     checkout(id: string): Promise<Checkout>;
+    issueApprovalCode(request: IssueApprovalCodeRequest): Promise<IssuedApprovalCode>;
+    approvalCodeChallenge(sessionToken: string): Promise<ApprovalCodeChallenge>;
+    claimApprovalCode(checkoutId: string, code: string, merchantToken: string): Promise<ApprovalCodeClaim>;
     submitCheckout(id: string, envelope: Uint8Array): Promise<Checkout>;
 }
 export declare function toHex(bytes: Uint8Array): string;

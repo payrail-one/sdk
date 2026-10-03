@@ -1,7 +1,7 @@
 {
   "name": "@payrail-one/sdk",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Typed Payrail checkout SDK for browser and merchant integrations.",
   "license": "Apache-2.0",
   "type": "module",
@@ -27,6 +27,10 @@
     "./wallet-core": {
       "types": "./dist/packages/wallet-core/src/index.d.ts",
       "import": "./dist/packages/wallet-core/src/index.js"
+    },
+    "./sms": {
+      "types": "./dist/packages/sms/src/index.d.ts",
+      "import": "./dist/packages/sms/src/index.js"
     }
   },
   "workspaces": [

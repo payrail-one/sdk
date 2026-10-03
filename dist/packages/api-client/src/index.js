@@ -46,6 +46,26 @@ export class PlatformApiClient {
     checkout(id) {
         return this.#request(`/checkouts/${encodeURIComponent(id)}`);
     }
+    issueApprovalCode(request) {
+        return this.#request('/approval-codes', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(request),
+        });
+    }
+    approvalCodeChallenge(sessionToken) {
+        return this.#request(`/approval-codes/sessions/${encodeURIComponent(sessionToken)}`);
+    }
+    claimApprovalCode(checkoutId, code, merchantToken) {
+        return this.#request(`/checkouts/${encodeURIComponent(checkoutId)}/approval-code`, {
+            method: 'POST',
+            headers: {
+                authorization: `Bearer ${merchantToken}`,
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({ code }),
+        });
+    }
     submitCheckout(id, envelope) {
         return this.#request(`/checkouts/${encodeURIComponent(id)}/transactions`, {
             method: 'POST',
