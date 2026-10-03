@@ -1,6 +1,6 @@
 # Payrail SDK
 
-Multi-platform SDKs for Payrail checkout and Payrail Code. The repository ships
+Multi-platform SDKs for Payrail checkout, Payrail Code and smart contracts. The repository ships
 browser and Node.js TypeScript, an iOS Swift Package, an Android/JVM Kotlin
 library, and dependency-light Go and Python server clients.
 
@@ -33,25 +33,25 @@ The normative wire contract and cross-language byte vector are in
 TypeScript for browser or Node.js:
 
 ```sh
-npm install github:payrail-one/sdk#v0.3.0
+npm install github:payrail-one/sdk#v0.4.0
 ```
 
 Swift Package Manager:
 
 ```swift
-.package(url: "https://github.com/payrail-one/sdk", exact: "0.3.0")
+.package(url: "https://github.com/payrail-one/sdk", exact: "0.4.0")
 ```
 
 Go server:
 
 ```sh
-go get github.com/payrail-one/sdk/go@v0.3.0
+go get github.com/payrail-one/sdk/go@v0.4.0
 ```
 
 Python server directly from this monorepo:
 
 ```sh
-python -m pip install "payrail-sdk @ git+https://github.com/payrail-one/sdk@v0.3.0#subdirectory=python"
+python -m pip install "payrail-sdk @ git+https://github.com/payrail-one/sdk@v0.4.0#subdirectory=python"
 ```
 
 The Android/JVM JAR, sources and POM are attached to the GitHub release. Maven
@@ -86,6 +86,45 @@ console.log(finalized.checkout.transaction?.id);
 
 The SDK rejects a response if the recipient, amount, checkout identifier or
 hosted payment path differs from the requested immutable payment.
+
+## Smart contracts
+
+Payrail Contract Language v1 compiles to deterministic, bounded `PRC1`
+bytecode. Deploy and call envelopes use the same browser Ed25519 key boundary
+as payments and are finalized by the four-validator Payrail devnet.
+
+```ts
+import { compileContractSource } from '@payrail-one/sdk/contracts';
+import { createEphemeralWallet } from '@payrail-one/sdk/wallet-core';
+
+const source = `payrail 1
+entry deposit
+  attached_amount
+  store deposited
+  emit Deposited
+end`;
+
+const wallet = await createEphemeralWallet(network.addressPrefix);
+const envelope = await wallet.signContractDeploy({
+  networkId: network.networkId,
+  assetId: network.asset.id,
+  idempotencyKey: crypto.getRandomValues(new Uint8Array(32)),
+  salt: crypto.getRandomValues(new Uint8Array(32)),
+  code: compileContractSource(source),
+  fee: 1n,
+  nonce,
+  validUntilHeight,
+});
+await api.submit(envelope);
+```
+
+The v1 VM has checked `u128` arithmetic and bounded state, events and transfers;
+it has no filesystem, network, clock, randomness, floating point or unbounded
+execution. TEST assets have no monetary value. R1 is a separate network and is
+not the Payrail contract runtime.
+
+Try the live open-source sandbox at
+[dapp.payrail.one](https://dapp.payrail.one).
 
 ## Recommended architecture
 
@@ -152,6 +191,7 @@ Go, Python and the Node.js client intentionally expose only merchant operations.
 - `@payrail-one/sdk/money` — canonical decimal and atomic-unit conversion;
 - `@payrail-one/sdk/wallet-core` — client-side signing and encrypted vaults.
 - `@payrail-one/sdk/sms` — SMS composition and Payrail Code wallet/merchant clients.
+- `@payrail-one/sdk/contracts` — `PRC1` builder, source compiler and typed contract intents.
 
 ## Develop and verify
 

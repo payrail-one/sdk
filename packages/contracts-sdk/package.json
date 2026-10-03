@@ -1,0 +1,17 @@
+{
+  "name": "@payrail/contracts-sdk",
+  "version": "0.1.0",
+  "description": "Payrail PRC1 smart-contract compiler, bytecode builder and client boundary",
+  "type": "module",
+  "exports": "./src/index.ts",
+  "scripts": {
+    "check": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json",
+    "test": "tsx --test tests/*.test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.2",
+    "tsx": "4.23.15",
+    "typescript": "6.0.3"
+  }
+}

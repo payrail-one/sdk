@@ -1,5 +1,7 @@
 import { bech32m } from '@scure/base';
-import { fromHex, } from '../../api-client/src/index.js';
+import { fromHex } from '@platform/api-client';
+import { encodeContractCall, encodeContractDeploy, } from './contract-operation';
+export { MAX_CONTRACT_ARGS_BYTES, MAX_CONTRACT_CODE_BYTES, MAX_CONTRACT_EXECUTION_UNITS, } from './contract-operation';
 const AUTHORIZATION_DOMAIN = new TextEncoder().encode('ledger.authorization\0');
 const ENVELOPE_DOMAIN = new TextEncoder().encode('ledger.envelope\0');
 const VAULT_DOMAIN = 'payrail.wallet.v1';
@@ -50,17 +52,24 @@ export async function createEncryptedWallet(prefix, password) {
     ]));
     const publicKey = new Uint8Array(await crypto.subtle.exportKey('raw', pair.publicKey));
     const privateKey = new Uint8Array(await crypto.subtle.exportKey('pkcs8', pair.privateKey));
+    const signingKey = await crypto.subtle.importKey('pkcs8', privateKey, 'Ed25519', false, ['sign']);
     const salt = crypto.getRandomValues(new Uint8Array(16));
     const iv = crypto.getRandomValues(new Uint8Array(12));
     const address = addressFromPublicKey(prefix, publicKey);
     const encryptionKey = await deriveEncryptionKey(password, salt);
-    const ciphertext = await crypto.subtle.encrypt({
-        name: 'AES-GCM',
-        iv,
-        additionalData: vaultAdditionalData(prefix, publicKey),
-    }, encryptionKey, privateKey);
+    let ciphertext;
+    try {
+        ciphertext = await crypto.subtle.encrypt({
+            name: 'AES-GCM',
+            iv,
+            additionalData: vaultAdditionalData(prefix, publicKey),
+        }, encryptionKey, privateKey);
+    }
+    finally {
+        privateKey.fill(0);
+    }
     return {
-        wallet: walletFromKey(prefix, pair.privateKey, publicKey),
+        wallet: walletFromKey(prefix, signingKey, publicKey),
         vault: {
             version: 1,
             address,
@@ -70,6 +79,37 @@ export async function createEncryptedWallet(prefix, password) {
             ciphertext: toBase64(new Uint8Array(ciphertext)),
         },
     };
+}
+export async function restoreWalletSession(prefix, value) {
+    if (!isRecord(value) || value.version !== 1) {
+        throw new Error('Wallet session is invalid.');
+    }
+    const { address, publicKey: encoded, privateKey, expiresAtMs } = value;
+    if (typeof address !== 'string' ||
+        typeof encoded !== 'string' ||
+        !(privateKey instanceof CryptoKey) ||
+        typeof expiresAtMs !== 'number' ||
+        !Number.isSafeInteger(expiresAtMs) ||
+        expiresAtMs <= Date.now()) {
+        throw new Error('Wallet session has expired.');
+    }
+    const publicKey = fromBase64(encoded);
+    if (publicKey.length !== 32 ||
+        addressFromPublicKey(prefix, publicKey) !== address ||
+        privateKey.extractable ||
+        privateKey.algorithm.name !== 'Ed25519' ||
+        privateKey.type !== 'private' ||
+        privateKey.usages.length !== 1 ||
+        privateKey.usages[0] !== 'sign') {
+        throw new Error('Wallet session is invalid.');
+    }
+    const challenge = crypto.getRandomValues(new Uint8Array(32));
+    const verificationKey = await crypto.subtle.importKey('raw', publicKey, 'Ed25519', false, ['verify']);
+    const signature = await crypto.subtle.sign('Ed25519', privateKey, challenge);
+    if (!(await crypto.subtle.verify('Ed25519', verificationKey, signature, challenge))) {
+        throw new Error('Wallet session does not match this account.');
+    }
+    return walletFromKey(prefix, privateKey, publicKey);
 }
 export async function unlockEncryptedWallet(prefix, password, vault) {
     validatePassword(password);
@@ -114,6 +154,18 @@ function walletFromKey(prefix, privateKey, publicKey) {
         address,
         accountId,
         publicKey,
+        createSession(expiresAtMs) {
+            if (!Number.isSafeInteger(expiresAtMs) || expiresAtMs <= Date.now()) {
+                throw new Error('Wallet session expiry is invalid.');
+            }
+            return {
+                version: 1,
+                address,
+                publicKey: toBase64(publicKey),
+                privateKey,
+                expiresAtMs,
+            };
+        },
         async createApprovalCodeIssue(input) {
             if (input.deviceId.length !== 32) {
                 throw new Error('Payrail Code deviceId must contain 32 bytes.');
@@ -122,9 +174,8 @@ function walletFromKey(prefix, privateKey, publicKey) {
             if (!Number.isSafeInteger(issuedAtMs) || issuedAtMs < 0) {
                 throw new Error('Payrail Code issue timestamp is invalid.');
             }
-            const network = fromHex(input.networkId, 32);
             const nonce = crypto.getRandomValues(new Uint8Array(32));
-            const message = concat(APPROVAL_ISSUE_DOMAIN, network, publicKey, input.deviceId, encodeUnsigned(BigInt(issuedAtMs), 8), nonce);
+            const message = concat(APPROVAL_ISSUE_DOMAIN, fromHex(input.networkId, 32), publicKey, input.deviceId, encodeUnsigned(BigInt(issuedAtMs), 8), nonce);
             const signature = new Uint8Array(await crypto.subtle.sign('Ed25519', privateKey, message));
             return {
                 accountAddress: address,
@@ -135,12 +186,20 @@ function walletFromKey(prefix, privateKey, publicKey) {
             };
         },
         async signTransfer(input) {
-            const operation = encodeTransfer(publicKey, input);
-            const message = concat(AUTHORIZATION_DOMAIN, Uint8Array.of(0), operation);
-            const signature = new Uint8Array(await crypto.subtle.sign('Ed25519', privateKey, message));
-            return concat(ENVELOPE_DOMAIN, operation, publicKey, signature, Uint8Array.of(0));
+            return signOperation(privateKey, publicKey, encodeTransfer(publicKey, input));
+        },
+        async signContractDeploy(input) {
+            return signOperation(privateKey, publicKey, encodeContractDeploy(publicKey, input));
+        },
+        async signContractCall(input) {
+            return signOperation(privateKey, publicKey, encodeContractCall(publicKey, input));
         },
     };
+}
+async function signOperation(privateKey, signer, operation) {
+    const message = concat(AUTHORIZATION_DOMAIN, Uint8Array.of(0), operation);
+    const signature = new Uint8Array(await crypto.subtle.sign('Ed25519', privateKey, message));
+    return concat(ENVELOPE_DOMAIN, operation, signer, signature, Uint8Array.of(0));
 }
 function addressFromPublicKey(prefix, publicKey) {
     return bech32m.encode(prefix, bech32m.toWords(concat(Uint8Array.of(0), publicKey)));

@@ -35,6 +35,12 @@ export interface FinalizedTransaction {
   readonly amount: string;
   readonly fee: string;
   readonly outcome: 'applied' | 'expired';
+  readonly kind:
+    | 'transfer'
+    | 'sponsoredTransfer'
+    | 'batchTransfer'
+    | 'contractDeploy'
+    | 'contractCall';
 }
 
 export interface FinalizedBlock {
@@ -53,6 +59,30 @@ export interface ExplorerOverview {
 export interface SubmissionResult {
   readonly transaction: FinalizedTransaction;
   readonly checkpoint: FinalizedBlock;
+  readonly contract: ContractExecution | null;
+}
+
+export interface ContractExecution {
+  readonly contractId: string;
+  readonly entrypoint: string | null;
+  readonly executionUnits: string | null;
+  readonly codeHash: string | null;
+  readonly events: readonly string[];
+}
+
+export interface ContractStateEntry {
+  readonly key: string;
+  readonly value: string;
+}
+
+export interface Contract {
+  readonly id: string;
+  readonly owner: string;
+  readonly code: string;
+  readonly codeHash: string;
+  readonly balance: string;
+  readonly state: readonly ContractStateEntry[];
+  readonly finalizedHeight: string;
 }
 
 export interface Checkout {
@@ -128,6 +158,10 @@ export class PlatformApiClient {
 
   account(address: string): Promise<AccountState> {
     return this.#request(`/accounts/${encodeURIComponent(address)}`);
+  }
+
+  contract(id: string): Promise<Contract> {
+    return this.#request(`/contracts/${encodeURIComponent(id)}`);
   }
 
   overview(): Promise<ExplorerOverview> {

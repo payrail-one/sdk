@@ -19,6 +19,9 @@ export class PlatformApiClient {
     account(address) {
         return this.#request(`/accounts/${encodeURIComponent(address)}`);
     }
+    contract(id) {
+        return this.#request(`/contracts/${encodeURIComponent(id)}`);
+    }
     overview() {
         return this.#request('/explorer');
     }

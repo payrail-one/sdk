@@ -1,259 +1,215 @@
 {
-  "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
   "bomFormat": "CycloneDX",
-  "specVersion": "1.5",
-  "serialNumber": "urn:uuid:0705c78e-8acb-4ffa-b22f-705405128d3d",
+  "specVersion": "1.6",
   "version": 1,
+  "serialNumber": "urn:uuid:67637932-1f5d-474e-853a-5113349d35de",
   "metadata": {
-    "timestamp": "2026-10-03T16:16:20.887Z",
-    "lifecycles": [
-      {
-        "phase": "build"
-      }
-    ],
-    "tools": [
-      {
-        "vendor": "npm",
-        "name": "cli",
-        "version": "10.9.2"
-      }
-    ],
+    "timestamp": "2026-10-03T22:38:31.139Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "npm",
+          "version": "10.9.2"
+        },
+        {
+          "type": "application",
+          "name": "cyclonedx-npm",
+          "group": "@cyclonedx",
+          "version": "4.1.2",
+          "author": "Jan Kowalleck",
+          "description": "Create CycloneDX Software Bill of Materials (SBOM) from NPM projects.",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "externalReferences": [
+            {
+              "url": "git+https://github.com/CycloneDX/cyclonedx-node-npm.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-node-npm#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-node-npm/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            }
+          ]
+        },
+        {
+          "type": "library",
+          "name": "cyclonedx-library",
+          "group": "@cyclonedx",
+          "version": "9.5.0",
+          "author": "Jan Kowalleck",
+          "description": "Core functionality of CycloneDX for JavaScript (Node.js or WebBrowser).",
+          "licenses": [
+            {
+              "license": {
+                "id": "Apache-2.0"
+              }
+            }
+          ],
+          "externalReferences": [
+            {
+              "url": "git+https://github.com/CycloneDX/cyclonedx-javascript-library.git",
+              "type": "vcs",
+              "comment": "as detected from PackageJson property \"repository.url\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-javascript-library#readme",
+              "type": "website",
+              "comment": "as detected from PackageJson property \"homepage\""
+            },
+            {
+              "url": "https://github.com/CycloneDX/cyclonedx-javascript-library/issues",
+              "type": "issue-tracker",
+              "comment": "as detected from PackageJson property \"bugs.url\""
+            }
+          ]
+        }
+      ]
+    },
     "component": {
-      "bom-ref": "@payrail-one/sdk@0.3.0",
-      "type": "library",
-      "name": "payrail-sdk",
-      "version": "0.3.0",
-      "scope": "required",
-      "description": "Typed Payrail checkout SDK for browser and merchant integrations.",
-      "purl": "pkg:npm/%40payrail-one/sdk@0.3.0",
+      "type": "application",
+      "name": "sdk",
+      "group": "@payrail-one",
+      "version": "0.4.0",
+      "bom-ref": "@payrail-one/sdk@0.4.0",
+      "description": "Multi-platform Payrail payments, Payrail Code and smart-contract SDK.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40payrail-one/sdk@0.4.0",
       "properties": [
         {
           "name": "cdx:npm:package:path",
           "value": ""
-        }
-      ],
-      "externalReferences": [],
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
         }
       ]
     }
   },
   "components": [
     {
-      "bom-ref": "@cloudflare/kv-asset-handler@0.5.0",
       "type": "library",
-      "name": "@cloudflare/kv-asset-handler",
-      "version": "0.5.0",
-      "scope": "optional",
-      "author": "wrangler@cloudflare.com",
-      "description": "Routes requests to KV assets",
-      "purl": "pkg:npm/%40cloudflare/kv-asset-handler@0.5.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@cloudflare/kv-asset-handler"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@cloudflare/kv-asset-handler/-/kv-asset-handler-0.5.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/cloudflare/workers-sdk.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/cloudflare/workers-sdk#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/cloudflare/workers-sdk/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "8f1418923f1d488cdcd1c0fa70c30d74e7355158ea4aabbc059768af9b3c7068d6d88f018ce0edfe458f55d63ebbdce3de6b3be50e6a699827c5469df37f9e02"
-        }
-      ],
-      "licenses": [
-        {
-          "expression": "MIT OR Apache-2.0"
-        }
-      ]
-    },
-    {
-      "bom-ref": "@cloudflare/unenv-preset@2.16.2",
-      "type": "library",
-      "name": "@cloudflare/unenv-preset",
-      "version": "2.16.2",
-      "scope": "optional",
-      "description": "cloudflare preset for unenv",
-      "purl": "pkg:npm/%40cloudflare/unenv-preset@2.16.2",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@cloudflare/unenv-preset"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@cloudflare/unenv-preset/-/unenv-preset-2.16.2.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/cloudflare/workers-sdk.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/cloudflare/workers-sdk#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/cloudflare/workers-sdk/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "2413f5f99ed948d1bf7789913fecbc542e5d91aded65530b11946f4beaf34380c6575128c511507247094d39176c74908938f40ed348d356706ff5767d7d26bd"
-        }
-      ],
-      "licenses": [
-        {
-          "expression": "MIT OR Apache-2.0"
-        }
-      ]
-    },
-    {
-      "bom-ref": "@cloudflare/workerd-darwin-arm64@1.20261001.1",
-      "type": "library",
-      "name": "@cloudflare/workerd-darwin-arm64",
-      "version": "1.20261001.1",
-      "scope": "optional",
-      "description": "👷 workerd for macOS ARM 64-bit, Cloudflare's JavaScript/Wasm Runtime",
-      "purl": "pkg:npm/%40cloudflare/workerd-darwin-arm64@1.20261001.1",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@cloudflare/workerd-darwin-arm64"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@cloudflare/workerd-darwin-arm64/-/workerd-darwin-arm64-1.20261001.1.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/cloudflare/workerd.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/cloudflare/workerd#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/cloudflare/workerd/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "f2e9405abb84568b8d98422c42ccbd5924824bdce42eef775b6313c29e5eb22172a0fa74e41352545205b1848f8b5a6416604177b7ec9f03296cb91a24b6953d"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "@cspotcode/source-map-support@0.8.1",
-      "type": "library",
-      "name": "@cspotcode/source-map-support",
-      "version": "0.8.1",
-      "scope": "optional",
-      "description": "Fixes stack traces for files with source maps",
-      "purl": "pkg:npm/%40cspotcode/source-map-support@0.8.1",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@cspotcode/source-map-support"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@cspotcode/source-map-support/-/source-map-support-0.8.1.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/cspotcode/node-source-map-support.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/cspotcode/node-source-map-support#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/cspotcode/node-source-map-support/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "21c84d7fa74de2d1e8305227ffb384f0b599d7d63aabfebb0667fabe719112ff1149b0556fd2cf27111c9f0adcc17ea2c52bda886a2898052fbb8612c57ad583"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "@emnapi/runtime@1.11.3",
-      "type": "library",
-      "name": "@emnapi/runtime",
+      "name": "runtime",
+      "group": "@emnapi",
       "version": "1.11.3",
-      "scope": "optional",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@emnapi/runtime@1.11.3",
       "author": "toyobayashi",
       "description": "emnapi runtime",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
       "purl": "pkg:npm/%40emnapi/runtime@1.11.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/toyobayashi/emnapi.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/toyobayashi/emnapi#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/toyobayashi/emnapi/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@emnapi/runtime/-/runtime-1.11.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "5f3e13a72922ed7caba5b50ad6347502174075a5f2861638959de778ba1d9a1a6e59fcb63c040de41e3ab00894e2588e5c62e41f2a67fea53e8ef7d64826182c"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
       "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:extraneous",
+          "value": "true"
+        },
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/@emnapi/runtime"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "sharp-wasm32",
+      "group": "@img",
+      "version": "0.35.4",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@img/sharp-wasm32@0.35.4",
+      "author": "Lovell Fuller",
+      "description": "Prebuilt sharp for use with WebAssembly",
+      "scope": "optional",
+      "licenses": [
+        {
+          "expression": "Apache-2.0 AND LGPL-3.0-or-later AND MIT",
+          "acknowledgement": "declared"
+        }
+      ],
+      "purl": "pkg:npm/%40img/sharp-wasm32@0.35.4#npm/wasm32",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/lovell/sharp.git#npm/wasm32",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
         },
+        {
+          "url": "https://sharp.pixelplumbing.com",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/lovell/sharp/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@img/sharp-wasm32/-/sharp-wasm32-0.35.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "cd09e5e0ac29ed0e8d1ec10db54d93ff4d198bec37010370cf7f94693c95072d85a57af35f31a39dda4aeb5a278598d1b51a505f10937aac35f5b5725ce87b8c"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -261,1626 +217,367 @@
         {
           "name": "cdx:npm:package:extraneous",
           "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@emnapi/runtime/-/runtime-1.11.3.tgz"
         },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/toyobayashi/emnapi.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/toyobayashi/emnapi#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/toyobayashi/emnapi/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "5f3e13a72922ed7caba5b50ad6347502174075a5f2861638959de778ba1d9a1a6e59fcb63c040de41e3ab00894e2588e5c62e41f2a67fea53e8ef7d64826182c"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "@esbuild/darwin-arm64@0.28.1",
-      "type": "library",
-      "name": "@esbuild/darwin-arm64",
-      "version": "0.28.1",
-      "scope": "optional",
-      "description": "The macOS ARM 64-bit binary for esbuild, a JavaScript bundler.",
-      "purl": "pkg:npm/%40esbuild/darwin-arm64@0.28.1",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@esbuild/darwin-arm64"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.28.1.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/evanw/esbuild.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/evanw/esbuild#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/evanw/esbuild/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "4d96d691063b92f4c05db5d44fbb9500247970c1ec0e24b3f73ed92805ff453abf589124dd0c91af4c19a4d8410d7fbfd02b5da9420994e8a875072d6bab58dd"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "@img/colour@1.1.0",
-      "type": "library",
-      "name": "@img/colour",
-      "version": "1.1.0",
-      "scope": "optional",
-      "description": "The ESM-only 'color' package made compatible for use with CommonJS runtimes",
-      "purl": "pkg:npm/%40img/colour@1.1.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@img/colour"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@img/colour/-/colour-1.1.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/lovell/colour.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/lovell/colour#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/lovell/colour/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "4ddefaabb8f9ee8fed2d57604bbe3a7180117d2cb193c8847d1c5ec0bf61e0e3336216d6e1301ca69974993e1ecaa5dd761e8bfe3c2833be66a3b8b16bfa4279"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "@img/sharp-darwin-arm64@0.35.4",
-      "type": "library",
-      "name": "@img/sharp-darwin-arm64",
-      "version": "0.35.4",
-      "scope": "optional",
-      "author": "Lovell Fuller",
-      "description": "Prebuilt sharp for use with macOS 64-bit ARM",
-      "purl": "pkg:npm/%40img/sharp-darwin-arm64@0.35.4",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@img/sharp-darwin-arm64"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@img/sharp-darwin-arm64/-/sharp-darwin-arm64-0.35.4.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/lovell/sharp.git"
-        },
-        {
-          "type": "website",
-          "url": "https://sharp.pixelplumbing.com"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/lovell/sharp/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "5217e5e15e2584fda76d4545f7e8721f5fa5ba3f3a7f581415ea3c00b63116850ba14f86f3b0f8dc17de30ff171ec93d6e8c409c263f6dfd841f0840eccb86b0"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "@img/sharp-libvips-darwin-arm64@1.3.3",
-      "type": "library",
-      "name": "@img/sharp-libvips-darwin-arm64",
-      "version": "1.3.3",
-      "scope": "optional",
-      "author": "Lovell Fuller",
-      "description": "Prebuilt libvips and dependencies for use with sharp on macOS 64-bit ARM",
-      "purl": "pkg:npm/%40img/sharp-libvips-darwin-arm64@1.3.3",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@img/sharp-libvips-darwin-arm64"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@img/sharp-libvips-darwin-arm64/-/sharp-libvips-darwin-arm64-1.3.3.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/lovell/sharp-libvips.git"
-        },
-        {
-          "type": "website",
-          "url": "https://sharp.pixelplumbing.com"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/lovell/sharp-libvips/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "b2e4c13d30c6ac8f56a1d71c683770648b5349a0580129419353527c49521eb51fceedeccc6ea5bc8179f3e5a216f9dfcee2bc641152e73134d0fc6ac674623e"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "LGPL-3.0-or-later"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "@img/sharp-wasm32@0.35.4",
-      "type": "library",
-      "name": "@img/sharp-wasm32",
-      "version": "0.35.4",
-      "scope": "optional",
-      "author": "Lovell Fuller",
-      "description": "Prebuilt sharp for use with WebAssembly",
-      "purl": "pkg:npm/%40img/sharp-wasm32@0.35.4",
-      "properties": [
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/@img/sharp-wasm32"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        },
-        {
-          "name": "cdx:npm:package:extraneous",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@img/sharp-wasm32/-/sharp-wasm32-0.35.4.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/lovell/sharp.git"
-        },
-        {
-          "type": "website",
-          "url": "https://sharp.pixelplumbing.com"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/lovell/sharp/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "cd09e5e0ac29ed0e8d1ec10db54d93ff4d198bec37010370cf7f94693c95072d85a57af35f31a39dda4aeb5a278598d1b51a505f10937aac35f5b5725ce87b8c"
-        }
-      ],
-      "licenses": [
-        {
-          "expression": "Apache-2.0 AND LGPL-3.0-or-later AND MIT"
         }
       ]
     },
     {
-      "bom-ref": "@jridgewell/resolve-uri@3.1.2",
       "type": "library",
-      "name": "@jridgewell/resolve-uri",
-      "version": "3.1.2",
-      "scope": "optional",
-      "author": "Justin Ridgewell",
-      "description": "Resolve a URI relative to an optional base URI",
-      "purl": "pkg:npm/%40jridgewell/resolve-uri@3.1.2",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@jridgewell/resolve-uri"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@jridgewell/resolve-uri/-/resolve-uri-3.1.2.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/jridgewell/resolve-uri.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/jridgewell/resolve-uri#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/jridgewell/resolve-uri/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "6d12128022233f6d3fb5b5923d63048b9e1054f45913192e0fd9492fe508c542adc15240f305b54eb6f58ccb354455e8d42053359ff98690bd42f98a59da292b"
-        }
-      ],
+      "name": "checkout",
+      "group": "@payrail-one",
+      "version": "0.1.0",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@payrail-one/checkout@0.1.0",
       "licenses": [
         {
           "license": {
-            "id": "MIT"
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
           }
+        }
+      ],
+      "purl": "pkg:npm/%40payrail-one/checkout@0.1.0",
+      "properties": [
+        {
+          "name": "cdx:npm:package:private",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@payrail-one/checkout"
         }
       ]
     },
     {
-      "bom-ref": "@jridgewell/sourcemap-codec@1.6.0",
       "type": "library",
-      "name": "@jridgewell/sourcemap-codec",
-      "version": "1.6.0",
-      "scope": "optional",
-      "author": "Justin Ridgewell",
-      "description": "Encode/decode sourcemap mappings",
-      "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.6.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@jridgewell/sourcemap-codec"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.6.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/jridgewell/sourcemaps.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/jridgewell/sourcemaps/tree/main/packages/sourcemap-codec"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/jridgewell/sourcemaps/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "4fb8dffb9ce0b191f0349e25bd0eff69ecdbca4d27357fb32555a998703b558b04c7b6bbaabe5183921bb4916a920cdee58dacaeeab545463c43cdfb39dee217"
-        }
-      ],
+      "name": "sms",
+      "group": "@payrail-one",
+      "version": "0.3.0",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@payrail-one/sms@0.3.0",
       "licenses": [
         {
           "license": {
-            "id": "MIT"
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
           }
+        }
+      ],
+      "purl": "pkg:npm/%40payrail-one/sms@0.3.0",
+      "properties": [
+        {
+          "name": "cdx:npm:package:private",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@payrail-one/sms"
         }
       ]
     },
     {
-      "bom-ref": "@jridgewell/trace-mapping@0.3.9",
       "type": "library",
-      "name": "@jridgewell/trace-mapping",
-      "version": "0.3.9",
-      "scope": "optional",
-      "author": "Justin Ridgewell",
-      "description": "Trace the original position through a source map",
-      "purl": "pkg:npm/%40jridgewell/trace-mapping@0.3.9",
+      "name": "contracts-sdk",
+      "group": "@payrail",
+      "version": "0.1.0",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@payrail/contracts-sdk@0.1.0",
+      "description": "Payrail PRC1 smart-contract compiler, bytecode builder and client boundary",
+      "purl": "pkg:npm/%40payrail/contracts-sdk@0.1.0",
       "properties": [
         {
           "name": "cdx:npm:package:path",
-          "value": "node_modules/@jridgewell/trace-mapping"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.9.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/jridgewell/trace-mapping.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/jridgewell/trace-mapping#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/jridgewell/trace-mapping/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "dc17a5b7ab5d73c6cf800b5b72676d349962ad5a139846f97b6802f783e7930116f6323a0801d47a81bce6d8d63f95aabaa7dabe832d330886e0ff76e9928ab9"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
+          "value": "node_modules/@payrail/contracts-sdk"
         }
       ]
     },
     {
-      "bom-ref": "@playwright/test@1.63.0",
       "type": "library",
-      "name": "@playwright/test",
+      "name": "api-client",
+      "group": "@platform",
+      "version": "0.0.0",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@platform/api-client@0.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40platform/api-client@0.0.0",
+      "properties": [
+        {
+          "name": "cdx:npm:package:private",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@platform/api-client"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "money",
+      "group": "@platform",
+      "version": "0.0.0",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@platform/money@0.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40platform/money@0.0.0",
+      "properties": [
+        {
+          "name": "cdx:npm:package:private",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@platform/money"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "wallet-core",
+      "group": "@platform",
+      "version": "0.0.0",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@platform/wallet-core@0.0.0",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40platform/wallet-core@0.0.0",
+      "properties": [
+        {
+          "name": "cdx:npm:package:private",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@platform/wallet-core"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "test",
+      "group": "@playwright",
       "version": "1.63.0",
-      "scope": "optional",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@playwright/test@1.63.0",
       "author": "Microsoft Corporation",
       "description": "A high-level API to automate web browsers",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
       "purl": "pkg:npm/%40playwright/test@1.63.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/microsoft/playwright.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://playwright.dev",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/microsoft/playwright/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@playwright/test/-/test-1.63.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a3130ae2f96507d44ae4d436975a6ad487ce7f602f9c4ba3fef6060e3d07da732d9ad6692ad0b0b7f974d0610eeb18c67e904d02f8e8bef61d0a6e74751424a5"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
       "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/@playwright/test"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@playwright/test/-/test-1.63.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/microsoft/playwright.git"
-        },
-        {
-          "type": "website",
-          "url": "https://playwright.dev"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/microsoft/playwright/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "a3130ae2f96507d44ae4d436975a6ad487ce7f602f9c4ba3fef6060e3d07da732d9ad6692ad0b0b7f974d0610eeb18c67e904d02f8e8bef61d0a6e74751424a5"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
         }
       ]
     },
     {
-      "bom-ref": "@poppinss/colors@4.1.6",
       "type": "library",
-      "name": "@poppinss/colors",
-      "version": "4.1.6",
-      "scope": "optional",
-      "author": "virk",
-      "description": "A wrapper on top of kleur with ability to write test against the color functions",
-      "purl": "pkg:npm/%40poppinss/colors@4.1.6",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@poppinss/colors"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@poppinss/colors/-/colors-4.1.6.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/poppinss/colors.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/poppinss/colors#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/poppinss/colors/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "1fdc6421d16cc1b4bc9f577abe645df3e735d2dd907bead92136db0c71e4422c47e7edb1d450c69a2ff42be5a05a2a9014a3d2948601ee3947e8aa5f9fa1657a"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "@poppinss/dumper@0.6.5",
-      "type": "library",
-      "name": "@poppinss/dumper",
-      "version": "0.6.5",
-      "scope": "optional",
-      "author": "Harminder Virk",
-      "description": "Pretty print JavaScript data types in the terminal and the browser",
-      "purl": "pkg:npm/%40poppinss/dumper@0.6.5",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@poppinss/dumper"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@poppinss/dumper/-/dumper-0.6.5.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/poppinss/dumper.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/poppinss/dumper#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/poppinss/dumper/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "34175821bf7427b2df388df674e7b0288d6bef09e4887ea6f76d29b90dea1d47999313644221675d55a813a62d152bfa40e88f3dfef2b3a8be1d659e703cfbb3"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "@poppinss/exception@1.2.3",
-      "type": "library",
-      "name": "@poppinss/exception",
-      "version": "1.2.3",
-      "scope": "optional",
-      "author": "Harminder Virk",
-      "description": "Utility to create custom exceptions",
-      "purl": "pkg:npm/%40poppinss/exception@1.2.3",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@poppinss/exception"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@poppinss/exception/-/exception-1.2.3.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/poppinss/exception.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/poppinss/exception#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/poppinss/exception/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "742103f9044285355ab44f626eda1ac5cf9691dcce4a36132a2ffeb9a707588b1fa1d55fa6cb9ea37f832a9814e4fc7ca978e0997912be15ef482cf77e73fd97"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "@scure/base@2.4.0",
-      "type": "library",
-      "name": "@scure/base",
+      "name": "base",
+      "group": "@scure",
       "version": "2.4.0",
-      "scope": "required",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@scure/base@2.4.0",
       "author": "Paul Miller",
       "description": "Secure, audited & 0-dep implementation of base64, bech32, base58, base32 & base16",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
       "purl": "pkg:npm/%40scure/base@2.4.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/paulmillr/scure-base.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://paulmillr.com/noble/#scure",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/paulmillr/scure-base/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@scure/base/-/base-2.4.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "b616754ee27017005b94e860b230cabef1a2ac1c4da7ec12bd8fc347ab490493930e174001c1c9f156ebd9e167a9ac5e71ae3eb748bd2817feb876065b064e46"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
       "properties": [
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/@scure/base"
         }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@scure/base/-/base-2.4.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/paulmillr/scure-base.git"
-        },
-        {
-          "type": "website",
-          "url": "https://paulmillr.com/noble/#scure"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/paulmillr/scure-base/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "b616754ee27017005b94e860b230cabef1a2ac1c4da7ec12bd8fc347ab490493930e174001c1c9f156ebd9e167a9ac5e71ae3eb748bd2817feb876065b064e46"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
       ]
     },
     {
-      "bom-ref": "@sindresorhus/is@7.2.0",
-      "type": "library",
-      "name": "@sindresorhus/is",
-      "version": "7.2.0",
-      "scope": "optional",
-      "author": "Sindre Sorhus",
-      "description": "Type check values",
-      "purl": "pkg:npm/%40sindresorhus/is@7.2.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@sindresorhus/is"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@sindresorhus/is/-/is-7.2.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/sindresorhus/is.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/sindresorhus/is#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/sindresorhus/is/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "3f50b3d5d59a15f478211f94d779aaaa21ac2c57f529b6b2c9b5b075ddaf7dcb5d57a843a54920098d2728e2cb4cc4a845dfe324d8ed6eacdfd772bc0c209743"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "@speed-highlight/core@1.2.24",
-      "type": "library",
-      "name": "@speed-highlight/core",
-      "version": "1.2.24",
-      "scope": "optional",
-      "author": "matubu",
-      "description": "🌈 Light, fast, and easy to use, dependencies free javascript syntax highlighter, with automatic language detection",
-      "purl": "pkg:npm/%40speed-highlight/core@1.2.24",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/@speed-highlight/core"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/@speed-highlight/core/-/core-1.2.24.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/speed-highlight/core.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/speed-highlight/core#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/speed-highlight/core/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "a9e5b67b597bf1a7f0f158513df3d0d468e3f8a5395c543f385579b62e9e4daf5baee3bb989c99b40e2fc34a1faa6037b4a0a444e13dc4b937559a1e45cf7c9f"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "CC0-1.0"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "blake3-wasm@2.1.5",
-      "type": "library",
-      "name": "blake3-wasm",
-      "version": "2.1.5",
-      "scope": "optional",
-      "author": "Connor Peet",
-      "description": "BLAKE3 hashing for JavaScript: native Node bindings (where available) and WebAssembly",
-      "purl": "pkg:npm/blake3-wasm@2.1.5",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/blake3-wasm"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/blake3-wasm/-/blake3-wasm-2.1.5.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/connor4312/blake3.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/connor4312/blake3#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/connor4312/blake3/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "175f8af046df399138f5db683ed9b1510ae95da048977202bdab0b87e9c9b5ad31933fbd905ffbb9eb7d7cb9f02aa843ae68fa83ee8add3c3dc903d483691ae6"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "cookie@1.1.1",
-      "type": "library",
-      "name": "cookie",
-      "version": "1.1.1",
-      "scope": "optional",
-      "author": "Roman Shtylman",
-      "description": "HTTP server cookie parsing and serialization",
-      "purl": "pkg:npm/cookie@1.1.1",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/cookie"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/cookie/-/cookie-1.1.1.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/jshttp/cookie.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/jshttp/cookie#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/jshttp/cookie/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "7a2f00a2cee36b4c1e469173267100f541c9ffb5d09aa8256d1c277f60138dc07d5aaf3be15287f647e38e2acce94854dbf1397c561a77297284595d72a4a275"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "detect-libc@2.1.2",
-      "type": "library",
-      "name": "detect-libc",
-      "version": "2.1.2",
-      "scope": "optional",
-      "author": "Lovell Fuller",
-      "description": "Node.js module to detect the C standard library (libc) implementation family and version",
-      "purl": "pkg:npm/detect-libc@2.1.2",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/detect-libc"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/detect-libc/-/detect-libc-2.1.2.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git://github.com/lovell/detect-libc.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/lovell/detect-libc#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/lovell/detect-libc/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "06d8f604e38ef37a375b21f9f5ef0c817b3111055c6ab9143a9118aee6c1d2eaf09cdd74c90dfae2bb22072535d67665a966199b4e62fe87fb8a8e26ce2841b5"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "error-stack-parser-es@1.0.5",
-      "type": "library",
-      "name": "error-stack-parser-es",
-      "version": "1.0.5",
-      "scope": "optional",
-      "description": "Cross-browser Error parser",
-      "purl": "pkg:npm/error-stack-parser-es@1.0.5",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/error-stack-parser-es"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/error-stack-parser-es/-/error-stack-parser-es-1.0.5.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/antfu/error-stack-parser-es.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/antfu/error-stack-parser-es#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/antfu/error-stack-parser-es/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "e6ab9c56dd9772e18c7041a0588ee2fb26699a907243c27594785c2fb3f0a82c2ef453cfdd5517cd3e25b477b98b6cfd75e3f010770354e01f4a71ec3a509744"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "esbuild@0.28.1",
-      "type": "library",
-      "name": "esbuild",
-      "version": "0.28.1",
-      "scope": "optional",
-      "description": "An extremely fast JavaScript and CSS bundler and minifier.",
-      "purl": "pkg:npm/esbuild@0.28.1",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/esbuild"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/esbuild/-/esbuild-0.28.1.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/evanw/esbuild.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/evanw/esbuild#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/evanw/esbuild/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "1eb26bbd9bf96b2c41ccf7f0a613a837393338822589fce4d0a26b18ad9cf11e3e2caa4cb6960b41e51d8e7c235affcb665907da569993ee30efca62f7d0f857"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "fsevents@2.3.3",
-      "type": "library",
-      "name": "fsevents",
-      "version": "2.3.3",
-      "scope": "optional",
-      "description": "Native Access to MacOS FSEvents",
-      "purl": "pkg:npm/fsevents@2.3.3",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/fsevents"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/fsevents/fsevents.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/fsevents/fsevents"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/fsevents/fsevents/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "e71a037d7f9f2fb7da0139da82658fa5b16dc21fd1efb5a630caaa1c64bae42defbc1d181eb805f81d58999df8e35b4c8f99fade4d36d765cda09c339617df43"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "kleur@4.1.5",
-      "type": "library",
-      "name": "kleur",
-      "version": "4.1.5",
-      "scope": "optional",
-      "author": "Luke Edwards",
-      "description": "The fastest Node.js library for formatting terminal text with ANSI colors~!",
-      "purl": "pkg:npm/kleur@4.1.5",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/kleur"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/kleur/-/kleur-4.1.5.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/lukeed/kleur.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/lukeed/kleur#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/lukeed/kleur/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "a3e34efbc5ab462404138ffb9f044984dd475a9566266e75d690475313cbb69d015084b3941a653916129937250a726f42adad2aefec825df156991ced95ae41"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "miniflare@5.20261001.0-alpha",
-      "type": "library",
-      "name": "miniflare",
-      "version": "5.20261001.0-alpha",
-      "scope": "optional",
-      "author": "MrBBot",
-      "description": "Fun, full-featured, fully-local simulator for Cloudflare Workers",
-      "purl": "pkg:npm/miniflare@5.20261001.0-alpha",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/miniflare"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/miniflare/-/miniflare-5.20261001.0-alpha.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/cloudflare/workers-sdk.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/cloudflare/workers-sdk/tree/main/packages/miniflare#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/cloudflare/workers-sdk/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "19a8a64b999220e332bddd7a81af9ed7f42423c726a77cf7e503c715ec740e4b6a3507f6455650c0c3d05ddca852b7948853ffd06a5ed8ca102274f23000f9c4"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "path-to-regexp@6.3.0",
-      "type": "library",
-      "name": "path-to-regexp",
-      "version": "6.3.0",
-      "scope": "optional",
-      "description": "Express style path to RegExp utility",
-      "purl": "pkg:npm/path-to-regexp@6.3.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/path-to-regexp"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-6.3.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/pillarjs/path-to-regexp.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/pillarjs/path-to-regexp#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/pillarjs/path-to-regexp/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "621a70e13f42ea13e980f780dbcbacd3b3897aa67913341391b7f0ba1b14834736dfb468985a044c9826a76b1adc5ff8d607cb13a1b972a718c339e678478e95"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "pathe@2.0.3",
-      "type": "library",
-      "name": "pathe",
-      "version": "2.0.3",
-      "scope": "optional",
-      "description": "Universal filesystem path utils",
-      "purl": "pkg:npm/pathe@2.0.3",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/pathe"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/pathe/-/pathe-2.0.3.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/unjs/pathe.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/unjs/pathe#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/unjs/pathe/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "5948c6700a8fd6041a72841ef8e049b0503b2dde03c97b9422367971cef970b1ef27b76d36c4ee8298712000f0b294be02b68051e3c22ab495b4f2c58ff17cf3"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "playwright@1.63.0",
-      "type": "library",
-      "name": "playwright",
-      "version": "1.63.0",
-      "scope": "optional",
-      "author": "Microsoft Corporation",
-      "description": "A high-level API to automate web browsers",
-      "purl": "pkg:npm/playwright@1.63.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/playwright"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/playwright/-/playwright-1.63.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/microsoft/playwright.git"
-        },
-        {
-          "type": "website",
-          "url": "https://playwright.dev"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/microsoft/playwright/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "fbbce204b89d4b835a34276de7b4940d3fb062699de5f9a241e8d489cfe46fe62c61208fc8e384f6c79bccc8cd990aec9cda4326a778587bd5ffc95f29f50352"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "playwright-core@1.63.0",
-      "type": "library",
-      "name": "playwright-core",
-      "version": "1.63.0",
-      "scope": "optional",
-      "author": "Microsoft Corporation",
-      "description": "A high-level API to automate web browsers",
-      "purl": "pkg:npm/playwright-core@1.63.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/playwright-core"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/playwright-core/-/playwright-core-1.63.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/microsoft/playwright.git"
-        },
-        {
-          "type": "website",
-          "url": "https://playwright.dev"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/microsoft/playwright/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "ad80ac045fcce478d4721e766dbb5538d1058efe97bbcb26f21ef674d951e5bcc81357ef0bf6f182ca7392349f53e3307843263ccf0a25e6c6ea79f2c68e660a"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "prettier@3.8.3",
       "type": "library",
       "name": "prettier",
       "version": "3.8.3",
-      "scope": "optional",
+      "bom-ref": "@payrail-one/sdk@0.4.0|prettier@3.8.3",
       "author": "James Long",
       "description": "Prettier is an opinionated code formatter",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
       "purl": "pkg:npm/prettier@3.8.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/prettier/prettier.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://prettier.io",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/prettier/prettier/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/prettier/-/prettier-3.8.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "ee280f4cce777061cc5bcc56b954f2762d8a3b6df754589337217984b26aa629477e69fc0bc80f7fe3d2edd513eb861c5c56e23066714bda424b12ff0f19bf27"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
       "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/prettier"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/prettier/-/prettier-3.8.3.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/prettier/prettier.git"
-        },
-        {
-          "type": "website",
-          "url": "https://prettier.io"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/prettier/prettier/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "ee280f4cce777061cc5bcc56b954f2762d8a3b6df754589337217984b26aa629477e69fc0bc80f7fe3d2edd513eb861c5c56e23066714bda424b12ff0f19bf27"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
         }
       ]
     },
     {
-      "bom-ref": "semver@7.8.5",
-      "type": "library",
-      "name": "semver",
-      "version": "7.8.5",
-      "scope": "optional",
-      "author": "GitHub Inc.",
-      "description": "The semantic version parser used by npm.",
-      "purl": "pkg:npm/semver@7.8.5",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/semver"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/semver/-/semver-7.8.5.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/npm/node-semver.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/npm/node-semver#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/npm/node-semver/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "63bfca0ec6fc2e3a28669c1aa86cae94ee8342592c8029dc7211c693eb19218e1206f52870c044147e54af57c8e1d57e26f974c3a723bee71a222e34a6e462a0"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "ISC"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "sharp@0.35.4",
-      "type": "library",
-      "name": "sharp",
-      "version": "0.35.4",
-      "scope": "optional",
-      "author": "Lovell Fuller",
-      "description": "High performance Node.js image processing, the fastest module to resize JPEG, PNG, WebP, GIF, AVIF and TIFF images",
-      "purl": "pkg:npm/sharp@0.35.4",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/sharp"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/sharp/-/sharp-0.35.4.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/lovell/sharp.git"
-        },
-        {
-          "type": "website",
-          "url": "https://sharp.pixelplumbing.com"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/lovell/sharp/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "9fefbc5d6723fa308eaf620e97b87c2db2a71810d8e1a3db9a9acc38d04d15d9f42265eaa4656fe739620ecd15f476e66c240ba5bba8d9e8fdac0a0e413bcc0c"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "supports-color@10.2.2",
-      "type": "library",
-      "name": "supports-color",
-      "version": "10.2.2",
-      "scope": "optional",
-      "author": "Sindre Sorhus",
-      "description": "Detect whether a terminal supports color",
-      "purl": "pkg:npm/supports-color@10.2.2",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/supports-color"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/supports-color/-/supports-color-10.2.2.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/chalk/supports-color.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/chalk/supports-color#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/chalk/supports-color/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "492fa3c78e461754238045d0c78349655f489aa98ed8d3f3e4536c207aec0e387662c1e76b0a5a9fb48d435a3c36e86b6c7672f4066122809488279a5bf0bcd2"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "tslib@2.8.1",
       "type": "library",
       "name": "tslib",
       "version": "2.8.1",
-      "scope": "optional",
+      "bom-ref": "@payrail-one/sdk@0.4.0|tslib@2.8.1",
       "author": "Microsoft Corp.",
       "description": "Runtime library for TypeScript helper functions",
-      "purl": "pkg:npm/tslib@2.8.1",
-      "properties": [
+      "scope": "optional",
+      "licenses": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/tslib"
+          "license": {
+            "id": "0BSD",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/tslib@2.8.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/Microsoft/tslib.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
         },
+        {
+          "url": "https://www.typescriptlang.org/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/Microsoft/TypeScript/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a0916ef781d06fe29576e49440bef09e99aa9df98bb0e03f9c087a6fa107d30084a0ad3f98f79753a737c0a0d5f373243ae1cf447b525ca294f7d2016b34bfdb"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
         {
           "name": "cdx:npm:package:development",
           "value": "true"
@@ -1888,861 +585,2614 @@
         {
           "name": "cdx:npm:package:extraneous",
           "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz"
         },
         {
-          "type": "vcs",
-          "url": "git+https://github.com/Microsoft/tslib.git"
-        },
-        {
-          "type": "website",
-          "url": "https://www.typescriptlang.org/"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/Microsoft/TypeScript/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "a0916ef781d06fe29576e49440bef09e99aa9df98bb0e03f9c087a6fa107d30084a0ad3f98f79753a737c0a0d5f373243ae1cf447b525ca294f7d2016b34bfdb"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "0BSD"
-          }
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/tslib"
         }
       ]
     },
     {
-      "bom-ref": "typescript@6.0.3",
       "type": "library",
       "name": "typescript",
       "version": "6.0.3",
-      "scope": "optional",
+      "bom-ref": "@payrail-one/sdk@0.4.0|typescript@6.0.3",
       "author": "Microsoft Corp.",
       "description": "TypeScript is a language for application scale JavaScript development",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
       "purl": "pkg:npm/typescript@6.0.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/microsoft/TypeScript.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://www.typescriptlang.org/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/microsoft/TypeScript/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/typescript/-/typescript-6.0.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "cb64efbb14993c3c906a490544f6472859be28a56a222b1d83dfc26709bd7edbca5cb3fc3515a3dfcfce0e335baf8dd2b285ea36e022b047f519d0b1a9671d07"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
       "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/typescript"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/typescript/-/typescript-6.0.3.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/microsoft/TypeScript.git"
-        },
-        {
-          "type": "website",
-          "url": "https://www.typescriptlang.org/"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/microsoft/TypeScript/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "cb64efbb14993c3c906a490544f6472859be28a56a222b1d83dfc26709bd7edbca5cb3fc3515a3dfcfce0e335baf8dd2b285ea36e022b047f519d0b1a9671d07"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
         }
       ]
     },
     {
-      "bom-ref": "undici@7.29.1",
-      "type": "library",
-      "name": "undici",
-      "version": "7.29.1",
-      "scope": "optional",
-      "description": "An HTTP/1.1 client, written from scratch for Node.js",
-      "purl": "pkg:npm/undici@7.29.1",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/undici"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/undici/-/undici-7.29.1.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/nodejs/undici.git"
-        },
-        {
-          "type": "website",
-          "url": "https://undici.nodejs.org"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/nodejs/undici/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "45838d5b631e69f81896454e2982a403f020ec1997aa021609af2dd66d09731ad083da48f6512a46100eaee38109b02884e6bf824085fa23e2f61ae0bd3ceee9"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "unenv@2.0.0-rc.24",
-      "type": "library",
-      "name": "unenv",
-      "version": "2.0.0-rc.24",
-      "scope": "optional",
-      "purl": "pkg:npm/unenv@2.0.0-rc.24",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/unenv"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/unenv/-/unenv-2.0.0-rc.24.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/unjs/unenv.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/unjs/unenv#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/unjs/unenv/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "8bba910a6638db3982c2762587d1f64af2c4ca91051b27b989198430a8dc1a2ef393d52aba28118c5b532f3d1362aaf46462d985a30797f7e8cb56d947e0b097"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "workerd@1.20261001.1",
-      "type": "library",
-      "name": "workerd",
-      "version": "1.20261001.1",
-      "scope": "optional",
-      "description": "👷 workerd, Cloudflare's JavaScript/Wasm Runtime",
-      "purl": "pkg:npm/workerd@1.20261001.1",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/workerd"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/workerd/-/workerd-1.20261001.1.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/cloudflare/workerd.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/cloudflare/workerd#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/cloudflare/workerd/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "77f48860714ed0f4ffc2215983c8a7e0da5123162e170b255f51ddca53ad5a4048214992a6418584af36d1c57ce17002172970278f31b91a165bff035833ec3d"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "Apache-2.0"
-          }
-        }
-      ]
-    },
-    {
-      "bom-ref": "wrangler@4.147.0",
       "type": "library",
       "name": "wrangler",
       "version": "4.147.0",
-      "scope": "optional",
+      "bom-ref": "@payrail-one/sdk@0.4.0|wrangler@4.147.0",
       "author": "wrangler@cloudflare.com",
       "description": "Command-line interface for all things Cloudflare Workers",
-      "purl": "pkg:npm/wrangler@4.147.0",
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0",
+          "acknowledgement": "declared"
+        }
+      ],
+      "purl": "pkg:npm/wrangler@4.147.0#packages/wrangler",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/cloudflare/workers-sdk.git#packages/wrangler",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/cloudflare/workers-sdk#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/cloudflare/workers-sdk/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/wrangler/-/wrangler-4.147.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a50611a22abc3d3031a61686ebdcfcf860b50e4486775f440d97a143ccf18e8fcaa3799107a42cd664eb77c66e2806ab2e49488d3aabd6551d08af6be2ada152"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
       "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/wrangler"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/wrangler/-/wrangler-4.147.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/cloudflare/workers-sdk.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/cloudflare/workers-sdk#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/cloudflare/workers-sdk/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "a50611a22abc3d3031a61686ebdcfcf860b50e4486775f440d97a143ccf18e8fcaa3799107a42cd664eb77c66e2806ab2e49488d3aabd6551d08af6be2ada152"
-        }
-      ],
-      "licenses": [
-        {
-          "expression": "MIT OR Apache-2.0"
         }
       ]
     },
     {
-      "bom-ref": "ws@8.21.0",
+      "type": "library",
+      "name": "node",
+      "group": "@types",
+      "version": "26.6.2",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@types/node@26.6.2",
+      "description": "TypeScript definitions for node",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40types/node@26.6.2#types/node",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git#types/node",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@types/node/-/node-26.6.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "5f53f6d6c70cbf8cc628b62a8dd1a368a6bb08e6b444a55861964dfcd7ef2d0d497a0c4585d869646fcbca7f005f1e820d46af280775d6fe81bdfa640c1c8af2"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@types/node"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tsx",
+      "version": "4.23.15",
+      "bom-ref": "@payrail-one/sdk@0.4.0|tsx@4.23.15",
+      "author": "Hiroki Osame",
+      "description": "TypeScript Execute (tsx): Node.js enhanced with esbuild to run TypeScript & ESM files",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/tsx@4.23.15",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/privatenumber/tsx.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://tsx.hirok.io",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/privatenumber/tsx/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/tsx/-/tsx-4.23.15.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "6227b1d4ebe7f33db13e9396724222cac575492c91318f4190b17efaad322a20f10aa461a2c29f320de36a72a488b07067973f62bca5a0ac0665cac49adc312b"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/tsx"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "playwright",
+      "version": "1.63.0",
+      "bom-ref": "@payrail-one/sdk@0.4.0|playwright@1.63.0",
+      "author": "Microsoft Corporation",
+      "description": "A high-level API to automate web browsers",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/playwright@1.63.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/microsoft/playwright.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://playwright.dev",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/microsoft/playwright/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/playwright/-/playwright-1.63.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "fbbce204b89d4b835a34276de7b4940d3fb062699de5f9a241e8d489cfe46fe62c61208fc8e384f6c79bccc8cd990aec9cda4326a778587bd5ffc95f29f50352"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/playwright"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "kv-asset-handler",
+      "group": "@cloudflare",
+      "version": "0.5.0",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@cloudflare/kv-asset-handler@0.5.0",
+      "author": "wrangler@cloudflare.com",
+      "description": "Routes requests to KV assets",
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0",
+          "acknowledgement": "declared"
+        }
+      ],
+      "purl": "pkg:npm/%40cloudflare/kv-asset-handler@0.5.0#packages/kv-asset-handler",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/cloudflare/workers-sdk.git#packages/kv-asset-handler",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/cloudflare/workers-sdk#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/cloudflare/workers-sdk/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@cloudflare/kv-asset-handler/-/kv-asset-handler-0.5.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "8f1418923f1d488cdcd1c0fa70c30d74e7355158ea4aabbc059768af9b3c7068d6d88f018ce0edfe458f55d63ebbdce3de6b3be50e6a699827c5469df37f9e02"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@cloudflare/kv-asset-handler"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "unenv-preset",
+      "group": "@cloudflare",
+      "version": "2.16.2",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@cloudflare/unenv-preset@2.16.2",
+      "description": "cloudflare preset for unenv",
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0",
+          "acknowledgement": "declared"
+        }
+      ],
+      "purl": "pkg:npm/%40cloudflare/unenv-preset@2.16.2#packages/unenv-preset",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/cloudflare/workers-sdk.git#packages/unenv-preset",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/cloudflare/workers-sdk#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/cloudflare/workers-sdk/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@cloudflare/unenv-preset/-/unenv-preset-2.16.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "2413f5f99ed948d1bf7789913fecbc542e5d91aded65530b11946f4beaf34380c6575128c511507247094d39176c74908938f40ed348d356706ff5767d7d26bd"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@cloudflare/unenv-preset"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "blake3-wasm",
+      "version": "2.1.5",
+      "bom-ref": "@payrail-one/sdk@0.4.0|blake3-wasm@2.1.5",
+      "author": "Connor Peet",
+      "description": "BLAKE3 hashing for JavaScript: native Node bindings (where available) and WebAssembly",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/blake3-wasm@2.1.5",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/connor4312/blake3.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/connor4312/blake3#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/connor4312/blake3/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/blake3-wasm/-/blake3-wasm-2.1.5.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "175f8af046df399138f5db683ed9b1510ae95da048977202bdab0b87e9c9b5ad31933fbd905ffbb9eb7d7cb9f02aa843ae68fa83ee8add3c3dc903d483691ae6"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/blake3-wasm"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "esbuild",
+      "version": "0.28.1",
+      "bom-ref": "@payrail-one/sdk@0.4.0|esbuild@0.28.1",
+      "description": "An extremely fast JavaScript and CSS bundler and minifier.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/esbuild@0.28.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/evanw/esbuild.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/evanw/esbuild#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/evanw/esbuild/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/esbuild/-/esbuild-0.28.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "1eb26bbd9bf96b2c41ccf7f0a613a837393338822589fce4d0a26b18ad9cf11e3e2caa4cb6960b41e51d8e7c235affcb665907da569993ee30efca62f7d0f857"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/esbuild"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "fsevents",
+      "version": "2.3.3",
+      "bom-ref": "@payrail-one/sdk@0.4.0|fsevents@2.3.3",
+      "description": "Native Access to MacOS FSEvents",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/fsevents@2.3.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/fsevents/fsevents.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/fsevents/fsevents",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/fsevents/fsevents/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "e71a037d7f9f2fb7da0139da82658fa5b16dc21fd1efb5a630caaa1c64bae42defbc1d181eb805f81d58999df8e35b4c8f99fade4d36d765cda09c339617df43"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/fsevents"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "miniflare",
+      "version": "5.20261001.0-alpha",
+      "bom-ref": "@payrail-one/sdk@0.4.0|miniflare@5.20261001.0-alpha",
+      "author": "MrBBot",
+      "description": "Fun, full-featured, fully-local simulator for Cloudflare Workers",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/miniflare@5.20261001.0-alpha#packages/miniflare",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/cloudflare/workers-sdk.git#packages/miniflare",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/cloudflare/workers-sdk/tree/main/packages/miniflare#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/cloudflare/workers-sdk/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/miniflare/-/miniflare-5.20261001.0-alpha.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "19a8a64b999220e332bddd7a81af9ed7f42423c726a77cf7e503c715ec740e4b6a3507f6455650c0c3d05ddca852b7948853ffd06a5ed8ca102274f23000f9c4"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/miniflare"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "path-to-regexp",
+      "version": "6.3.0",
+      "bom-ref": "@payrail-one/sdk@0.4.0|path-to-regexp@6.3.0",
+      "description": "Express style path to RegExp utility",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/path-to-regexp@6.3.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/pillarjs/path-to-regexp.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/pillarjs/path-to-regexp#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/pillarjs/path-to-regexp/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-6.3.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "621a70e13f42ea13e980f780dbcbacd3b3897aa67913341391b7f0ba1b14834736dfb468985a044c9826a76b1adc5ff8d607cb13a1b972a718c339e678478e95"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/path-to-regexp"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "unenv",
+      "version": "2.0.0-rc.24",
+      "bom-ref": "@payrail-one/sdk@0.4.0|unenv@2.0.0-rc.24",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/unenv@2.0.0-rc.24",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/unjs/unenv.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/unjs/unenv#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/unjs/unenv/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/unenv/-/unenv-2.0.0-rc.24.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "8bba910a6638db3982c2762587d1f64af2c4ca91051b27b989198430a8dc1a2ef393d52aba28118c5b532f3d1362aaf46462d985a30797f7e8cb56d947e0b097"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/unenv"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "workerd",
+      "version": "1.20261001.1",
+      "bom-ref": "@payrail-one/sdk@0.4.0|workerd@1.20261001.1",
+      "description": "👷 workerd, Cloudflare's JavaScript/Wasm Runtime",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/workerd@1.20261001.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/cloudflare/workerd.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/cloudflare/workerd#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/cloudflare/workerd/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/workerd/-/workerd-1.20261001.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "77f48860714ed0f4ffc2215983c8a7e0da5123162e170b255f51ddca53ad5a4048214992a6418584af36d1c57ce17002172970278f31b91a165bff035833ec3d"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/workerd"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "undici-types",
+      "version": "8.9.0",
+      "bom-ref": "@payrail-one/sdk@0.4.0|undici-types@8.9.0",
+      "description": "A stand-alone types package for Undici",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/undici-types@8.9.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/nodejs/undici.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://undici.nodejs.org",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/nodejs/undici/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/undici-types/-/undici-types-8.9.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "2930f2453617f2c5a629702290f1c74b273adc244f11331cb728ca16ea5c0ba3812d74f7c6c3747bd685ee6fa6217bad156a545ee79db68c06ee22cece9d2442"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/undici-types"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "playwright-core",
+      "version": "1.63.0",
+      "bom-ref": "@payrail-one/sdk@0.4.0|playwright-core@1.63.0",
+      "author": "Microsoft Corporation",
+      "description": "A high-level API to automate web browsers",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/playwright-core@1.63.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/microsoft/playwright.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://playwright.dev",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/microsoft/playwright/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/playwright-core/-/playwright-core-1.63.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "ad80ac045fcce478d4721e766dbb5538d1058efe97bbcb26f21ef674d951e5bcc81357ef0bf6f182ca7392349f53e3307843263ccf0a25e6c6ea79f2c68e660a"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/playwright-core"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "darwin-arm64",
+      "group": "@esbuild",
+      "version": "0.28.1",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@esbuild/darwin-arm64@0.28.1",
+      "description": "The macOS ARM 64-bit binary for esbuild, a JavaScript bundler.",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40esbuild/darwin-arm64@0.28.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/evanw/esbuild.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/evanw/esbuild#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/evanw/esbuild/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.28.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "4d96d691063b92f4c05db5d44fbb9500247970c1ec0e24b3f73ed92805ff453abf589124dd0c91af4c19a4d8410d7fbfd02b5da9420994e8a875072d6bab58dd"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@esbuild/darwin-arm64"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "source-map-support",
+      "group": "@cspotcode",
+      "version": "0.8.1",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@cspotcode/source-map-support@0.8.1",
+      "description": "Fixes stack traces for files with source maps",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40cspotcode/source-map-support@0.8.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/cspotcode/node-source-map-support.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/cspotcode/node-source-map-support#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/cspotcode/node-source-map-support/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@cspotcode/source-map-support/-/source-map-support-0.8.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "21c84d7fa74de2d1e8305227ffb384f0b599d7d63aabfebb0667fabe719112ff1149b0556fd2cf27111c9f0adcc17ea2c52bda886a2898052fbb8612c57ad583"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@cspotcode/source-map-support"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "sharp",
+      "version": "0.35.4",
+      "bom-ref": "@payrail-one/sdk@0.4.0|sharp@0.35.4",
+      "author": "Lovell Fuller",
+      "description": "High performance Node.js image processing, the fastest module to resize JPEG, PNG, WebP, GIF, AVIF and TIFF images",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/sharp@0.35.4",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/lovell/sharp.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://sharp.pixelplumbing.com",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/lovell/sharp/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/sharp/-/sharp-0.35.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "9fefbc5d6723fa308eaf620e97b87c2db2a71810d8e1a3db9a9acc38d04d15d9f42265eaa4656fe739620ecd15f476e66c240ba5bba8d9e8fdac0a0e413bcc0c"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/sharp"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "undici",
+      "version": "7.29.1",
+      "bom-ref": "@payrail-one/sdk@0.4.0|undici@7.29.1",
+      "description": "An HTTP/1.1 client, written from scratch for Node.js",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/undici@7.29.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/nodejs/undici.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://undici.nodejs.org",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/nodejs/undici/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/undici/-/undici-7.29.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "45838d5b631e69f81896454e2982a403f020ec1997aa021609af2dd66d09731ad083da48f6512a46100eaee38109b02884e6bf824085fa23e2f61ae0bd3ceee9"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/undici"
+        }
+      ]
+    },
+    {
       "type": "library",
       "name": "ws",
       "version": "8.21.0",
-      "scope": "optional",
+      "bom-ref": "@payrail-one/sdk@0.4.0|ws@8.21.0",
       "author": "Einar Otto Stangvik",
       "description": "Simple to use, blazing fast and thoroughly tested websocket client and server for Node.js",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
       "purl": "pkg:npm/ws@8.21.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/websockets/ws.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/websockets/ws",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/websockets/ws/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/ws/-/ws-8.21.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "56ca76f1bec345c8a6150bebaaed967a4df3d626310c25aa1d807c42c9e4fd2e117da090ccf18fc8136e563255ddc77a5222ad52da7ab0d33bee05afcdc087fa"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
       "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/ws"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/ws/-/ws-8.21.0.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/websockets/ws.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/websockets/ws"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/websockets/ws/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "56ca76f1bec345c8a6150bebaaed967a4df3d626310c25aa1d807c42c9e4fd2e117da090ccf18fc8136e563255ddc77a5222ad52da7ab0d33bee05afcdc087fa"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
         }
       ]
     },
     {
-      "bom-ref": "youch@4.1.0-beta.10",
       "type": "library",
       "name": "youch",
       "version": "4.1.0-beta.10",
-      "scope": "optional",
+      "bom-ref": "@payrail-one/sdk@0.4.0|youch@4.1.0-beta.10",
       "author": "Harminder Virk",
       "description": "Pretty print JavaScript errors on the Web and the Terminal",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
       "purl": "pkg:npm/youch@4.1.0-beta.10",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/poppinss/youch.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/poppinss/youch#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/poppinss/youch/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/youch/-/youch-4.1.0-beta.10.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "acb7d52c1e058109de0ebd1dbf5a1d74255998a8dc27ac97ea64b8a54f3632afc3b7d6b770b650eb6a4304be0050efae56b0afb56cf764550bd87140149fc15d"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
       "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
         {
           "name": "cdx:npm:package:path",
           "value": "node_modules/youch"
-        },
-        {
-          "name": "cdx:npm:package:development",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/youch/-/youch-4.1.0-beta.10.tgz"
-        },
-        {
-          "type": "vcs",
-          "url": "git+https://github.com/poppinss/youch.git"
-        },
-        {
-          "type": "website",
-          "url": "https://github.com/poppinss/youch#readme"
-        },
-        {
-          "type": "issue-tracker",
-          "url": "https://github.com/poppinss/youch/issues"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-512",
-          "content": "acb7d52c1e058109de0ebd1dbf5a1d74255998a8dc27ac97ea64b8a54f3632afc3b7d6b770b650eb6a4304be0050efae56b0afb56cf764550bd87140149fc15d"
-        }
-      ],
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT"
-          }
         }
       ]
     },
     {
-      "bom-ref": "youch-core@0.3.3",
+      "type": "library",
+      "name": "pathe",
+      "version": "2.0.3",
+      "bom-ref": "@payrail-one/sdk@0.4.0|pathe@2.0.3",
+      "description": "Universal filesystem path utils",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/pathe@2.0.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/unjs/pathe.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/unjs/pathe#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/unjs/pathe/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/pathe/-/pathe-2.0.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "5948c6700a8fd6041a72841ef8e049b0503b2dde03c97b9422367971cef970b1ef27b76d36c4ee8298712000f0b294be02b68051e3c22ab495b4f2c58ff17cf3"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/pathe"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "workerd-darwin-arm64",
+      "group": "@cloudflare",
+      "version": "1.20261001.1",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@cloudflare/workerd-darwin-arm64@1.20261001.1",
+      "description": "👷 workerd for macOS ARM 64-bit, Cloudflare's JavaScript/Wasm Runtime",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40cloudflare/workerd-darwin-arm64@1.20261001.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/cloudflare/workerd.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/cloudflare/workerd#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/cloudflare/workerd/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@cloudflare/workerd-darwin-arm64/-/workerd-darwin-arm64-1.20261001.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "f2e9405abb84568b8d98422c42ccbd5924824bdce42eef775b6313c29e5eb22172a0fa74e41352545205b1848f8b5a6416604177b7ec9f03296cb91a24b6953d"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@cloudflare/workerd-darwin-arm64"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "trace-mapping",
+      "group": "@jridgewell",
+      "version": "0.3.9",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@jridgewell/trace-mapping@0.3.9",
+      "author": "Justin Ridgewell",
+      "description": "Trace the original position through a source map",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40jridgewell/trace-mapping@0.3.9",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/jridgewell/trace-mapping.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/jridgewell/trace-mapping#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/jridgewell/trace-mapping/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.9.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "dc17a5b7ab5d73c6cf800b5b72676d349962ad5a139846f97b6802f783e7930116f6323a0801d47a81bce6d8d63f95aabaa7dabe832d330886e0ff76e9928ab9"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@jridgewell/trace-mapping"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "colour",
+      "group": "@img",
+      "version": "1.1.0",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@img/colour@1.1.0",
+      "description": "The ESM-only 'color' package made compatible for use with CommonJS runtimes",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40img/colour@1.1.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/lovell/colour.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/lovell/colour#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/lovell/colour/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@img/colour/-/colour-1.1.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "4ddefaabb8f9ee8fed2d57604bbe3a7180117d2cb193c8847d1c5ec0bf61e0e3336216d6e1301ca69974993e1ecaa5dd761e8bfe3c2833be66a3b8b16bfa4279"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@img/colour"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "sharp-darwin-arm64",
+      "group": "@img",
+      "version": "0.35.4",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@img/sharp-darwin-arm64@0.35.4",
+      "author": "Lovell Fuller",
+      "description": "Prebuilt sharp for use with macOS 64-bit ARM",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40img/sharp-darwin-arm64@0.35.4#npm/darwin-arm64",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/lovell/sharp.git#npm/darwin-arm64",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://sharp.pixelplumbing.com",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/lovell/sharp/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@img/sharp-darwin-arm64/-/sharp-darwin-arm64-0.35.4.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "5217e5e15e2584fda76d4545f7e8721f5fa5ba3f3a7f581415ea3c00b63116850ba14f86f3b0f8dc17de30ff171ec93d6e8c409c263f6dfd841f0840eccb86b0"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@img/sharp-darwin-arm64"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "sharp-libvips-darwin-arm64",
+      "group": "@img",
+      "version": "1.3.3",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@img/sharp-libvips-darwin-arm64@1.3.3",
+      "author": "Lovell Fuller",
+      "description": "Prebuilt libvips and dependencies for use with sharp on macOS 64-bit ARM",
+      "scope": "optional",
+      "licenses": [
+        {
+          "license": {
+            "id": "LGPL-3.0-or-later",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40img/sharp-libvips-darwin-arm64@1.3.3#npm/darwin-arm64",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/lovell/sharp-libvips.git#npm/darwin-arm64",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://sharp.pixelplumbing.com",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/lovell/sharp-libvips/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@img/sharp-libvips-darwin-arm64/-/sharp-libvips-darwin-arm64-1.3.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "b2e4c13d30c6ac8f56a1d71c683770648b5349a0580129419353527c49521eb51fceedeccc6ea5bc8179f3e5a216f9dfcee2bc641152e73134d0fc6ac674623e"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@img/sharp-libvips-darwin-arm64"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "detect-libc",
+      "version": "2.1.2",
+      "bom-ref": "@payrail-one/sdk@0.4.0|detect-libc@2.1.2",
+      "author": "Lovell Fuller",
+      "description": "Node.js module to detect the C standard library (libc) implementation family and version",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/detect-libc@2.1.2",
+      "externalReferences": [
+        {
+          "url": "git://github.com/lovell/detect-libc.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/lovell/detect-libc#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/lovell/detect-libc/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/detect-libc/-/detect-libc-2.1.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "06d8f604e38ef37a375b21f9f5ef0c817b3111055c6ab9143a9118aee6c1d2eaf09cdd74c90dfae2bb22072535d67665a966199b4e62fe87fb8a8e26ce2841b5"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/detect-libc"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "semver",
+      "version": "7.8.5",
+      "bom-ref": "@payrail-one/sdk@0.4.0|semver@7.8.5",
+      "author": "GitHub Inc.",
+      "description": "The semantic version parser used by npm.",
+      "licenses": [
+        {
+          "license": {
+            "id": "ISC",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/semver@7.8.5",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/npm/node-semver.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/npm/node-semver#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/npm/node-semver/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/semver/-/semver-7.8.5.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "63bfca0ec6fc2e3a28669c1aa86cae94ee8342592c8029dc7211c693eb19218e1206f52870c044147e54af57c8e1d57e26f974c3a723bee71a222e34a6e462a0"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/semver"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "colors",
+      "group": "@poppinss",
+      "version": "4.1.6",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@poppinss/colors@4.1.6",
+      "author": "virk",
+      "description": "A wrapper on top of kleur with ability to write test against the color functions",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40poppinss/colors@4.1.6",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/poppinss/colors.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/poppinss/colors#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/poppinss/colors/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@poppinss/colors/-/colors-4.1.6.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "1fdc6421d16cc1b4bc9f577abe645df3e735d2dd907bead92136db0c71e4422c47e7edb1d450c69a2ff42be5a05a2a9014a3d2948601ee3947e8aa5f9fa1657a"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@poppinss/colors"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "dumper",
+      "group": "@poppinss",
+      "version": "0.6.5",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@poppinss/dumper@0.6.5",
+      "author": "Harminder Virk",
+      "description": "Pretty print JavaScript data types in the terminal and the browser",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40poppinss/dumper@0.6.5",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/poppinss/dumper.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/poppinss/dumper#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/poppinss/dumper/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@poppinss/dumper/-/dumper-0.6.5.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "34175821bf7427b2df388df674e7b0288d6bef09e4887ea6f76d29b90dea1d47999313644221675d55a813a62d152bfa40e88f3dfef2b3a8be1d659e703cfbb3"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@poppinss/dumper"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "core",
+      "group": "@speed-highlight",
+      "version": "1.2.24",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@speed-highlight/core@1.2.24",
+      "author": "matubu",
+      "description": "🌈 Light, fast, and easy to use, dependencies free javascript syntax highlighter, with automatic language detection",
+      "licenses": [
+        {
+          "license": {
+            "id": "CC0-1.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40speed-highlight/core@1.2.24",
+      "externalReferences": [
+        {
+          "url": "git://github.com/speed-highlight/core.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/speed-highlight/core#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/speed-highlight/core/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@speed-highlight/core/-/core-1.2.24.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a9e5b67b597bf1a7f0f158513df3d0d468e3f8a5395c543f385579b62e9e4daf5baee3bb989c99b40e2fc34a1faa6037b4a0a444e13dc4b937559a1e45cf7c9f"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@speed-highlight/core"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "cookie",
+      "version": "1.1.1",
+      "bom-ref": "@payrail-one/sdk@0.4.0|cookie@1.1.1",
+      "author": "Roman Shtylman",
+      "description": "HTTP server cookie parsing and serialization",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/cookie@1.1.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/jshttp/cookie.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/jshttp/cookie#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/jshttp/cookie/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/cookie/-/cookie-1.1.1.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "7a2f00a2cee36b4c1e469173267100f541c9ffb5d09aa8256d1c277f60138dc07d5aaf3be15287f647e38e2acce94854dbf1397c561a77297284595d72a4a275"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/cookie"
+        }
+      ]
+    },
+    {
       "type": "library",
       "name": "youch-core",
       "version": "0.3.3",
-      "scope": "optional",
+      "bom-ref": "@payrail-one/sdk@0.4.0|youch-core@0.3.3",
       "author": "Harminder Virk",
       "description": "Error parser to parse an error instance into a collection of frames",
-      "purl": "pkg:npm/youch-core@0.3.3",
-      "properties": [
+      "licenses": [
         {
-          "name": "cdx:npm:package:path",
-          "value": "node_modules/youch-core"
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/youch-core@0.3.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/poppinss/youch-core.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
         },
+        {
+          "url": "https://github.com/poppinss/youch-core#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/poppinss/youch-core/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/youch-core/-/youch-core-0.3.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "868ed7b868cb689da1587a0af32167b141b2d98e6e0e9a924ead459072cae3fa2a2adc945350056ce3b16382290bd7f47d32e3c186ec954cf43e8e41a43d70ac"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
         {
           "name": "cdx:npm:package:development",
           "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/youch-core"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "resolve-uri",
+      "group": "@jridgewell",
+      "version": "3.1.2",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@jridgewell/resolve-uri@3.1.2",
+      "author": "Justin Ridgewell",
+      "description": "Resolve a URI relative to an optional base URI",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
         }
       ],
+      "purl": "pkg:npm/%40jridgewell/resolve-uri@3.1.2",
       "externalReferences": [
         {
-          "type": "distribution",
-          "url": "https://registry.npmjs.org/youch-core/-/youch-core-0.3.3.tgz"
-        },
-        {
+          "url": "git+https://github.com/jridgewell/resolve-uri.git",
           "type": "vcs",
-          "url": "git+https://github.com/poppinss/youch-core.git"
+          "comment": "as detected from PackageJson property \"repository.url\""
         },
         {
+          "url": "https://github.com/jridgewell/resolve-uri#readme",
           "type": "website",
-          "url": "https://github.com/poppinss/youch-core#readme"
+          "comment": "as detected from PackageJson property \"homepage\""
         },
         {
+          "url": "https://github.com/jridgewell/resolve-uri/issues",
           "type": "issue-tracker",
-          "url": "https://github.com/poppinss/youch-core/issues"
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@jridgewell/resolve-uri/-/resolve-uri-3.1.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "6d12128022233f6d3fb5b5923d63048b9e1054f45913192e0fd9492fe508c542adc15240f305b54eb6f58ccb354455e8d42053359ff98690bd42f98a59da292b"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
         }
       ],
-      "hashes": [
+      "properties": [
         {
-          "alg": "SHA-512",
-          "content": "868ed7b868cb689da1587a0af32167b141b2d98e6e0e9a924ead459072cae3fa2a2adc945350056ce3b16382290bd7f47d32e3c186ec954cf43e8e41a43d70ac"
-        }
-      ],
-      "licenses": [
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
         {
-          "license": {
-            "id": "MIT"
-          }
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@jridgewell/resolve-uri"
         }
       ]
     },
     {
-      "bom-ref": "@platform/api-client@0.0.0",
       "type": "library",
-      "name": "api-client",
-      "version": "0.0.0",
-      "scope": "required",
-      "purl": "pkg:npm/%40platform/api-client@0.0.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "packages/api-client"
-        },
-        {
-          "name": "cdx:npm:package:private",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [],
+      "name": "sourcemap-codec",
+      "group": "@jridgewell",
+      "version": "1.6.0",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@jridgewell/sourcemap-codec@1.6.0",
+      "author": "Justin Ridgewell",
+      "description": "Encode/decode sourcemap mappings",
       "licenses": [
         {
           "license": {
-            "id": "Apache-2.0"
+            "id": "MIT",
+            "acknowledgement": "declared"
           }
+        }
+      ],
+      "purl": "pkg:npm/%40jridgewell/sourcemap-codec@1.6.0#packages/sourcemap-codec",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/jridgewell/sourcemaps.git#packages/sourcemap-codec",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://github.com/jridgewell/sourcemaps/tree/main/packages/sourcemap-codec",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/jridgewell/sourcemaps/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.6.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "4fb8dffb9ce0b191f0349e25bd0eff69ecdbca4d27357fb32555a998703b558b04c7b6bbaabe5183921bb4916a920cdee58dacaeeab545463c43cdfb39dee217"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@jridgewell/sourcemap-codec"
         }
       ]
     },
     {
-      "bom-ref": "@payrail-one/checkout@0.1.0",
       "type": "library",
-      "name": "checkout",
-      "version": "0.1.0",
-      "scope": "required",
-      "purl": "pkg:npm/%40payrail-one/checkout@0.1.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "packages/checkout"
-        },
-        {
-          "name": "cdx:npm:package:private",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [],
+      "name": "kleur",
+      "version": "4.1.5",
+      "bom-ref": "@payrail-one/sdk@0.4.0|kleur@4.1.5",
+      "author": "Luke Edwards",
+      "description": "The fastest Node.js library for formatting terminal text with ANSI colors~!",
       "licenses": [
         {
           "license": {
-            "id": "Apache-2.0"
+            "id": "MIT",
+            "acknowledgement": "declared"
           }
+        }
+      ],
+      "purl": "pkg:npm/kleur@4.1.5",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/lukeed/kleur.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/lukeed/kleur#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/lukeed/kleur/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/kleur/-/kleur-4.1.5.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "a3e34efbc5ab462404138ffb9f044984dd475a9566266e75d690475313cbb69d015084b3941a653916129937250a726f42adad2aefec825df156991ced95ae41"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/kleur"
         }
       ]
     },
     {
-      "bom-ref": "@platform/money@0.0.0",
       "type": "library",
-      "name": "money",
-      "version": "0.0.0",
-      "scope": "required",
-      "purl": "pkg:npm/%40platform/money@0.0.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "packages/money"
-        },
-        {
-          "name": "cdx:npm:package:private",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [],
+      "name": "is",
+      "group": "@sindresorhus",
+      "version": "7.2.0",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@sindresorhus/is@7.2.0",
+      "author": "Sindre Sorhus",
+      "description": "Type check values",
       "licenses": [
         {
           "license": {
-            "id": "Apache-2.0"
+            "id": "MIT",
+            "acknowledgement": "declared"
           }
+        }
+      ],
+      "purl": "pkg:npm/%40sindresorhus/is@7.2.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/sindresorhus/is.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/sindresorhus/is#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/sindresorhus/is/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@sindresorhus/is/-/is-7.2.0.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "3f50b3d5d59a15f478211f94d779aaaa21ac2c57f529b6b2c9b5b075ddaf7dcb5d57a843a54920098d2728e2cb4cc4a845dfe324d8ed6eacdfd772bc0c209743"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@sindresorhus/is"
         }
       ]
     },
     {
-      "bom-ref": "@payrail-one/sms@0.3.0",
       "type": "library",
-      "name": "sms",
-      "version": "0.3.0",
-      "scope": "required",
-      "purl": "pkg:npm/%40payrail-one/sms@0.3.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "packages/sms"
-        },
-        {
-          "name": "cdx:npm:package:private",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [],
+      "name": "supports-color",
+      "version": "10.2.2",
+      "bom-ref": "@payrail-one/sdk@0.4.0|supports-color@10.2.2",
+      "author": "Sindre Sorhus",
+      "description": "Detect whether a terminal supports color",
       "licenses": [
         {
           "license": {
-            "id": "Apache-2.0"
+            "id": "MIT",
+            "acknowledgement": "declared"
           }
+        }
+      ],
+      "purl": "pkg:npm/supports-color@10.2.2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/chalk/supports-color.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/chalk/supports-color#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/chalk/supports-color/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/supports-color/-/supports-color-10.2.2.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "492fa3c78e461754238045d0c78349655f489aa98ed8d3f3e4536c207aec0e387662c1e76b0a5a9fb48d435a3c36e86b6c7672f4066122809488279a5bf0bcd2"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/supports-color"
         }
       ]
     },
     {
-      "bom-ref": "@platform/wallet-core@0.0.0",
       "type": "library",
-      "name": "wallet-core",
-      "version": "0.0.0",
-      "scope": "required",
-      "purl": "pkg:npm/%40platform/wallet-core@0.0.0",
-      "properties": [
-        {
-          "name": "cdx:npm:package:path",
-          "value": "packages/wallet-core"
-        },
-        {
-          "name": "cdx:npm:package:private",
-          "value": "true"
-        }
-      ],
-      "externalReferences": [],
+      "name": "exception",
+      "group": "@poppinss",
+      "version": "1.2.3",
+      "bom-ref": "@payrail-one/sdk@0.4.0|@poppinss/exception@1.2.3",
+      "author": "Harminder Virk",
+      "description": "Utility to create custom exceptions",
       "licenses": [
         {
           "license": {
-            "id": "Apache-2.0"
+            "id": "MIT",
+            "acknowledgement": "declared"
           }
+        }
+      ],
+      "purl": "pkg:npm/%40poppinss/exception@1.2.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/poppinss/exception.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/poppinss/exception#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/poppinss/exception/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/@poppinss/exception/-/exception-1.2.3.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "742103f9044285355ab44f626eda1ac5cf9691dcce4a36132a2ffeb9a707588b1fa1d55fa6cb9ea37f832a9814e4fc7ca978e0997912be15ef482cf77e73fd97"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@poppinss/exception"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "error-stack-parser-es",
+      "version": "1.0.5",
+      "bom-ref": "@payrail-one/sdk@0.4.0|error-stack-parser-es@1.0.5",
+      "description": "Cross-browser Error parser",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/error-stack-parser-es@1.0.5",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/antfu/error-stack-parser-es.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/antfu/error-stack-parser-es#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/antfu/error-stack-parser-es/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        },
+        {
+          "url": "https://registry.npmjs.org/error-stack-parser-es/-/error-stack-parser-es-1.0.5.tgz",
+          "type": "distribution",
+          "hashes": [
+            {
+              "alg": "SHA-512",
+              "content": "e6ab9c56dd9772e18c7041a0588ee2fb26699a907243c27594785c2fb3f0a82c2ef453cfdd5517cd3e25b477b98b6cfd75e3f010770354e01f4a71ec3a509744"
+            }
+          ],
+          "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "cdx:npm:package:development",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/error-stack-parser-es"
         }
       ]
     }
   ],
   "dependencies": [
     {
-      "ref": "@payrail-one/sdk@0.3.0",
+      "ref": "@payrail-one/sdk@0.4.0",
       "dependsOn": [
-        "@platform/api-client@0.0.0",
-        "@payrail-one/checkout@0.1.0",
-        "@payrail-one/sms@0.3.0",
-        "@platform/money@0.0.0",
-        "@platform/wallet-core@0.0.0",
-        "@scure/base@2.4.0",
-        "@playwright/test@1.63.0",
-        "prettier@3.8.3",
-        "typescript@6.0.3",
-        "wrangler@4.147.0"
+        "@payrail-one/sdk@0.4.0|@emnapi/runtime@1.11.3",
+        "@payrail-one/sdk@0.4.0|@img/sharp-wasm32@0.35.4",
+        "@payrail-one/sdk@0.4.0|@payrail-one/checkout@0.1.0",
+        "@payrail-one/sdk@0.4.0|@payrail-one/sms@0.3.0",
+        "@payrail-one/sdk@0.4.0|@payrail/contracts-sdk@0.1.0",
+        "@payrail-one/sdk@0.4.0|@platform/api-client@0.0.0",
+        "@payrail-one/sdk@0.4.0|@platform/money@0.0.0",
+        "@payrail-one/sdk@0.4.0|@platform/wallet-core@0.0.0",
+        "@payrail-one/sdk@0.4.0|@playwright/test@1.63.0",
+        "@payrail-one/sdk@0.4.0|@scure/base@2.4.0",
+        "@payrail-one/sdk@0.4.0|prettier@3.8.3",
+        "@payrail-one/sdk@0.4.0|tslib@2.8.1",
+        "@payrail-one/sdk@0.4.0|typescript@6.0.3",
+        "@payrail-one/sdk@0.4.0|wrangler@4.147.0"
       ]
     },
     {
-      "ref": "@cloudflare/kv-asset-handler@0.5.0",
-      "dependsOn": []
-    },
-    {
-      "ref": "@cloudflare/unenv-preset@2.16.2",
+      "ref": "@payrail-one/sdk@0.4.0|@emnapi/runtime@1.11.3",
       "dependsOn": [
-        "unenv@2.0.0-rc.24",
-        "workerd@1.20261001.1"
+        "@payrail-one/sdk@0.4.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "@cloudflare/workerd-darwin-arm64@1.20261001.1",
-      "dependsOn": []
-    },
-    {
-      "ref": "@cspotcode/source-map-support@0.8.1",
+      "ref": "@payrail-one/sdk@0.4.0|@img/sharp-wasm32@0.35.4",
       "dependsOn": [
-        "@jridgewell/trace-mapping@0.3.9"
+        "@payrail-one/sdk@0.4.0|@emnapi/runtime@1.11.3"
       ]
     },
     {
-      "ref": "@emnapi/runtime@1.11.3",
+      "ref": "@payrail-one/sdk@0.4.0|@payrail-one/checkout@0.1.0",
       "dependsOn": [
-        "tslib@2.8.1"
+        "@payrail-one/sdk@0.4.0|typescript@6.0.3"
       ]
     },
     {
-      "ref": "@esbuild/darwin-arm64@0.28.1",
-      "dependsOn": []
-    },
-    {
-      "ref": "@img/colour@1.1.0",
-      "dependsOn": []
-    },
-    {
-      "ref": "@img/sharp-darwin-arm64@0.35.4",
+      "ref": "@payrail-one/sdk@0.4.0|@payrail-one/sms@0.3.0",
       "dependsOn": [
-        "@img/sharp-libvips-darwin-arm64@1.3.3"
+        "@payrail-one/sdk@0.4.0|typescript@6.0.3"
       ]
     },
     {
-      "ref": "@img/sharp-libvips-darwin-arm64@1.3.3",
-      "dependsOn": []
-    },
-    {
-      "ref": "@img/sharp-wasm32@0.35.4",
+      "ref": "@payrail-one/sdk@0.4.0|@payrail/contracts-sdk@0.1.0",
       "dependsOn": [
-        "@emnapi/runtime@1.11.3"
+        "@payrail-one/sdk@0.4.0|@types/node@26.6.2",
+        "@payrail-one/sdk@0.4.0|tsx@4.23.15",
+        "@payrail-one/sdk@0.4.0|typescript@6.0.3"
       ]
     },
     {
-      "ref": "@jridgewell/resolve-uri@3.1.2",
-      "dependsOn": []
-    },
-    {
-      "ref": "@jridgewell/sourcemap-codec@1.6.0",
-      "dependsOn": []
-    },
-    {
-      "ref": "@jridgewell/trace-mapping@0.3.9",
+      "ref": "@payrail-one/sdk@0.4.0|@platform/api-client@0.0.0",
       "dependsOn": [
-        "@jridgewell/resolve-uri@3.1.2",
-        "@jridgewell/sourcemap-codec@1.6.0"
+        "@payrail-one/sdk@0.4.0|typescript@6.0.3"
       ]
     },
     {
-      "ref": "@payrail-one/checkout@0.1.0",
+      "ref": "@payrail-one/sdk@0.4.0|@platform/money@0.0.0",
       "dependsOn": [
-        "typescript@6.0.3"
+        "@payrail-one/sdk@0.4.0|typescript@6.0.3"
       ]
     },
     {
-      "ref": "@payrail-one/sms@0.2.0",
+      "ref": "@payrail-one/sdk@0.4.0|@platform/wallet-core@0.0.0",
       "dependsOn": [
-        "typescript@6.0.3"
+        "@payrail-one/sdk@0.4.0|@platform/api-client@0.0.0",
+        "@payrail-one/sdk@0.4.0|@scure/base@2.4.0",
+        "@payrail-one/sdk@0.4.0|typescript@6.0.3"
       ]
     },
     {
-      "ref": "@platform/api-client@0.0.0",
+      "ref": "@payrail-one/sdk@0.4.0|@playwright/test@1.63.0",
       "dependsOn": [
-        "typescript@6.0.3"
+        "@payrail-one/sdk@0.4.0|playwright@1.63.0"
       ]
     },
     {
-      "ref": "@platform/money@0.0.0",
+      "ref": "@payrail-one/sdk@0.4.0|@scure/base@2.4.0"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|prettier@3.8.3"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|tslib@2.8.1"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|typescript@6.0.3"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|wrangler@4.147.0",
       "dependsOn": [
-        "typescript@6.0.3"
+        "@payrail-one/sdk@0.4.0|@cloudflare/kv-asset-handler@0.5.0",
+        "@payrail-one/sdk@0.4.0|@cloudflare/unenv-preset@2.16.2",
+        "@payrail-one/sdk@0.4.0|blake3-wasm@2.1.5",
+        "@payrail-one/sdk@0.4.0|esbuild@0.28.1",
+        "@payrail-one/sdk@0.4.0|fsevents@2.3.3",
+        "@payrail-one/sdk@0.4.0|miniflare@5.20261001.0-alpha",
+        "@payrail-one/sdk@0.4.0|path-to-regexp@6.3.0",
+        "@payrail-one/sdk@0.4.0|unenv@2.0.0-rc.24",
+        "@payrail-one/sdk@0.4.0|workerd@1.20261001.1"
       ]
     },
     {
-      "ref": "@platform/wallet-core@0.0.0",
+      "ref": "@payrail-one/sdk@0.4.0|@types/node@26.6.2",
       "dependsOn": [
-        "@scure/base@2.4.0",
-        "typescript@6.0.3"
+        "@payrail-one/sdk@0.4.0|undici-types@8.9.0"
       ]
     },
     {
-      "ref": "@playwright/test@1.63.0",
+      "ref": "@payrail-one/sdk@0.4.0|tsx@4.23.15",
       "dependsOn": [
-        "playwright@1.63.0"
+        "@payrail-one/sdk@0.4.0|esbuild@0.28.1",
+        "@payrail-one/sdk@0.4.0|fsevents@2.3.3"
       ]
     },
     {
-      "ref": "@poppinss/colors@4.1.6",
+      "ref": "@payrail-one/sdk@0.4.0|playwright@1.63.0",
       "dependsOn": [
-        "kleur@4.1.5"
+        "@payrail-one/sdk@0.4.0|playwright-core@1.63.0"
       ]
     },
     {
-      "ref": "@poppinss/dumper@0.6.5",
+      "ref": "@payrail-one/sdk@0.4.0|@cloudflare/kv-asset-handler@0.5.0"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|@cloudflare/unenv-preset@2.16.2",
       "dependsOn": [
-        "@poppinss/colors@4.1.6",
-        "@sindresorhus/is@7.2.0",
-        "supports-color@10.2.2"
+        "@payrail-one/sdk@0.4.0|unenv@2.0.0-rc.24",
+        "@payrail-one/sdk@0.4.0|workerd@1.20261001.1"
       ]
     },
     {
-      "ref": "@poppinss/exception@1.2.3",
-      "dependsOn": []
+      "ref": "@payrail-one/sdk@0.4.0|blake3-wasm@2.1.5"
     },
     {
-      "ref": "@scure/base@2.4.0",
-      "dependsOn": []
-    },
-    {
-      "ref": "@sindresorhus/is@7.2.0",
-      "dependsOn": []
-    },
-    {
-      "ref": "@speed-highlight/core@1.2.24",
-      "dependsOn": []
-    },
-    {
-      "ref": "blake3-wasm@2.1.5",
-      "dependsOn": []
-    },
-    {
-      "ref": "cookie@1.1.1",
-      "dependsOn": []
-    },
-    {
-      "ref": "detect-libc@2.1.2",
-      "dependsOn": []
-    },
-    {
-      "ref": "error-stack-parser-es@1.0.5",
-      "dependsOn": []
-    },
-    {
-      "ref": "esbuild@0.28.1",
+      "ref": "@payrail-one/sdk@0.4.0|esbuild@0.28.1",
       "dependsOn": [
-        "@esbuild/darwin-arm64@0.28.1"
+        "@payrail-one/sdk@0.4.0|@esbuild/darwin-arm64@0.28.1"
       ]
     },
     {
-      "ref": "fsevents@2.3.3",
-      "dependsOn": []
+      "ref": "@payrail-one/sdk@0.4.0|fsevents@2.3.3"
     },
     {
-      "ref": "kleur@4.1.5",
-      "dependsOn": []
-    },
-    {
-      "ref": "miniflare@5.20261001.0-alpha",
+      "ref": "@payrail-one/sdk@0.4.0|miniflare@5.20261001.0-alpha",
       "dependsOn": [
-        "@cspotcode/source-map-support@0.8.1",
-        "sharp@0.35.4",
-        "undici@7.29.1",
-        "workerd@1.20261001.1",
-        "ws@8.21.0",
-        "youch@4.1.0-beta.10"
+        "@payrail-one/sdk@0.4.0|@cspotcode/source-map-support@0.8.1",
+        "@payrail-one/sdk@0.4.0|sharp@0.35.4",
+        "@payrail-one/sdk@0.4.0|undici@7.29.1",
+        "@payrail-one/sdk@0.4.0|workerd@1.20261001.1",
+        "@payrail-one/sdk@0.4.0|ws@8.21.0",
+        "@payrail-one/sdk@0.4.0|youch@4.1.0-beta.10"
       ]
     },
     {
-      "ref": "path-to-regexp@6.3.0",
-      "dependsOn": []
+      "ref": "@payrail-one/sdk@0.4.0|path-to-regexp@6.3.0"
     },
     {
-      "ref": "pathe@2.0.3",
-      "dependsOn": []
-    },
-    {
-      "ref": "playwright@1.63.0",
+      "ref": "@payrail-one/sdk@0.4.0|unenv@2.0.0-rc.24",
       "dependsOn": [
-        "playwright-core@1.63.0"
+        "@payrail-one/sdk@0.4.0|pathe@2.0.3"
       ]
     },
     {
-      "ref": "playwright-core@1.63.0",
-      "dependsOn": []
-    },
-    {
-      "ref": "prettier@3.8.3",
-      "dependsOn": []
-    },
-    {
-      "ref": "semver@7.8.5",
-      "dependsOn": []
-    },
-    {
-      "ref": "sharp@0.35.4",
+      "ref": "@payrail-one/sdk@0.4.0|workerd@1.20261001.1",
       "dependsOn": [
-        "@img/colour@1.1.0",
-        "detect-libc@2.1.2",
-        "semver@7.8.5",
-        "@img/sharp-darwin-arm64@0.35.4",
-        "@img/sharp-libvips-darwin-arm64@1.3.3"
+        "@payrail-one/sdk@0.4.0|@cloudflare/workerd-darwin-arm64@1.20261001.1"
       ]
     },
     {
-      "ref": "supports-color@10.2.2",
-      "dependsOn": []
+      "ref": "@payrail-one/sdk@0.4.0|undici-types@8.9.0"
     },
     {
-      "ref": "tslib@2.8.1",
-      "dependsOn": []
+      "ref": "@payrail-one/sdk@0.4.0|playwright-core@1.63.0"
     },
     {
-      "ref": "typescript@6.0.3",
-      "dependsOn": []
+      "ref": "@payrail-one/sdk@0.4.0|@esbuild/darwin-arm64@0.28.1"
     },
     {
-      "ref": "undici@7.29.1",
-      "dependsOn": []
-    },
-    {
-      "ref": "unenv@2.0.0-rc.24",
+      "ref": "@payrail-one/sdk@0.4.0|@cspotcode/source-map-support@0.8.1",
       "dependsOn": [
-        "pathe@2.0.3"
+        "@payrail-one/sdk@0.4.0|@jridgewell/trace-mapping@0.3.9"
       ]
     },
     {
-      "ref": "workerd@1.20261001.1",
+      "ref": "@payrail-one/sdk@0.4.0|sharp@0.35.4",
       "dependsOn": [
-        "@cloudflare/workerd-darwin-arm64@1.20261001.1"
+        "@payrail-one/sdk@0.4.0|@img/colour@1.1.0",
+        "@payrail-one/sdk@0.4.0|@img/sharp-darwin-arm64@0.35.4",
+        "@payrail-one/sdk@0.4.0|@img/sharp-libvips-darwin-arm64@1.3.3",
+        "@payrail-one/sdk@0.4.0|detect-libc@2.1.2",
+        "@payrail-one/sdk@0.4.0|semver@7.8.5"
       ]
     },
     {
-      "ref": "wrangler@4.147.0",
+      "ref": "@payrail-one/sdk@0.4.0|undici@7.29.1"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|ws@8.21.0"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|youch@4.1.0-beta.10",
       "dependsOn": [
-        "blake3-wasm@2.1.5",
-        "esbuild@0.28.1",
-        "path-to-regexp@6.3.0",
-        "unenv@2.0.0-rc.24",
-        "workerd@1.20261001.1",
-        "@cloudflare/kv-asset-handler@0.5.0",
-        "@cloudflare/unenv-preset@2.16.2",
-        "miniflare@5.20261001.0-alpha",
-        "fsevents@2.3.3"
+        "@payrail-one/sdk@0.4.0|@poppinss/colors@4.1.6",
+        "@payrail-one/sdk@0.4.0|@poppinss/dumper@0.6.5",
+        "@payrail-one/sdk@0.4.0|@speed-highlight/core@1.2.24",
+        "@payrail-one/sdk@0.4.0|cookie@1.1.1",
+        "@payrail-one/sdk@0.4.0|youch-core@0.3.3"
       ]
     },
     {
-      "ref": "ws@8.21.0",
-      "dependsOn": []
+      "ref": "@payrail-one/sdk@0.4.0|pathe@2.0.3"
     },
     {
-      "ref": "youch@4.1.0-beta.10",
+      "ref": "@payrail-one/sdk@0.4.0|@cloudflare/workerd-darwin-arm64@1.20261001.1"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|@jridgewell/trace-mapping@0.3.9",
       "dependsOn": [
-        "@poppinss/colors@4.1.6",
-        "@poppinss/dumper@0.6.5",
-        "@speed-highlight/core@1.2.24",
-        "cookie@1.1.1",
-        "youch-core@0.3.3"
+        "@payrail-one/sdk@0.4.0|@jridgewell/resolve-uri@3.1.2",
+        "@payrail-one/sdk@0.4.0|@jridgewell/sourcemap-codec@1.6.0"
       ]
     },
     {
-      "ref": "youch-core@0.3.3",
+      "ref": "@payrail-one/sdk@0.4.0|@img/colour@1.1.0"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|@img/sharp-darwin-arm64@0.35.4",
       "dependsOn": [
-        "@poppinss/exception@1.2.3",
-        "error-stack-parser-es@1.0.5"
+        "@payrail-one/sdk@0.4.0|@img/sharp-libvips-darwin-arm64@1.3.3"
       ]
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|@img/sharp-libvips-darwin-arm64@1.3.3"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|detect-libc@2.1.2"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|semver@7.8.5"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|@poppinss/colors@4.1.6",
+      "dependsOn": [
+        "@payrail-one/sdk@0.4.0|kleur@4.1.5"
+      ]
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|@poppinss/dumper@0.6.5",
+      "dependsOn": [
+        "@payrail-one/sdk@0.4.0|@poppinss/colors@4.1.6",
+        "@payrail-one/sdk@0.4.0|@sindresorhus/is@7.2.0",
+        "@payrail-one/sdk@0.4.0|supports-color@10.2.2"
+      ]
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|@speed-highlight/core@1.2.24"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|cookie@1.1.1"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|youch-core@0.3.3",
+      "dependsOn": [
+        "@payrail-one/sdk@0.4.0|@poppinss/exception@1.2.3",
+        "@payrail-one/sdk@0.4.0|error-stack-parser-es@1.0.5"
+      ]
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|@jridgewell/resolve-uri@3.1.2"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|@jridgewell/sourcemap-codec@1.6.0"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|kleur@4.1.5"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|@sindresorhus/is@7.2.0"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|supports-color@10.2.2"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|@poppinss/exception@1.2.3"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.4.0|error-stack-parser-es@1.0.5"
     }
   ]
 }

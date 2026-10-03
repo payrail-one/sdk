@@ -29,6 +29,7 @@ export interface FinalizedTransaction {
     readonly amount: string;
     readonly fee: string;
     readonly outcome: 'applied' | 'expired';
+    readonly kind: 'transfer' | 'sponsoredTransfer' | 'batchTransfer' | 'contractDeploy' | 'contractCall';
 }
 export interface FinalizedBlock {
     readonly height: string;
@@ -44,6 +45,27 @@ export interface ExplorerOverview {
 export interface SubmissionResult {
     readonly transaction: FinalizedTransaction;
     readonly checkpoint: FinalizedBlock;
+    readonly contract: ContractExecution | null;
+}
+export interface ContractExecution {
+    readonly contractId: string;
+    readonly entrypoint: string | null;
+    readonly executionUnits: string | null;
+    readonly codeHash: string | null;
+    readonly events: readonly string[];
+}
+export interface ContractStateEntry {
+    readonly key: string;
+    readonly value: string;
+}
+export interface Contract {
+    readonly id: string;
+    readonly owner: string;
+    readonly code: string;
+    readonly codeHash: string;
+    readonly balance: string;
+    readonly state: readonly ContractStateEntry[];
+    readonly finalizedHeight: string;
 }
 export interface Checkout {
     readonly id: string;
@@ -93,6 +115,7 @@ export declare class PlatformApiClient {
     constructor(baseUrl: string, fetcher?: typeof fetch);
     status(): Promise<NetworkStatus>;
     account(address: string): Promise<AccountState>;
+    contract(id: string): Promise<Contract>;
     overview(): Promise<ExplorerOverview>;
     faucet(address: string): Promise<SubmissionResult>;
     submit(envelope: Uint8Array): Promise<SubmissionResult>;
