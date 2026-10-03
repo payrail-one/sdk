@@ -1,13 +1,42 @@
 {
-  "name": "payrail-one-sdk",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@payrail-one/sdk",
+  "private": false,
+  "version": "0.1.0",
+  "description": "Typed Payrail checkout SDK for browser and merchant integrations.",
+  "license": "Apache-2.0",
   "type": "module",
+  "files": [
+    "dist",
+    "LICENSE",
+    "NOTICE",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    },
+    "./api-client": {
+      "types": "./dist/packages/api-client/src/index.d.ts",
+      "import": "./dist/packages/api-client/src/index.js"
+    },
+    "./money": {
+      "types": "./dist/packages/money/src/index.d.ts",
+      "import": "./dist/packages/money/src/index.js"
+    },
+    "./wallet-core": {
+      "types": "./dist/packages/wallet-core/src/index.d.ts",
+      "import": "./dist/packages/wallet-core/src/index.js"
+    }
+  },
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
+    "build": "tsc --project tsconfig.build.json",
     "check": "npm run check --workspaces --if-present",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "prepare": "npm run build",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
@@ -16,5 +45,8 @@
     "prettier": "3.8.3",
     "typescript": "6.0.3",
     "wrangler": "4.147.0"
+  },
+  "dependencies": {
+    "@scure/base": "2.4.0"
   }
 }

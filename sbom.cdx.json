@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:cc642e1f-f963-439b-9455-53a0331f0d2f",
+  "serialNumber": "urn:uuid:0705c78e-8acb-4ffa-b22f-705405128d3d",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-10-03T14:03:37.681Z",
+    "timestamp": "2026-10-03T16:16:20.887Z",
     "lifecycles": [
       {
         "phase": "build"
@@ -15,27 +15,31 @@
       {
         "vendor": "npm",
         "name": "cli",
-        "version": "10.9.4"
+        "version": "10.9.2"
       }
     ],
     "component": {
-      "bom-ref": "payrail-one-sdk@0.0.0",
+      "bom-ref": "@payrail-one/sdk@0.1.0",
       "type": "library",
-      "name": "sdk",
-      "version": "0.0.0",
+      "name": "payrail-sdk",
+      "version": "0.1.0",
       "scope": "required",
-      "purl": "pkg:npm/payrail-one-sdk@0.0.0",
+      "description": "Typed Payrail checkout SDK for browser and merchant integrations.",
+      "purl": "pkg:npm/%40payrail-one/sdk@0.1.0",
       "properties": [
         {
           "name": "cdx:npm:package:path",
           "value": ""
-        },
-        {
-          "name": "cdx:npm:package:private",
-          "value": "true"
         }
       ],
-      "externalReferences": []
+      "externalReferences": [],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
     }
   },
   "components": [
@@ -2337,7 +2341,40 @@
           "value": "true"
         }
       ],
-      "externalReferences": []
+      "externalReferences": [],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "bom-ref": "@payrail-one/checkout@0.1.0",
+      "type": "library",
+      "name": "checkout",
+      "version": "0.1.0",
+      "scope": "required",
+      "purl": "pkg:npm/%40payrail-one/checkout@0.1.0",
+      "properties": [
+        {
+          "name": "cdx:npm:package:path",
+          "value": "packages/checkout"
+        },
+        {
+          "name": "cdx:npm:package:private",
+          "value": "true"
+        }
+      ],
+      "externalReferences": [],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
     },
     {
       "bom-ref": "@platform/money@0.0.0",
@@ -2356,7 +2393,14 @@
           "value": "true"
         }
       ],
-      "externalReferences": []
+      "externalReferences": [],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
     },
     {
       "bom-ref": "@platform/wallet-core@0.0.0",
@@ -2375,16 +2419,25 @@
           "value": "true"
         }
       ],
-      "externalReferences": []
+      "externalReferences": [],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
     }
   ],
   "dependencies": [
     {
-      "ref": "payrail-one-sdk@0.0.0",
+      "ref": "@payrail-one/sdk@0.1.0",
       "dependsOn": [
         "@platform/api-client@0.0.0",
+        "@payrail-one/checkout@0.1.0",
         "@platform/money@0.0.0",
         "@platform/wallet-core@0.0.0",
+        "@scure/base@2.4.0",
         "@playwright/test@1.63.0",
         "prettier@3.8.3",
         "typescript@6.0.3",
@@ -2458,6 +2511,12 @@
       ]
     },
     {
+      "ref": "@payrail-one/checkout@0.1.0",
+      "dependsOn": [
+        "typescript@6.0.3"
+      ]
+    },
+    {
       "ref": "@platform/api-client@0.0.0",
       "dependsOn": [
         "typescript@6.0.3"
@@ -2472,7 +2531,6 @@
     {
       "ref": "@platform/wallet-core@0.0.0",
       "dependsOn": [
-        "@platform/api-client@0.0.0",
         "@scure/base@2.4.0",
         "typescript@6.0.3"
       ]

@@ -1,5 +1,5 @@
 import { bech32m } from '@scure/base';
-import { fromHex } from '@platform/api-client';
+import { fromHex } from '../../api-client/src/index.js';
 
 const AUTHORIZATION_DOMAIN = new TextEncoder().encode('ledger.authorization\0');
 const ENVELOPE_DOMAIN = new TextEncoder().encode('ledger.envelope\0');

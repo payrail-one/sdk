@@ -2,3 +2,4 @@ node_modules
 dist
 .workstar
 package-lock.json
+sbom.cdx.json

@@ -1,15 +1,12 @@
 {
-  "name": "@platform/wallet-core",
+  "name": "@payrail-one/checkout",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "Apache-2.0",
   "type": "module",
   "exports": "./src/index.ts",
   "scripts": {
     "check": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@scure/base": "2.4.0"
   },
   "devDependencies": {
     "typescript": "6.0.3"
