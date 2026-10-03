@@ -30,6 +30,39 @@ export interface CreatedWalletVault {
   readonly vault: EncryptedWalletVault;
 }
 
+export function parseEncryptedWalletVault(
+  value: unknown,
+): EncryptedWalletVault {
+  if (!isRecord(value) || value.version !== 1) {
+    throw new Error('Unsupported wallet backup.');
+  }
+  const address = vaultField(value, 'address');
+  const publicKeyEncoded = vaultField(value, 'publicKey');
+  const saltEncoded = vaultField(value, 'salt');
+  const ivEncoded = vaultField(value, 'iv');
+  const ciphertextEncoded = vaultField(value, 'ciphertext');
+  const publicKey = fromBase64(publicKeyEncoded);
+  const salt = fromBase64(saltEncoded);
+  const iv = fromBase64(ivEncoded);
+  const ciphertext = fromBase64(ciphertextEncoded);
+  if (
+    publicKey.length !== 32 ||
+    salt.length !== 16 ||
+    iv.length !== 12 ||
+    ciphertext.length === 0
+  ) {
+    throw new Error('Wallet backup is malformed.');
+  }
+  return {
+    version: 1,
+    address,
+    publicKey: publicKeyEncoded,
+    salt: saltEncoded,
+    iv: ivEncoded,
+    ciphertext: ciphertextEncoded,
+  };
+}
+
 export interface TransferInput {
   readonly networkId: string;
   readonly assetId: string;
@@ -101,15 +134,12 @@ export async function unlockEncryptedWallet(
   vault: EncryptedWalletVault,
 ): Promise<PayrailWallet> {
   validatePassword(password);
-  if (vault.version !== 1) throw new Error('Unsupported wallet vault version.');
-  const publicKey = fromBase64(vault.publicKey);
-  const salt = fromBase64(vault.salt);
-  const iv = fromBase64(vault.iv);
-  const ciphertext = fromBase64(vault.ciphertext);
-  if (publicKey.length !== 32 || salt.length !== 16 || iv.length !== 12) {
-    throw new Error('Wallet vault is corrupted.');
-  }
-  if (addressFromPublicKey(prefix, publicKey) !== vault.address) {
+  const parsed = parseEncryptedWalletVault(vault);
+  const publicKey = fromBase64(parsed.publicKey);
+  const salt = fromBase64(parsed.salt);
+  const iv = fromBase64(parsed.iv);
+  const ciphertext = fromBase64(parsed.ciphertext);
+  if (addressFromPublicKey(prefix, publicKey) !== parsed.address) {
     throw new Error('Wallet vault belongs to another network or is corrupted.');
   }
   try {
@@ -134,6 +164,22 @@ export async function unlockEncryptedWallet(
   } catch {
     throw new Error('Incorrect password or corrupted wallet vault.');
   }
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function vaultField(value: Record<string, unknown>, field: string): string {
+  const candidate = value[field];
+  if (
+    typeof candidate !== 'string' ||
+    candidate.length === 0 ||
+    candidate.length > 1_024
+  ) {
+    throw new Error('Wallet backup is malformed.');
+  }
+  return candidate;
 }
 
 function walletFromKey(
