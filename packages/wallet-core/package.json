@@ -1,0 +1,17 @@
+{
+  "name": "@platform/wallet-core",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": "./src/index.ts",
+  "scripts": {
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@platform/api-client": "0.0.0",
+    "@scure/base": "2.4.0"
+  },
+  "devDependencies": {
+    "typescript": "6.0.3"
+  }
+}
