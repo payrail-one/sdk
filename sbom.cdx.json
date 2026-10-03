@@ -19,13 +19,13 @@
       }
     ],
     "component": {
-      "bom-ref": "@payrail-one/sdk@0.2.0",
+      "bom-ref": "@payrail-one/sdk@0.2.1",
       "type": "library",
       "name": "payrail-sdk",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "scope": "required",
       "description": "Typed Payrail checkout SDK for browser and merchant integrations.",
-      "purl": "pkg:npm/%40payrail-one/sdk@0.2.0",
+      "purl": "pkg:npm/%40payrail-one/sdk@0.2.1",
       "properties": [
         {
           "name": "cdx:npm:package:path",
@@ -2403,12 +2403,12 @@
       ]
     },
     {
-      "bom-ref": "@payrail-one/sms@0.2.0",
+      "bom-ref": "@payrail-one/sms@0.2.1",
       "type": "library",
       "name": "sms",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "scope": "required",
-      "purl": "pkg:npm/%40payrail-one/sms@0.2.0",
+      "purl": "pkg:npm/%40payrail-one/sms@0.2.1",
       "properties": [
         {
           "name": "cdx:npm:package:path",
@@ -2457,11 +2457,11 @@
   ],
   "dependencies": [
     {
-      "ref": "@payrail-one/sdk@0.2.0",
+      "ref": "@payrail-one/sdk@0.2.1",
       "dependsOn": [
         "@platform/api-client@0.0.0",
         "@payrail-one/checkout@0.1.0",
-        "@payrail-one/sms@0.2.0",
+        "@payrail-one/sms@0.2.1",
         "@platform/money@0.0.0",
         "@platform/wallet-core@0.0.0",
         "@scure/base@2.4.0",
