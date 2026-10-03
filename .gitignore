@@ -3,3 +3,12 @@ node_modules/
 playwright-report/
 test-results/
 *.tsbuildinfo
+.build/
+**/target/
+**/__pycache__/
+**/*.egg-info/
+python/build/
+*.pyc
+*.jar
+*.whl
+*.zip

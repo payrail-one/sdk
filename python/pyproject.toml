@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "payrail-sdk"
+version = "0.3.0"
+description = "Payrail merchant and Payrail Code server SDK"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "Payrail" }]
+dependencies = []
+
+[tool.setuptools]
+packages = ["payrail_sdk"]

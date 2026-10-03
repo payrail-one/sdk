@@ -1,29 +1,64 @@
-# Payrail Web SDK
+# Payrail SDK
 
-Framework-agnostic TypeScript for adding Payrail checkout to a website. The SDK
-creates immutable fixed-amount payment sessions, produces hosted-wallet, QR and
-SMS payloads, and waits for an independently loaded final receipt. The Payrail
-Code module adds a short-lived six-digit, BLIK-inspired locator: a merchant can
-claim the code, but only the customer's wallet can review and sign the payment.
+Multi-platform SDKs for Payrail checkout and Payrail Code. The repository ships
+browser and Node.js TypeScript, an iOS Swift Package, an Android/JVM Kotlin
+library, and dependency-light Go and Python server clients.
 
-The repository also contains the lower-level API, canonical money and browser
-wallet packages used by the Payrail demos. Private keys remain client-side and
-money is represented as atomic integer strings or `bigint`, never JavaScript
-`number`.
+Every implementation uses the same immutable checkout contract. Payrail Code is
+a short-lived six-digit, BLIK-inspired locator: a merchant can claim the code,
+but only the customer's wallet can review and sign the payment. Private keys
+remain on the wallet device, merchant credentials remain on trusted servers,
+and money is always represented with integer atomic units or canonical decimal
+strings—never binary floating point.
 
 > **Development network:** the current public endpoint uses test assets and a
 > four-validator quorum. It is not a production settlement claim.
 
-## Install from GitHub
+## Platforms
+
+| Runtime           | Package                         | Intended use                                     |
+| ----------------- | ------------------------------- | ------------------------------------------------ |
+| Browser / Node.js | `@payrail-one/sdk`              | Checkout UI, wallet and Node server integrations |
+| iOS / macOS       | `PayrailSDK` Swift Package      | Device-bound code issuance and wallet polling    |
+| Android / JVM     | `one.payrail:payrail-sdk`       | Device-bound code issuance and wallet polling    |
+| Go                | `github.com/payrail-one/sdk/go` | Merchant checkout and code-claim backend         |
+| Python            | `payrail-sdk`                   | Merchant checkout and code-claim backend         |
+
+The normative wire contract and cross-language byte vector are in
+[`spec/payrail-code-v1.md`](spec/payrail-code-v1.md) and
+[`fixtures/payrail-code-v1.json`](fixtures/payrail-code-v1.json).
+
+## Install
+
+TypeScript for browser or Node.js:
 
 ```sh
-npm install github:payrail-one/sdk
+npm install github:payrail-one/sdk#v0.3.0
 ```
 
-The install exposes `@payrail-one/sdk`. A registry release can use the same
-package without changing application imports.
+Swift Package Manager:
 
-## Create a payment
+```swift
+.package(url: "https://github.com/payrail-one/sdk", exact: "0.3.0")
+```
+
+Go server:
+
+```sh
+go get github.com/payrail-one/sdk/go@v0.3.0
+```
+
+Python server directly from this monorepo:
+
+```sh
+python -m pip install "payrail-sdk @ git+https://github.com/payrail-one/sdk@v0.3.0#subdirectory=python"
+```
+
+The Android/JVM JAR, sources and POM are attached to the GitHub release. Maven
+Central publishing will use the same `one.payrail:payrail-sdk` coordinates once
+repository signing credentials are provisioned.
+
+## TypeScript checkout
 
 ```ts
 import { PayrailCheckout, parseAmount } from '@payrail-one/sdk';
@@ -52,10 +87,10 @@ console.log(finalized.checkout.transaction?.id);
 The SDK rejects a response if the recipient, amount, checkout identifier or
 hosted payment path differs from the requested immutable payment.
 
-## Recommended website architecture
+## Recommended architecture
 
-For a real merchant integration, calculate prices and create the checkout in a
-backend-for-frontend. Return only the resulting payment session to the browser.
+Calculate prices and create the checkout in a backend-for-frontend. Return only
+the resulting payment session to the browser or mobile application.
 The public [Payrail demo store](https://store.payrail.one) is the reference:
 its Workstar frontend and Go backend live in one repository, while this SDK
 handles the Payrail payment contract.
@@ -105,6 +140,11 @@ An SMS or six-digit code never authorizes payment by itself; the wallet still
 shows the immutable recipient and amount and produces the normal signed
 transaction.
 
+Swift and Kotlin accept a signer callback, allowing the host wallet to keep its
+Ed25519 key inside its existing secure key boundary. The SDK constructs and
+validates the canonical 162-byte message; it never exports wallet key material.
+Go, Python and the Node.js client intentionally expose only merchant operations.
+
 ## Packages and exports
 
 - `@payrail-one/sdk` — checkout integration, amount helpers and public types;
@@ -120,10 +160,15 @@ npm ci --ignore-scripts
 npm run check
 npm test
 npm pack --dry-run
+cd go && go test -race ./...
+PYTHONPATH=python python3 -m unittest discover -s python/tests
+swift test
+mvn -f kotlin/pom.xml test
 ```
 
-Dependencies are exact-pinned in `package-lock.json`; `sbom.cdx.json` records
-the reviewed dependency inventory.
+Dependencies are exact-pinned in each ecosystem manifest. The TypeScript and
+Kotlin inventories have committed SBOM evidence; Swift, Go and Python have no
+third-party runtime dependencies.
 
 ## License
 

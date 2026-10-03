@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  sdk:
+  typescript:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
@@ -30,3 +30,46 @@ jobs:
         run: npm test
       - name: Verify package contents
         run: npm pack --dry-run
+
+  go:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Check formatting
+        run: test -z "$(gofmt -l go)"
+      - name: Test race and invariant paths
+        working-directory: go
+        run: go test -race ./...
+
+  python:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Test server SDK
+        env:
+          PYTHONPATH: python
+        run: python3 -m unittest discover -s python/tests
+      - name: Build Python wheel
+        run: python3 -m pip wheel --no-deps --wheel-dir /tmp/payrail-python-dist ./python
+
+  kotlin:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Test Android/JVM SDK
+        run: mvn --batch-mode --file kotlin/pom.xml package
+
+  swift:
+    runs-on: macos-15
+    timeout-minutes: 15
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Test iOS SDK package
+        run: swift test

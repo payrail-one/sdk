@@ -1,8 +1,8 @@
 {
   "name": "@payrail-one/sdk",
   "private": false,
-  "version": "0.2.1",
-  "description": "Typed Payrail checkout SDK for browser and merchant integrations.",
+  "version": "0.3.0",
+  "description": "Multi-platform Payrail checkout and Payrail Code SDK.",
   "license": "Apache-2.0",
   "type": "module",
   "files": [
