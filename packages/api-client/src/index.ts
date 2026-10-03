@@ -8,7 +8,13 @@ export interface NetworkStatus {
   readonly networkId: string;
   readonly addressPrefix: string;
   readonly finalizedHeight: string;
-  readonly finalityMode: 'single-node-devnet' | 'bft-devnet';
+  readonly finalityMode:
+    | 'single-node-devnet'
+    | 'bft-devnet'
+    | 'four-validator-quorum';
+  readonly validatorCount: number;
+  readonly onlineValidators: number;
+  readonly quorumWeight: number;
   readonly asset: NetworkAsset;
 }
 

@@ -11,8 +11,8 @@ wallet packages used by the Payrail demos. Private keys remain client-side and
 money is represented as atomic integer strings or `bigint`, never JavaScript
 `number`.
 
-> **Development network:** the current public endpoint uses test assets and
-> single-node development finality. It is not a production settlement claim.
+> **Development network:** the current public endpoint uses test assets and a
+> four-validator quorum. It is not a production settlement claim.
 
 ## Install from GitHub
 
