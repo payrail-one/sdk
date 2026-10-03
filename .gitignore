@@ -1,5 +1,4 @@
 node_modules/
-dist/
 .workstar/
 playwright-report/
 test-results/
