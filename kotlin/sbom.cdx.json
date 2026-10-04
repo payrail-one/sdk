@@ -1,10 +1,10 @@
 {
   "bomFormat" : "CycloneDX",
   "specVersion" : "1.5",
-  "serialNumber" : "urn:uuid:edfaa1e2-6097-3f9f-9f71-727ce4ad45e8",
+  "serialNumber" : "urn:uuid:7d7a117f-5262-3012-916f-a08242912b36",
   "version" : 1,
   "metadata" : {
-    "timestamp" : "2026-10-03T20:56:39Z",
+    "timestamp" : "2026-10-04T13:48:03Z",
     "lifecycles" : [
       {
         "phase" : "build"
@@ -58,11 +58,11 @@
     },
     "component" : {
       "type" : "library",
-      "bom-ref" : "pkg:maven/one.payrail/payrail-sdk@0.3.0?type=jar",
+      "bom-ref" : "pkg:maven/one.payrail/payrail-sdk@0.6.0?type=jar",
       "group" : "one.payrail",
       "name" : "payrail-sdk",
-      "version" : "0.3.0",
-      "purl" : "pkg:maven/one.payrail/payrail-sdk@0.3.0?type=jar"
+      "version" : "0.6.0",
+      "purl" : "pkg:maven/one.payrail/payrail-sdk@0.6.0?type=jar"
     },
     "properties" : [
       {
@@ -78,44 +78,44 @@
   "components" : [
     {
       "type" : "library",
-      "bom-ref" : "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@2.1.20?type=jar",
+      "bom-ref" : "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@2.2.10?type=jar",
       "group" : "org.jetbrains.kotlin",
       "name" : "kotlin-stdlib",
-      "version" : "2.1.20",
+      "version" : "2.2.10",
       "description" : "Kotlin Standard Library",
       "scope" : "required",
       "hashes" : [
         {
           "alg" : "MD5",
-          "content" : "9cd680afc77826cb163ca081a1312176"
+          "content" : "ab998b5a8873e563556557820409af83"
         },
         {
           "alg" : "SHA-1",
-          "content" : "aa8ca79cd50578314f6d1180c47cbe14c0fee567"
+          "content" : "30de6faa127a4a012db8e71bf1b9c0a99b1402b2"
         },
         {
           "alg" : "SHA-256",
-          "content" : "1bcc74e8ce84e2c25eaafde10f1248349cce3062b6e36978cbeec610db1e930a"
+          "content" : "9c67cc79efd6b9215b49d2a4308f5f3433537376c7c88e89bdd6729bd096e61a"
         },
         {
           "alg" : "SHA-512",
-          "content" : "42cf2a406f34647bf6e30c09409b0850b662515f4897d22b9ad2e01e7e5cf4f0cd76af9aba973531759445a1c0ecb0b2ae85b74fa9da1d374dc6663391ffe72b"
+          "content" : "4bfdea9c22f5d73691c74e602acc04d5c1552e38c09b7dbbd31909c0c557c7720106c6802678ba92563a72d3560fdea0f32fa5639d99bdf752ddd303c30c2fd5"
         },
         {
           "alg" : "SHA-384",
-          "content" : "133b3bd4a273b8f8c9bcf83a917ac32311722198081acda9ac05abb741840789ce150e83ee20b2b62562512e9db69d3e"
+          "content" : "f86f025bdf8f8f5623b4ad03df22889352266c0d862e8c354fa1146681d3a6f72c91a901f5cc5786e77a0a64d41a36a5"
         },
         {
           "alg" : "SHA3-384",
-          "content" : "c71cbbb8facdc7defdcb55f47e03d0172534342ef84f5e0295d853eae496e0e1d2a3dcdf318a14b39e21dd4f29521322"
+          "content" : "e3d5adc7841dcce566da129acdec4fe62d442fcda5854c7690003da969ec1874bcdb5b2dc55c7018db60378ae7074232"
         },
         {
           "alg" : "SHA3-256",
-          "content" : "e6c178abeb7e7014254456d54f1cf36f1c658d01dada7802ab0573c995135fe2"
+          "content" : "9fb62740c9e9db72c6896831d980e570221d5e94db403d03bd8f19b059a0b270"
         },
         {
           "alg" : "SHA3-512",
-          "content" : "11edc6ef8277801d6c20c05989aa3d029a7452df8baaa18c112b9fa09dc4fbe7a1134574f53f43aa64d4f14a04f5e633e247c29dded64024a7eee89f67221445"
+          "content" : "d4d7d1fcdcbdc45f4c12d5f83e1b6aea743edec20c5e85f28b0418e02f418e73f25e7899154152c50ee2c02927ed694eaa8ef6273e696f0a2aa20643c0256fe0"
         }
       ],
       "licenses" : [
@@ -125,7 +125,7 @@
           }
         }
       ],
-      "purl" : "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@2.1.20?type=jar",
+      "purl" : "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@2.2.10?type=jar",
       "externalReferences" : [
         {
           "type" : "website",
@@ -204,44 +204,44 @@
     },
     {
       "type" : "library",
-      "bom-ref" : "pkg:maven/org.jetbrains.kotlinx/kotlinx-serialization-json-jvm@1.8.1?type=jar",
+      "bom-ref" : "pkg:maven/org.jetbrains.kotlinx/kotlinx-serialization-json-jvm@1.9.0?type=jar",
       "group" : "org.jetbrains.kotlinx",
       "name" : "kotlinx-serialization-json-jvm",
-      "version" : "1.8.1",
+      "version" : "1.9.0",
       "description" : "Kotlin multiplatform serialization runtime library",
       "scope" : "required",
       "hashes" : [
         {
           "alg" : "MD5",
-          "content" : "f061d934bcf1d0be1d6c6907c320f86b"
+          "content" : "1e81a9f08daa850e116eb8551d2f3bc0"
         },
         {
           "alg" : "SHA-1",
-          "content" : "4de3bace4b175753df5484d2acd74c14bfeb5be9"
+          "content" : "aea6f7d49fe5c458f8963ee6d4bdaf4a459ab3e7"
         },
         {
           "alg" : "SHA-256",
-          "content" : "8769e5647557e3700919c32d508f5c5dad53c5d8234cd10846354fbcff14aa24"
+          "content" : "d94cc34cae39246a1af74fda63f9c4812ce12216ef641d5fa3bbbb539a6922d8"
         },
         {
           "alg" : "SHA-512",
-          "content" : "0b28392fa4185b9edb5f61e564907122a2c019d952de36dd752dbcc323dc5ebd02fa8d2609cee1fcf8e4b1dfe603b28dead68abf73d85e38977f59bd45bf2baa"
+          "content" : "a2abfcf5751c4c5c5cc0f37e9200794f22d0c28daa76a6a8edfed4bebd8375e2e49b263671ef86b4ec2925079970b8424cf3971f47eae03914f5b3cee48459fa"
         },
         {
           "alg" : "SHA-384",
-          "content" : "2530cbb8ee4ca8c3ccfb4f4b9a92c35479eefa4963a003b2b8378ee1186fe64a26ae60f92ef3cd569c981e388dca3935"
+          "content" : "2b4ee75d9e202687dac82685b8347d26273859f1a6c8f88c25559f93f669be014ab3fa6e4085f694b2f394b6bb617f5a"
         },
         {
           "alg" : "SHA3-384",
-          "content" : "ebf73e4cb5af808549e1e6e455aef5bec390e89d7fa67df680ff4e54bf465f82d1806af74bbe41517081657414309a7a"
+          "content" : "f6b735f2ba89e7330c0f257759e5ab28b10bf1719cb61260da8792278d725928b5eb5f821fde212c8e0e2c7ca68ee43f"
         },
         {
           "alg" : "SHA3-256",
-          "content" : "589019682f95830be0a5a7c46c996b6b518c2f9cdd57b9a2f7178947f0286519"
+          "content" : "b99f172fe00250ecc514f2f694d650c1febfea2743ff03ab7a443d204431edac"
         },
         {
           "alg" : "SHA3-512",
-          "content" : "9032326d5c6044ee5c2f130e4fb3cd53ccf8bfcc563729aca91cfd50d0946863caa2f51408f73e8d83a3bb074592ae17ad2751ac878889930ca0e3d0c79323d3"
+          "content" : "816426c93b7de423a7de8bbfab3ff2a98a6d9218cf1cb724afd9a5382a5572e2dd4cf101c8763ad4547be3faad2110892582367c9a1a8881b2177373bbb4475a"
         }
       ],
       "licenses" : [
@@ -252,7 +252,7 @@
           }
         }
       ],
-      "purl" : "pkg:maven/org.jetbrains.kotlinx/kotlinx-serialization-json-jvm@1.8.1?type=jar",
+      "purl" : "pkg:maven/org.jetbrains.kotlinx/kotlinx-serialization-json-jvm@1.9.0?type=jar",
       "externalReferences" : [
         {
           "type" : "website",
@@ -266,44 +266,44 @@
     },
     {
       "type" : "library",
-      "bom-ref" : "pkg:maven/org.jetbrains.kotlinx/kotlinx-serialization-core-jvm@1.8.1?type=jar",
+      "bom-ref" : "pkg:maven/org.jetbrains.kotlinx/kotlinx-serialization-core-jvm@1.9.0?type=jar",
       "group" : "org.jetbrains.kotlinx",
       "name" : "kotlinx-serialization-core-jvm",
-      "version" : "1.8.1",
+      "version" : "1.9.0",
       "description" : "Kotlin multiplatform serialization runtime library",
       "scope" : "required",
       "hashes" : [
         {
           "alg" : "MD5",
-          "content" : "ef302ac92198e315d9b084ca66ee5f1e"
+          "content" : "b84dd8f79d9415c243324bd22d7c3cc5"
         },
         {
           "alg" : "SHA-1",
-          "content" : "510cb839cce9a3e708052d480a6fbf4a7274dfcd"
+          "content" : "91448df39c558f7c6147b8bd8db01debe16e0cc1"
         },
         {
           "alg" : "SHA-256",
-          "content" : "3565b6d4d789bf70683c45566944287fc1d8dc75c23d98bd87d01059cc76f2b3"
+          "content" : "1f0afa172110e45a7231ef1b44ae8fd84c1ebaff96f3fc3ad68ef8c48120b59c"
         },
         {
           "alg" : "SHA-512",
-          "content" : "790087dc51da11c24de9bf5e12f12423b665fdbe724f15503836de1622153225348255053e5d981d5a9c615ce1b4c82d03fe33d04c6bb03646b0bafaca4920bf"
+          "content" : "39d4fe619ab52edb20b12ea6aea6c046a14f88713c9e367318d5020c86f712bbe17a0a4fa552563693eca21ab478cebe4f394cd8d9cadbc1d9d77885c84ff29f"
         },
         {
           "alg" : "SHA-384",
-          "content" : "e756e2e65ce56034009f101c6b63636755860a539122ff1033931bf52ca6530ee2fb2bdd89c7ac48f175bc5103b801d1"
+          "content" : "66a5d7f5646ce48b620dd1c113ac07c8ccdeb82fc0a79c3104050f06d7483e59a61e1349eab4f13f99485830d0db1d32"
         },
         {
           "alg" : "SHA3-384",
-          "content" : "05643df9514fccfdbe75a92c7e865188fe1b051c9da3ef72d8605f05ea9f83203b4853d517b0bdcc04a7f2f90a9e954c"
+          "content" : "a0e43bf5661ea804918bd02fb801bf2df03a511d21e1ad530af6ceb25db63f3ae4c11e9afa9a16543b82de0d30aafe81"
         },
         {
           "alg" : "SHA3-256",
-          "content" : "73feb04f683760236aae813870ee531e6fd8d68c626a6251110f35265c15cf0d"
+          "content" : "aec5b3aca102420d4f1944c3a751ea49216a99d1bd892db77dcd649d947087ca"
         },
         {
           "alg" : "SHA3-512",
-          "content" : "ab2f37ca097256e865b5a00783063a731f16cb3278f681eea703e199ccfe988b029274db6e3f2ac0a6a6db5640eeb9c9b70104f0d6076d850908024c445db532"
+          "content" : "886594f54addd654a188ea7c5f2a61bdd60e79538a94b20e8eae32fac4b27fcd0326aca08989a83e5ed2828ed3324febe8ec29fa4b8e957d0b8a1ee01d0d39f5"
         }
       ],
       "licenses" : [
@@ -314,7 +314,7 @@
           }
         }
       ],
-      "purl" : "pkg:maven/org.jetbrains.kotlinx/kotlinx-serialization-core-jvm@1.8.1?type=jar",
+      "purl" : "pkg:maven/org.jetbrains.kotlinx/kotlinx-serialization-core-jvm@1.9.0?type=jar",
       "externalReferences" : [
         {
           "type" : "website",
@@ -325,18 +325,85 @@
           "url" : "https://github.com/Kotlin/kotlinx.serialization"
         }
       ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "pkg:maven/org.bouncycastle/bcprov-jdk18on@1.85.2?type=jar",
+      "group" : "org.bouncycastle",
+      "name" : "bcprov-jdk18on",
+      "version" : "1.85.2",
+      "description" : "The Bouncy Castle Crypto package is a Java implementation of cryptographic algorithms. This jar contains the JCA/JCE provider and low-level API for the BC Java version 1.85.2 for Java 1.8 and later.",
+      "scope" : "required",
+      "hashes" : [
+        {
+          "alg" : "MD5",
+          "content" : "9eaa522def18463e3d8a559ac4c37492"
+        },
+        {
+          "alg" : "SHA-1",
+          "content" : "aeb3dac02f799ed4783d5ed5900513339880727f"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "986b0fb92ec10e0c66b43e036ce0077e6150cfaecd1db9fb92b56672e157afe5"
+        },
+        {
+          "alg" : "SHA-512",
+          "content" : "c20a531b6cd5d513eba8ff5b304cb83d0c7f6f9c5264b81caca43986b745b37907bac3aacaab585284012adb8a9371a52b43c1c0498b49cf57cf9e42ac446264"
+        },
+        {
+          "alg" : "SHA-384",
+          "content" : "626308799fdcfe8c48b4a42d1316d78247b08a6dddc784c83e15f0cf59a1cb2f290c9b6be381420504d3e8c1b59c48ff"
+        },
+        {
+          "alg" : "SHA3-384",
+          "content" : "99aa5e6a9c938b30e7ce114639c53a102c8460f09ffc4196904d5563509d11ef58bd9e8d849418c560b78e301fe27c56"
+        },
+        {
+          "alg" : "SHA3-256",
+          "content" : "bf738f9e8cf11826b993d605cd10b705cac33221cad4913ed10c6d7fc5a75907"
+        },
+        {
+          "alg" : "SHA3-512",
+          "content" : "3bbb7ecbdddef23fd16060594ffb37190ba0550d1c646ff7f9d09620ff8c57d780c027343b2682127d4a80729ae98b391292e3b56498a19cfe2bf1efb440299c"
+        }
+      ],
+      "licenses" : [
+        {
+          "license" : {
+            "name" : "Bouncy Castle Licence",
+            "url" : "https://www.bouncycastle.org/licence.html"
+          }
+        }
+      ],
+      "purl" : "pkg:maven/org.bouncycastle/bcprov-jdk18on@1.85.2?type=jar",
+      "externalReferences" : [
+        {
+          "type" : "website",
+          "url" : "https://www.bouncycastle.org/download/bouncy-castle-java/"
+        },
+        {
+          "type" : "issue-tracker",
+          "url" : "https://github.com/bcgit/bc-java/issues"
+        },
+        {
+          "type" : "vcs",
+          "url" : "https://github.com/bcgit/bc-java"
+        }
+      ]
     }
   ],
   "dependencies" : [
     {
-      "ref" : "pkg:maven/one.payrail/payrail-sdk@0.3.0?type=jar",
+      "ref" : "pkg:maven/one.payrail/payrail-sdk@0.6.0?type=jar",
       "dependsOn" : [
-        "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@2.1.20?type=jar",
-        "pkg:maven/org.jetbrains.kotlinx/kotlinx-serialization-json-jvm@1.8.1?type=jar"
+        "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@2.2.10?type=jar",
+        "pkg:maven/org.jetbrains.kotlinx/kotlinx-serialization-json-jvm@1.9.0?type=jar",
+        "pkg:maven/org.bouncycastle/bcprov-jdk18on@1.85.2?type=jar"
       ]
     },
     {
-      "ref" : "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@2.1.20?type=jar",
+      "ref" : "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@2.2.10?type=jar",
       "dependsOn" : [
         "pkg:maven/org.jetbrains/annotations@13.0?type=jar"
       ]
@@ -346,17 +413,21 @@
       "dependsOn" : [ ]
     },
     {
-      "ref" : "pkg:maven/org.jetbrains.kotlinx/kotlinx-serialization-json-jvm@1.8.1?type=jar",
+      "ref" : "pkg:maven/org.jetbrains.kotlinx/kotlinx-serialization-json-jvm@1.9.0?type=jar",
       "dependsOn" : [
-        "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@2.1.20?type=jar",
-        "pkg:maven/org.jetbrains.kotlinx/kotlinx-serialization-core-jvm@1.8.1?type=jar"
+        "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@2.2.10?type=jar",
+        "pkg:maven/org.jetbrains.kotlinx/kotlinx-serialization-core-jvm@1.9.0?type=jar"
       ]
     },
     {
-      "ref" : "pkg:maven/org.jetbrains.kotlinx/kotlinx-serialization-core-jvm@1.8.1?type=jar",
+      "ref" : "pkg:maven/org.jetbrains.kotlinx/kotlinx-serialization-core-jvm@1.9.0?type=jar",
       "dependsOn" : [
-        "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@2.1.20?type=jar"
+        "pkg:maven/org.jetbrains.kotlin/kotlin-stdlib@2.2.10?type=jar"
       ]
+    },
+    {
+      "ref" : "pkg:maven/org.bouncycastle/bcprov-jdk18on@1.85.2?type=jar",
+      "dependsOn" : [ ]
     }
   ]
 }

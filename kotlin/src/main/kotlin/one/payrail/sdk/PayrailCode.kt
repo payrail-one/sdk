@@ -47,6 +47,7 @@ public data class Checkout(
     val validUntilHeight: String,
     val paymentPath: String,
     val smsText: String,
+    val transaction: FinalizedTransaction? = null,
 )
 
 @Serializable
@@ -182,4 +183,7 @@ private fun java.io.BufferedReader.readTextLimited(): String {
     }
 }
 
-private fun ByteArray.toHex(): String = joinToString("") { "%02x".format(it.toInt() and 0xff) }
+public fun ByteArray.toCanonicalHex(): String =
+    joinToString("") { "%02x".format(it.toInt() and 0xff) }
+
+private fun ByteArray.toHex(): String = toCanonicalHex()

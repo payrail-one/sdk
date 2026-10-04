@@ -4,11 +4,14 @@ playwright-report/
 test-results/
 *.tsbuildinfo
 .build/
+**/.gradle/
+**/build/
 **/target/
 **/__pycache__/
 **/*.egg-info/
 python/build/
 *.pyc
 *.jar
+!kotlin/gradle/wrapper/gradle-wrapper.jar
 *.whl
 *.zip

@@ -20,7 +20,7 @@ strings—never binary floating point.
 | ----------------- | ------------------------------- | ------------------------------------------------ |
 | Browser / Node.js | `@payrail-one/sdk`              | Checkout UI, wallet and Node server integrations |
 | iOS / macOS       | `PayrailSDK` Swift Package      | Wallet signing, API access and Payrail Code      |
-| Android / JVM     | `one.payrail:payrail-sdk`       | Device-bound code issuance and wallet polling    |
+| Android / JVM     | `one.payrail:payrail-sdk`       | Wallet signing, API access and Payrail Code      |
 | Go                | `github.com/payrail-one/sdk/go` | Merchant checkout and code-claim backend         |
 | Python            | `payrail-sdk`                   | Merchant checkout and code-claim backend         |
 
@@ -54,7 +54,8 @@ Python server directly from this monorepo:
 python -m pip install "payrail-sdk @ git+https://github.com/payrail-one/sdk@v0.5.0#subdirectory=python"
 ```
 
-The Android/JVM JAR, sources and POM are attached to the GitHub release. Maven
+The Android/JVM JAR, sources and POM are attached to the GitHub release. Gradle
+projects can also include `kotlin/` as a composite build. Maven
 Central publishing will use the same `one.payrail:payrail-sdk` coordinates once
 repository signing credentials are provisioned.
 
@@ -184,15 +185,16 @@ Ed25519 key inside its existing secure key boundary. The SDK constructs and
 validates the canonical 162-byte message; it never exports wallet key material.
 Go, Python and the Node.js client intentionally expose only merchant operations.
 
-The Swift product additionally exposes `PayrailWallet`, `AtomicUnits`,
-`TransferIntent`, `PayrailClient`, `PayrailLiveClient` and `WalletVault`. Its
+The Swift and Kotlin products additionally expose `PayrailWallet`, `AtomicUnits`,
+`TransferIntent`, `PayrailClient` and `WalletVault`; Swift also provides the
+native `PayrailLiveClient`. Their
 Ed25519 address, transfer envelope and encrypted-vault vectors are checked
 against the browser wallet core. `WalletVault` uses the same AES-256-GCM,
 600,000-round PBKDF2 format as the web wallet, so users can move an encrypted
-JSON backup between platforms. iOS applications should store the active
-32-byte seed in a device-only Keychain item, require user presence before
-calling `signTransfer`, and treat live events only as a signal to reload
-authoritative HTTP state.
+JSON backup between platforms. Mobile applications should store the active
+32-byte seed behind a device-only Keychain or Android Keystore boundary,
+require user presence before calling `signTransfer`, and treat live events only
+as a signal to reload authoritative HTTP state.
 
 ## Packages and exports
 

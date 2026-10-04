@@ -5,14 +5,15 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>one.payrail</groupId>
   <artifactId>payrail-sdk</artifactId>
-  <version>0.3.0</version>
+  <version>0.6.0</version>
   <packaging>jar</packaging>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <kotlin.version>2.1.20</kotlin.version>
-    <serialization.version>1.8.1</serialization.version>
-    <junit.version>5.11.4</junit.version>
+    <kotlin.version>2.2.10</kotlin.version>
+    <serialization.version>1.9.0</serialization.version>
+    <junit.version>5.13.4</junit.version>
+    <bouncycastle.version>1.85.2</bouncycastle.version>
   </properties>
 
   <dependencies>
@@ -25,6 +26,11 @@
       <groupId>org.jetbrains.kotlinx</groupId>
       <artifactId>kotlinx-serialization-json-jvm</artifactId>
       <version>${serialization.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcprov-jdk18on</artifactId>
+      <version>${bouncycastle.version}</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
