@@ -1,7 +1,7 @@
 {
   "name": "@payrail-one/sdk",
   "private": false,
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Multi-platform Payrail payments, Payrail Code and smart-contract SDK.",
   "license": "Apache-2.0",
   "type": "module",

@@ -19,7 +19,7 @@ strings—never binary floating point.
 | Runtime           | Package                         | Intended use                                     |
 | ----------------- | ------------------------------- | ------------------------------------------------ |
 | Browser / Node.js | `@payrail-one/sdk`              | Checkout UI, wallet and Node server integrations |
-| iOS / macOS       | `PayrailSDK` Swift Package      | Device-bound code issuance and wallet polling    |
+| iOS / macOS       | `PayrailSDK` Swift Package      | Wallet signing, API access and Payrail Code      |
 | Android / JVM     | `one.payrail:payrail-sdk`       | Device-bound code issuance and wallet polling    |
 | Go                | `github.com/payrail-one/sdk/go` | Merchant checkout and code-claim backend         |
 | Python            | `payrail-sdk`                   | Merchant checkout and code-claim backend         |
@@ -33,25 +33,25 @@ The normative wire contract and cross-language byte vector are in
 TypeScript for browser or Node.js:
 
 ```sh
-npm install github:payrail-one/sdk#v0.4.0
+npm install github:payrail-one/sdk#v0.5.0
 ```
 
 Swift Package Manager:
 
 ```swift
-.package(url: "https://github.com/payrail-one/sdk", exact: "0.4.0")
+.package(url: "https://github.com/payrail-one/sdk", exact: "0.5.0")
 ```
 
 Go server:
 
 ```sh
-go get github.com/payrail-one/sdk/go@v0.4.0
+go get github.com/payrail-one/sdk/go@v0.5.0
 ```
 
 Python server directly from this monorepo:
 
 ```sh
-python -m pip install "payrail-sdk @ git+https://github.com/payrail-one/sdk@v0.4.0#subdirectory=python"
+python -m pip install "payrail-sdk @ git+https://github.com/payrail-one/sdk@v0.5.0#subdirectory=python"
 ```
 
 The Android/JVM JAR, sources and POM are attached to the GitHub release. Maven
@@ -183,6 +183,16 @@ Swift and Kotlin accept a signer callback, allowing the host wallet to keep its
 Ed25519 key inside its existing secure key boundary. The SDK constructs and
 validates the canonical 162-byte message; it never exports wallet key material.
 Go, Python and the Node.js client intentionally expose only merchant operations.
+
+The Swift product additionally exposes `PayrailWallet`, `AtomicUnits`,
+`TransferIntent`, `PayrailClient`, `PayrailLiveClient` and `WalletVault`. Its
+Ed25519 address, transfer envelope and encrypted-vault vectors are checked
+against the browser wallet core. `WalletVault` uses the same AES-256-GCM,
+600,000-round PBKDF2 format as the web wallet, so users can move an encrypted
+JSON backup between platforms. iOS applications should store the active
+32-byte seed in a device-only Keychain item, require user presence before
+calling `signTransfer`, and treat live events only as a signal to reload
+authoritative HTTP state.
 
 ## Packages and exports
 

@@ -5,6 +5,9 @@ import FoundationNetworking
 
 public enum PayrailSDKError: Error, Equatable {
     case invalidField(String)
+    case invalidVault
+    case vaultAuthenticationFailed
+    case cryptographyFailure
     case invalidResponse
     case api(status: Int, message: String)
 }
@@ -41,6 +44,7 @@ public struct Checkout: Codable, Equatable, Sendable {
     public let validUntilHeight: String
     public let paymentPath: String
     public let smsText: String
+    public let transaction: FinalizedTransaction?
 }
 
 public struct ApprovalCodeChallenge: Codable, Equatable, Sendable {
@@ -119,29 +123,15 @@ public enum PayrailCode {
 }
 
 public struct PayrailCodeClient: Sendable {
-    private let baseURL: URL
-    private let session: URLSession
-    private let decoder = JSONDecoder()
-    private let encoder = JSONEncoder()
+    private let transport: PayrailAPITransport
 
     public init(apiBaseURL: URL, session: URLSession = .shared) throws {
-        guard (apiBaseURL.scheme == "https" || apiBaseURL.host == "localhost"),
-              apiBaseURL.user == nil,
-              apiBaseURL.password == nil,
-              apiBaseURL.query == nil,
-              apiBaseURL.fragment == nil
-        else {
-            throw PayrailSDKError.invalidField("apiBaseURL must use HTTPS")
-        }
-        self.baseURL = apiBaseURL
-        self.session = session
+        transport = try PayrailAPITransport(baseURL: apiBaseURL, session: session)
     }
 
     public func issue(_ requestBody: ApprovalCodeIssueRequest) async throws -> IssuedApprovalCode {
-        let issued: IssuedApprovalCode = try await request(
-            path: "approval-codes",
-            method: "POST",
-            body: try encoder.encode(requestBody)
+        let issued: IssuedApprovalCode = try await transport.request(
+            path: "approval-codes", method: "POST", body: requestBody
         )
         guard issued.code.range(of: #"^[0-9]{6}$"#, options: .regularExpression) != nil,
               issued.expiresAtMs.range(of: #"^[1-9][0-9]*$"#, options: .regularExpression) != nil
@@ -155,8 +145,8 @@ public struct PayrailCodeClient: Sendable {
         guard sessionToken.range(of: #"^[0-9a-f]{144}$"#, options: .regularExpression) != nil else {
             throw PayrailSDKError.invalidField("session token is malformed")
         }
-        let challenge: ApprovalCodeChallenge = try await request(
-            path: "approval-codes/sessions/\(sessionToken)", method: "GET", body: nil
+        let challenge: ApprovalCodeChallenge = try await transport.request(
+            path: "approval-codes/sessions/\(sessionToken)", method: "GET"
         )
         guard (challenge.status == "waiting" && challenge.checkout == nil)
                 || (["claimed", "finalized"].contains(challenge.status) && challenge.checkout != nil)
@@ -166,37 +156,4 @@ public struct PayrailCodeClient: Sendable {
         return challenge
     }
 
-    private func request<Response: Decodable>(
-        path: String, method: String, body: Data?
-    ) async throws -> Response {
-        let url = baseURL.appendingPathComponent(path)
-        var request = URLRequest(url: url)
-        request.httpMethod = method
-        request.httpBody = body
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        if body != nil {
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        }
-        let (data, response) = try await session.data(for: request)
-        guard data.count <= 1_048_576, let http = response as? HTTPURLResponse else {
-            throw PayrailSDKError.invalidResponse
-        }
-        guard (200..<300).contains(http.statusCode) else {
-            let failure = try? decoder.decode(APIErrorBody.self, from: data)
-            throw PayrailSDKError.api(status: http.statusCode, message: failure?.error ?? "request failed")
-        }
-        do {
-            return try decoder.decode(Response.self, from: data)
-        } catch {
-            throw PayrailSDKError.invalidResponse
-        }
-    }
-}
-
-private struct APIErrorBody: Decodable {
-    let error: String
-}
-
-private extension Data {
-    var hex: String { map { String(format: "%02x", $0) }.joined() }
 }
