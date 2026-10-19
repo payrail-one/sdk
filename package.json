@@ -1,8 +1,8 @@
 {
   "name": "@payrail-one/sdk",
   "private": false,
-  "version": "0.5.0",
-  "description": "Multi-platform Payrail payments, Payrail Code and smart-contract SDK.",
+  "version": "0.6.0",
+  "description": "Multi-platform Payrail payments, Payrail Code, smart-contract and R1 game SDK.",
   "license": "Apache-2.0",
   "type": "module",
   "files": [
@@ -35,6 +35,10 @@
     "./contracts": {
       "types": "./dist/packages/contracts-sdk/src/index.d.ts",
       "import": "./dist/packages/contracts-sdk/src/index.js"
+    },
+    "./games": {
+      "types": "./dist/packages/game-sdk/src/index.d.ts",
+      "import": "./dist/packages/game-sdk/src/index.js"
     }
   },
   "workspaces": [
@@ -52,7 +56,7 @@
     "@playwright/test": "1.63.0",
     "prettier": "3.8.3",
     "typescript": "6.0.3",
-    "wrangler": "4.147.0"
+    "wrangler": "4.151.2"
   },
   "dependencies": {
     "@scure/base": "2.4.0"
