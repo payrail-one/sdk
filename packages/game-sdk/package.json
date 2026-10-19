@@ -1,0 +1,15 @@
+{
+  "name": "@payrail-one/game-sdk",
+  "private": true,
+  "version": "0.6.0",
+  "description": "Client-side signing and finalized settlement SDK for the public R1 Game API",
+  "license": "Apache-2.0",
+  "type": "module",
+  "exports": "./src/index.ts",
+  "scripts": {
+    "check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "6.0.3"
+  }
+}

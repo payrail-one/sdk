@@ -1,6 +1,6 @@
 # Payrail SDK
 
-Multi-platform SDKs for Payrail checkout, Payrail Code and smart contracts. The repository ships
+Multi-platform SDKs for Payrail checkout, Payrail Code, smart contracts and R1 games. The repository ships
 browser and Node.js TypeScript, an iOS Swift Package, an Android/JVM Kotlin
 library, and dependency-light Go and Python server clients.
 
@@ -33,13 +33,13 @@ The normative wire contract and cross-language byte vector are in
 TypeScript for browser or Node.js:
 
 ```sh
-npm install github:payrail-one/sdk#v0.5.0
+npm install github:payrail-one/sdk#v0.6.0
 ```
 
 Swift Package Manager:
 
 ```swift
-.package(url: "https://github.com/payrail-one/sdk", exact: "0.5.0")
+.package(url: "https://github.com/payrail-one/sdk", exact: "0.6.0")
 ```
 
 Go server:
@@ -127,6 +127,56 @@ not the Payrail contract runtime.
 Try the live open-source sandbox at
 [dapp.payrail.one](https://dapp.payrail.one).
 
+## R1 Game SDK
+
+Third-party games can prepare, locally sign, submit and independently observe
+finalized R1 contract operations through `@payrail-one/sdk/games`. Private keys
+never cross the SDK boundary. Monetary values are canonical decimal strings in
+atomic units; JavaScript `number` is not used for money.
+
+```ts
+import {
+  R1GameClient,
+  cryptoKeyGameSigner,
+  createGameOperationId,
+  utf8GamePayload,
+} from '@payrail-one/sdk/games';
+
+const games = new R1GameClient(); // https://r1.verita.tech
+const signer = cryptoKeyGameSigner(walletPrivateKey, walletPublicKey);
+
+const admitted = await games.signAndSubmit(
+  {
+    operation: {
+      gameId: 'studio.roulette',
+      roundId: 'round-1042',
+      operationId: createGameOperationId(),
+      action: 'place_bet',
+      payloadHex: utf8GamePayload(JSON.stringify({ selection: 'red' })),
+    },
+    contractAddress: gameContractAddress,
+    amountAtomic: '1000000',
+    feeAtomic: '1',
+    nonce,
+    timestamp: Date.now(),
+    expiresAt: finalizedHeight + 100,
+  },
+  signer,
+);
+
+const settled = await games.waitForFinalization(admitted.transactionHash);
+if (settled.status !== 'finalized' || settled.execution !== 'successful') {
+  throw new Error('The game operation did not settle successfully.');
+}
+```
+
+The SDK also exposes finalized, domain-separated randomness. A game must commit
+its target height before that height finalizes; choosing from already revealed
+heights is not fair randomness. See
+[`spec/r1-game-api-v1.md`](spec/r1-game-api-v1.md) for the trust boundary and
+wire contract. The live protocol document is available at
+[`https://r1.verita.tech/v1/games/openapi.json`](https://r1.verita.tech/v1/games/openapi.json).
+
 ## Recommended architecture
 
 Calculate prices and create the checkout in a backend-for-frontend. Return only
@@ -204,6 +254,7 @@ as a signal to reload authoritative HTTP state.
 - `@payrail-one/sdk/wallet-core` — client-side signing and encrypted vaults.
 - `@payrail-one/sdk/sms` — SMS composition and Payrail Code wallet/merchant clients.
 - `@payrail-one/sdk/contracts` — `PRC1` builder, source compiler and typed contract intents.
+- `@payrail-one/sdk/games` — client-signed R1 game operations, finality polling and finalized randomness.
 
 ## Develop and verify
 

@@ -32,3 +32,23 @@ export {
   type SmsComposerInput,
   type WaitForChallengeOptions,
 } from '../packages/sms/src/index.js';
+
+export {
+  R1GameApiError,
+  R1GameClient,
+  R1GameInvariantError,
+  R1GameTimeoutError,
+  cryptoKeyGameSigner,
+  createGameOperationId,
+  utf8GamePayload,
+  type FinalizedGameRandomness,
+  type GameOperation,
+  type GameProtocolCapabilities,
+  type GameSigner,
+  type GameTransactionIntent,
+  type GameTransactionStatus,
+  type PreparedGameTransaction,
+  type SubmittedGameTransaction,
+  type UnsignedGameTransactionIntent,
+  type WaitForGameFinalizationOptions,
+} from '../packages/game-sdk/src/index.js';

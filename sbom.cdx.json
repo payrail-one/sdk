@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:67637932-1f5d-474e-853a-5113349d35de",
+  "serialNumber": "urn:uuid:a9a7645e-78e7-43c2-b682-f1a6e6cfdf5f",
   "metadata": {
-    "timestamp": "2026-10-03T22:38:31.139Z",
+    "timestamp": "2026-10-19T19:03:52.319Z",
     "tools": {
       "components": [
         {
@@ -83,9 +83,9 @@
       "type": "application",
       "name": "sdk",
       "group": "@payrail-one",
-      "version": "0.4.0",
-      "bom-ref": "@payrail-one/sdk@0.4.0",
-      "description": "Multi-platform Payrail payments, Payrail Code and smart-contract SDK.",
+      "version": "0.6.0",
+      "bom-ref": "@payrail-one/sdk@0.6.0",
+      "description": "Multi-platform Payrail payments, Payrail Code, smart-contract and R1 game SDK.",
       "licenses": [
         {
           "license": {
@@ -94,7 +94,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40payrail-one/sdk@0.4.0",
+      "purl": "pkg:npm/%40payrail-one/sdk@0.6.0",
       "properties": [
         {
           "name": "cdx:npm:package:path",
@@ -109,7 +109,7 @@
       "name": "runtime",
       "group": "@emnapi",
       "version": "1.11.3",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@emnapi/runtime@1.11.3",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@emnapi/runtime@1.11.3",
       "author": "toyobayashi",
       "description": "emnapi runtime",
       "scope": "optional",
@@ -169,8 +169,8 @@
       "type": "library",
       "name": "sharp-wasm32",
       "group": "@img",
-      "version": "0.35.4",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@img/sharp-wasm32@0.35.4",
+      "version": "0.35.5",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@img/sharp-wasm32@0.35.5",
       "author": "Lovell Fuller",
       "description": "Prebuilt sharp for use with WebAssembly",
       "scope": "optional",
@@ -180,7 +180,7 @@
           "acknowledgement": "declared"
         }
       ],
-      "purl": "pkg:npm/%40img/sharp-wasm32@0.35.4#npm/wasm32",
+      "purl": "pkg:npm/%40img/sharp-wasm32@0.35.5#npm/wasm32",
       "externalReferences": [
         {
           "url": "git+https://github.com/lovell/sharp.git#npm/wasm32",
@@ -198,12 +198,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@img/sharp-wasm32/-/sharp-wasm32-0.35.4.tgz",
+          "url": "https://registry.npmjs.org/@img/sharp-wasm32/-/sharp-wasm32-0.35.5.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "cd09e5e0ac29ed0e8d1ec10db54d93ff4d198bec37010370cf7f94693c95072d85a57af35f31a39dda4aeb5a278598d1b51a505f10937aac35f5b5725ce87b8c"
+              "content": "3edb206b5b2ee2d431f8b2c5d44092f54ea7cf9926ad72a8e9755bb51e3c29edd9471c6069606eec80ed11ed6aba8f218aea709ba585ab15655da49fec820d19"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -229,7 +229,7 @@
       "name": "checkout",
       "group": "@payrail-one",
       "version": "0.1.0",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@payrail-one/checkout@0.1.0",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@payrail-one/checkout@0.1.0",
       "licenses": [
         {
           "license": {
@@ -252,10 +252,37 @@
     },
     {
       "type": "library",
+      "name": "game-sdk",
+      "group": "@payrail-one",
+      "version": "0.6.0",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@payrail-one/game-sdk@0.6.0",
+      "description": "Client-side signing and finalized settlement SDK for the public R1 Game API",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40payrail-one/game-sdk@0.6.0",
+      "properties": [
+        {
+          "name": "cdx:npm:package:private",
+          "value": "true"
+        },
+        {
+          "name": "cdx:npm:package:path",
+          "value": "node_modules/@payrail-one/game-sdk"
+        }
+      ]
+    },
+    {
+      "type": "library",
       "name": "sms",
       "group": "@payrail-one",
       "version": "0.3.0",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@payrail-one/sms@0.3.0",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@payrail-one/sms@0.3.0",
       "licenses": [
         {
           "license": {
@@ -281,7 +308,7 @@
       "name": "contracts-sdk",
       "group": "@payrail",
       "version": "0.1.0",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@payrail/contracts-sdk@0.1.0",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@payrail/contracts-sdk@0.1.0",
       "description": "Payrail PRC1 smart-contract compiler, bytecode builder and client boundary",
       "purl": "pkg:npm/%40payrail/contracts-sdk@0.1.0",
       "properties": [
@@ -296,7 +323,7 @@
       "name": "api-client",
       "group": "@platform",
       "version": "0.0.0",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@platform/api-client@0.0.0",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@platform/api-client@0.0.0",
       "licenses": [
         {
           "license": {
@@ -322,7 +349,7 @@
       "name": "money",
       "group": "@platform",
       "version": "0.0.0",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@platform/money@0.0.0",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@platform/money@0.0.0",
       "licenses": [
         {
           "license": {
@@ -348,7 +375,7 @@
       "name": "wallet-core",
       "group": "@platform",
       "version": "0.0.0",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@platform/wallet-core@0.0.0",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@platform/wallet-core@0.0.0",
       "licenses": [
         {
           "license": {
@@ -374,7 +401,7 @@
       "name": "test",
       "group": "@playwright",
       "version": "1.63.0",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@playwright/test@1.63.0",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@playwright/test@1.63.0",
       "author": "Microsoft Corporation",
       "description": "A high-level API to automate web browsers",
       "licenses": [
@@ -430,7 +457,7 @@
       "name": "base",
       "group": "@scure",
       "version": "2.4.0",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@scure/base@2.4.0",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@scure/base@2.4.0",
       "author": "Paul Miller",
       "description": "Secure, audited & 0-dep implementation of base64, bech32, base58, base32 & base16",
       "licenses": [
@@ -481,7 +508,7 @@
       "type": "library",
       "name": "prettier",
       "version": "3.8.3",
-      "bom-ref": "@payrail-one/sdk@0.4.0|prettier@3.8.3",
+      "bom-ref": "@payrail-one/sdk@0.6.0|prettier@3.8.3",
       "author": "James Long",
       "description": "Prettier is an opinionated code formatter",
       "licenses": [
@@ -536,7 +563,7 @@
       "type": "library",
       "name": "tslib",
       "version": "2.8.1",
-      "bom-ref": "@payrail-one/sdk@0.4.0|tslib@2.8.1",
+      "bom-ref": "@payrail-one/sdk@0.6.0|tslib@2.8.1",
       "author": "Microsoft Corp.",
       "description": "Runtime library for TypeScript helper functions",
       "scope": "optional",
@@ -596,7 +623,7 @@
       "type": "library",
       "name": "typescript",
       "version": "6.0.3",
-      "bom-ref": "@payrail-one/sdk@0.4.0|typescript@6.0.3",
+      "bom-ref": "@payrail-one/sdk@0.6.0|typescript@6.0.3",
       "author": "Microsoft Corp.",
       "description": "TypeScript is a language for application scale JavaScript development",
       "licenses": [
@@ -650,8 +677,8 @@
     {
       "type": "library",
       "name": "wrangler",
-      "version": "4.147.0",
-      "bom-ref": "@payrail-one/sdk@0.4.0|wrangler@4.147.0",
+      "version": "4.151.2",
+      "bom-ref": "@payrail-one/sdk@0.6.0|wrangler@4.151.2",
       "author": "wrangler@cloudflare.com",
       "description": "Command-line interface for all things Cloudflare Workers",
       "licenses": [
@@ -660,7 +687,7 @@
           "acknowledgement": "declared"
         }
       ],
-      "purl": "pkg:npm/wrangler@4.147.0#packages/wrangler",
+      "purl": "pkg:npm/wrangler@4.151.2#packages/wrangler",
       "externalReferences": [
         {
           "url": "git+https://github.com/cloudflare/workers-sdk.git#packages/wrangler",
@@ -678,12 +705,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/wrangler/-/wrangler-4.147.0.tgz",
+          "url": "https://registry.npmjs.org/wrangler/-/wrangler-4.151.2.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "a50611a22abc3d3031a61686ebdcfcf860b50e4486775f440d97a143ccf18e8fcaa3799107a42cd664eb77c66e2806ab2e49488d3aabd6551d08af6be2ada152"
+              "content": "c884f9434f1e54fd99484e171c667cd58f98d5bdb9bb3a7b2c0370576b22684b7f3bb4e97a216212287fc47c00447190a3cb2e7ecd996882c6c4271c1e08d03e"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -705,7 +732,7 @@
       "name": "node",
       "group": "@types",
       "version": "26.6.2",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@types/node@26.6.2",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@types/node@26.6.2",
       "description": "TypeScript definitions for node",
       "licenses": [
         {
@@ -759,7 +786,7 @@
       "type": "library",
       "name": "tsx",
       "version": "4.23.15",
-      "bom-ref": "@payrail-one/sdk@0.4.0|tsx@4.23.15",
+      "bom-ref": "@payrail-one/sdk@0.6.0|tsx@4.23.15",
       "author": "Hiroki Osame",
       "description": "TypeScript Execute (tsx): Node.js enhanced with esbuild to run TypeScript & ESM files",
       "licenses": [
@@ -814,7 +841,7 @@
       "type": "library",
       "name": "playwright",
       "version": "1.63.0",
-      "bom-ref": "@payrail-one/sdk@0.4.0|playwright@1.63.0",
+      "bom-ref": "@payrail-one/sdk@0.6.0|playwright@1.63.0",
       "author": "Microsoft Corporation",
       "description": "A high-level API to automate web browsers",
       "licenses": [
@@ -870,7 +897,7 @@
       "name": "kv-asset-handler",
       "group": "@cloudflare",
       "version": "0.5.0",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@cloudflare/kv-asset-handler@0.5.0",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@cloudflare/kv-asset-handler@0.5.0",
       "author": "wrangler@cloudflare.com",
       "description": "Routes requests to KV assets",
       "licenses": [
@@ -924,7 +951,7 @@
       "name": "unenv-preset",
       "group": "@cloudflare",
       "version": "2.16.2",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@cloudflare/unenv-preset@2.16.2",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@cloudflare/unenv-preset@2.16.2",
       "description": "cloudflare preset for unenv",
       "licenses": [
         {
@@ -976,7 +1003,7 @@
       "type": "library",
       "name": "blake3-wasm",
       "version": "2.1.5",
-      "bom-ref": "@payrail-one/sdk@0.4.0|blake3-wasm@2.1.5",
+      "bom-ref": "@payrail-one/sdk@0.6.0|blake3-wasm@2.1.5",
       "author": "Connor Peet",
       "description": "BLAKE3 hashing for JavaScript: native Node bindings (where available) and WebAssembly",
       "licenses": [
@@ -1030,8 +1057,8 @@
     {
       "type": "library",
       "name": "esbuild",
-      "version": "0.28.1",
-      "bom-ref": "@payrail-one/sdk@0.4.0|esbuild@0.28.1",
+      "version": "0.28.2",
+      "bom-ref": "@payrail-one/sdk@0.6.0|esbuild@0.28.2",
       "description": "An extremely fast JavaScript and CSS bundler and minifier.",
       "licenses": [
         {
@@ -1041,7 +1068,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/esbuild@0.28.1",
+      "purl": "pkg:npm/esbuild@0.28.2",
       "externalReferences": [
         {
           "url": "git+https://github.com/evanw/esbuild.git",
@@ -1059,12 +1086,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/esbuild/-/esbuild-0.28.1.tgz",
+          "url": "https://registry.npmjs.org/esbuild/-/esbuild-0.28.2.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "1eb26bbd9bf96b2c41ccf7f0a613a837393338822589fce4d0a26b18ad9cf11e3e2caa4cb6960b41e51d8e7c235affcb665907da569993ee30efca62f7d0f857"
+              "content": "1ca54b4bc76f208fb1a0a5bd926ab16d12ab9d61177c926bfc56618499a2a880747b4e7740d605a8e068b9330efe4e6c203e0cbc28940afbfc6fd338877db020"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1085,7 +1112,7 @@
       "type": "library",
       "name": "fsevents",
       "version": "2.3.3",
-      "bom-ref": "@payrail-one/sdk@0.4.0|fsevents@2.3.3",
+      "bom-ref": "@payrail-one/sdk@0.6.0|fsevents@2.3.3",
       "description": "Native Access to MacOS FSEvents",
       "scope": "optional",
       "licenses": [
@@ -1139,8 +1166,8 @@
     {
       "type": "library",
       "name": "miniflare",
-      "version": "5.20261001.0-alpha",
-      "bom-ref": "@payrail-one/sdk@0.4.0|miniflare@5.20261001.0-alpha",
+      "version": "5.20261019.0-beta",
+      "bom-ref": "@payrail-one/sdk@0.6.0|miniflare@5.20261019.0-beta",
       "author": "MrBBot",
       "description": "Fun, full-featured, fully-local simulator for Cloudflare Workers",
       "licenses": [
@@ -1151,7 +1178,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/miniflare@5.20261001.0-alpha#packages/miniflare",
+      "purl": "pkg:npm/miniflare@5.20261019.0-beta#packages/miniflare",
       "externalReferences": [
         {
           "url": "git+https://github.com/cloudflare/workers-sdk.git#packages/miniflare",
@@ -1169,12 +1196,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/miniflare/-/miniflare-5.20261001.0-alpha.tgz",
+          "url": "https://registry.npmjs.org/miniflare/-/miniflare-5.20261019.0-beta.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "19a8a64b999220e332bddd7a81af9ed7f42423c726a77cf7e503c715ec740e4b6a3507f6455650c0c3d05ddca852b7948853ffd06a5ed8ca102274f23000f9c4"
+              "content": "36613a633ecc49d8eb7ebde531a30054ee79ac89b7fba6179653a424e332ea93d02130ee0dea343d845e769ee98eeda894d5a6ac095fd62d4b21661f190befbb"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1195,7 +1222,7 @@
       "type": "library",
       "name": "path-to-regexp",
       "version": "6.3.0",
-      "bom-ref": "@payrail-one/sdk@0.4.0|path-to-regexp@6.3.0",
+      "bom-ref": "@payrail-one/sdk@0.6.0|path-to-regexp@6.3.0",
       "description": "Express style path to RegExp utility",
       "licenses": [
         {
@@ -1249,7 +1276,7 @@
       "type": "library",
       "name": "unenv",
       "version": "2.0.0-rc.24",
-      "bom-ref": "@payrail-one/sdk@0.4.0|unenv@2.0.0-rc.24",
+      "bom-ref": "@payrail-one/sdk@0.6.0|unenv@2.0.0-rc.24",
       "licenses": [
         {
           "license": {
@@ -1301,8 +1328,8 @@
     {
       "type": "library",
       "name": "workerd",
-      "version": "1.20261001.1",
-      "bom-ref": "@payrail-one/sdk@0.4.0|workerd@1.20261001.1",
+      "version": "1.20261019.1",
+      "bom-ref": "@payrail-one/sdk@0.6.0|workerd@1.20261019.1",
       "description": "👷 workerd, Cloudflare's JavaScript/Wasm Runtime",
       "licenses": [
         {
@@ -1312,7 +1339,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/workerd@1.20261001.1",
+      "purl": "pkg:npm/workerd@1.20261019.1",
       "externalReferences": [
         {
           "url": "git+https://github.com/cloudflare/workerd.git",
@@ -1330,12 +1357,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/workerd/-/workerd-1.20261001.1.tgz",
+          "url": "https://registry.npmjs.org/workerd/-/workerd-1.20261019.1.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "77f48860714ed0f4ffc2215983c8a7e0da5123162e170b255f51ddca53ad5a4048214992a6418584af36d1c57ce17002172970278f31b91a165bff035833ec3d"
+              "content": "51461152affb0e6782975d58ae235b7156e351954bb6df2eb825c5bbe9f3efb84615ff1de031155e8098b6703e32505ab44e3ec31a23e3b0d5ab32b7c460408b"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1356,7 +1383,7 @@
       "type": "library",
       "name": "undici-types",
       "version": "8.9.0",
-      "bom-ref": "@payrail-one/sdk@0.4.0|undici-types@8.9.0",
+      "bom-ref": "@payrail-one/sdk@0.6.0|undici-types@8.9.0",
       "description": "A stand-alone types package for Undici",
       "licenses": [
         {
@@ -1410,7 +1437,7 @@
       "type": "library",
       "name": "playwright-core",
       "version": "1.63.0",
-      "bom-ref": "@payrail-one/sdk@0.4.0|playwright-core@1.63.0",
+      "bom-ref": "@payrail-one/sdk@0.6.0|playwright-core@1.63.0",
       "author": "Microsoft Corporation",
       "description": "A high-level API to automate web browsers",
       "licenses": [
@@ -1465,8 +1492,8 @@
       "type": "library",
       "name": "darwin-arm64",
       "group": "@esbuild",
-      "version": "0.28.1",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@esbuild/darwin-arm64@0.28.1",
+      "version": "0.28.2",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@esbuild/darwin-arm64@0.28.2",
       "description": "The macOS ARM 64-bit binary for esbuild, a JavaScript bundler.",
       "scope": "optional",
       "licenses": [
@@ -1477,7 +1504,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40esbuild/darwin-arm64@0.28.1",
+      "purl": "pkg:npm/%40esbuild/darwin-arm64@0.28.2",
       "externalReferences": [
         {
           "url": "git+https://github.com/evanw/esbuild.git",
@@ -1495,12 +1522,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.28.1.tgz",
+          "url": "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.28.2.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "4d96d691063b92f4c05db5d44fbb9500247970c1ec0e24b3f73ed92805ff453abf589124dd0c91af4c19a4d8410d7fbfd02b5da9420994e8a875072d6bab58dd"
+              "content": "9f82aa90e42badac4725c82333546fc1b8a07d028828956933bc69f8ab318b2512ad17485e7b7bdd586b3c0c747d5e388607e62152a3c4c37d275b798f249593"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1522,7 +1549,7 @@
       "name": "source-map-support",
       "group": "@cspotcode",
       "version": "0.8.1",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@cspotcode/source-map-support@0.8.1",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@cspotcode/source-map-support@0.8.1",
       "description": "Fixes stack traces for files with source maps",
       "licenses": [
         {
@@ -1575,8 +1602,8 @@
     {
       "type": "library",
       "name": "sharp",
-      "version": "0.35.4",
-      "bom-ref": "@payrail-one/sdk@0.4.0|sharp@0.35.4",
+      "version": "0.35.5",
+      "bom-ref": "@payrail-one/sdk@0.6.0|sharp@0.35.5",
       "author": "Lovell Fuller",
       "description": "High performance Node.js image processing, the fastest module to resize JPEG, PNG, WebP, GIF, AVIF and TIFF images",
       "licenses": [
@@ -1587,7 +1614,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/sharp@0.35.4",
+      "purl": "pkg:npm/sharp@0.35.5",
       "externalReferences": [
         {
           "url": "git+https://github.com/lovell/sharp.git",
@@ -1605,12 +1632,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/sharp/-/sharp-0.35.4.tgz",
+          "url": "https://registry.npmjs.org/sharp/-/sharp-0.35.5.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "9fefbc5d6723fa308eaf620e97b87c2db2a71810d8e1a3db9a9acc38d04d15d9f42265eaa4656fe739620ecd15f476e66c240ba5bba8d9e8fdac0a0e413bcc0c"
+              "content": "6309f83a7cc6ba4a7b08332ba74f11439d182a6bb01b8edbad980854f4ef05a6807d095197282b46a4abc5d0a22fd33e2e5ccb06227af0847542abf31f28c2ee"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1631,7 +1658,7 @@
       "type": "library",
       "name": "undici",
       "version": "7.29.1",
-      "bom-ref": "@payrail-one/sdk@0.4.0|undici@7.29.1",
+      "bom-ref": "@payrail-one/sdk@0.6.0|undici@7.29.1",
       "description": "An HTTP/1.1 client, written from scratch for Node.js",
       "licenses": [
         {
@@ -1685,7 +1712,7 @@
       "type": "library",
       "name": "ws",
       "version": "8.21.0",
-      "bom-ref": "@payrail-one/sdk@0.4.0|ws@8.21.0",
+      "bom-ref": "@payrail-one/sdk@0.6.0|ws@8.21.0",
       "author": "Einar Otto Stangvik",
       "description": "Simple to use, blazing fast and thoroughly tested websocket client and server for Node.js",
       "licenses": [
@@ -1740,7 +1767,7 @@
       "type": "library",
       "name": "youch",
       "version": "4.1.0-beta.10",
-      "bom-ref": "@payrail-one/sdk@0.4.0|youch@4.1.0-beta.10",
+      "bom-ref": "@payrail-one/sdk@0.6.0|youch@4.1.0-beta.10",
       "author": "Harminder Virk",
       "description": "Pretty print JavaScript errors on the Web and the Terminal",
       "licenses": [
@@ -1795,7 +1822,7 @@
       "type": "library",
       "name": "pathe",
       "version": "2.0.3",
-      "bom-ref": "@payrail-one/sdk@0.4.0|pathe@2.0.3",
+      "bom-ref": "@payrail-one/sdk@0.6.0|pathe@2.0.3",
       "description": "Universal filesystem path utils",
       "licenses": [
         {
@@ -1849,8 +1876,8 @@
       "type": "library",
       "name": "workerd-darwin-arm64",
       "group": "@cloudflare",
-      "version": "1.20261001.1",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@cloudflare/workerd-darwin-arm64@1.20261001.1",
+      "version": "1.20261019.1",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@cloudflare/workerd-darwin-arm64@1.20261019.1",
       "description": "👷 workerd for macOS ARM 64-bit, Cloudflare's JavaScript/Wasm Runtime",
       "scope": "optional",
       "licenses": [
@@ -1861,7 +1888,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40cloudflare/workerd-darwin-arm64@1.20261001.1",
+      "purl": "pkg:npm/%40cloudflare/workerd-darwin-arm64@1.20261019.1",
       "externalReferences": [
         {
           "url": "git+https://github.com/cloudflare/workerd.git",
@@ -1879,12 +1906,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@cloudflare/workerd-darwin-arm64/-/workerd-darwin-arm64-1.20261001.1.tgz",
+          "url": "https://registry.npmjs.org/@cloudflare/workerd-darwin-arm64/-/workerd-darwin-arm64-1.20261019.1.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "f2e9405abb84568b8d98422c42ccbd5924824bdce42eef775b6313c29e5eb22172a0fa74e41352545205b1848f8b5a6416604177b7ec9f03296cb91a24b6953d"
+              "content": "730c3601bea554cc694e21048ca98f239f29e44328d2f6136521fedd692a5c975081cdc44bae86b8bdb8efe5360766166a3861bb6b6a8fb8f24ab5e7794ef8f6"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -1906,7 +1933,7 @@
       "name": "trace-mapping",
       "group": "@jridgewell",
       "version": "0.3.9",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@jridgewell/trace-mapping@0.3.9",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@jridgewell/trace-mapping@0.3.9",
       "author": "Justin Ridgewell",
       "description": "Trace the original position through a source map",
       "licenses": [
@@ -1962,7 +1989,7 @@
       "name": "colour",
       "group": "@img",
       "version": "1.1.0",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@img/colour@1.1.0",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@img/colour@1.1.0",
       "description": "The ESM-only 'color' package made compatible for use with CommonJS runtimes",
       "licenses": [
         {
@@ -2016,8 +2043,8 @@
       "type": "library",
       "name": "sharp-darwin-arm64",
       "group": "@img",
-      "version": "0.35.4",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@img/sharp-darwin-arm64@0.35.4",
+      "version": "0.35.5",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@img/sharp-darwin-arm64@0.35.5",
       "author": "Lovell Fuller",
       "description": "Prebuilt sharp for use with macOS 64-bit ARM",
       "scope": "optional",
@@ -2029,7 +2056,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40img/sharp-darwin-arm64@0.35.4#npm/darwin-arm64",
+      "purl": "pkg:npm/%40img/sharp-darwin-arm64@0.35.5#npm/darwin-arm64",
       "externalReferences": [
         {
           "url": "git+https://github.com/lovell/sharp.git#npm/darwin-arm64",
@@ -2047,12 +2074,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@img/sharp-darwin-arm64/-/sharp-darwin-arm64-0.35.4.tgz",
+          "url": "https://registry.npmjs.org/@img/sharp-darwin-arm64/-/sharp-darwin-arm64-0.35.5.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "5217e5e15e2584fda76d4545f7e8721f5fa5ba3f3a7f581415ea3c00b63116850ba14f86f3b0f8dc17de30ff171ec93d6e8c409c263f6dfd841f0840eccb86b0"
+              "content": "411525150d16c6f756caaa86fd6b48de2ba97c3e6b0739821d749d3ec63dd6c02d56d4e8ed0e1c6facce71c67782a12a92bd1fd40b357a12ea984a43b117fe96"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -2073,8 +2100,8 @@
       "type": "library",
       "name": "sharp-libvips-darwin-arm64",
       "group": "@img",
-      "version": "1.3.3",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@img/sharp-libvips-darwin-arm64@1.3.3",
+      "version": "1.3.4",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@img/sharp-libvips-darwin-arm64@1.3.4",
       "author": "Lovell Fuller",
       "description": "Prebuilt libvips and dependencies for use with sharp on macOS 64-bit ARM",
       "scope": "optional",
@@ -2086,7 +2113,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/%40img/sharp-libvips-darwin-arm64@1.3.3#npm/darwin-arm64",
+      "purl": "pkg:npm/%40img/sharp-libvips-darwin-arm64@1.3.4#npm/darwin-arm64",
       "externalReferences": [
         {
           "url": "git+https://github.com/lovell/sharp-libvips.git#npm/darwin-arm64",
@@ -2104,12 +2131,12 @@
           "comment": "as detected from PackageJson property \"bugs.url\""
         },
         {
-          "url": "https://registry.npmjs.org/@img/sharp-libvips-darwin-arm64/-/sharp-libvips-darwin-arm64-1.3.3.tgz",
+          "url": "https://registry.npmjs.org/@img/sharp-libvips-darwin-arm64/-/sharp-libvips-darwin-arm64-1.3.4.tgz",
           "type": "distribution",
           "hashes": [
             {
               "alg": "SHA-512",
-              "content": "b2e4c13d30c6ac8f56a1d71c683770648b5349a0580129419353527c49521eb51fceedeccc6ea5bc8179f3e5a216f9dfcee2bc641152e73134d0fc6ac674623e"
+              "content": "e51f3d9c162245d5254962713e13be195b5a5f35d2c4a9d1bbfc6a327dca4c0dcbf4407d3b2fcff8d9f67f6be584fb94772fd9bac6f60daadbc93a4609f103bb"
             }
           ],
           "comment": "as detected from npm-ls property \"resolved\" and property \"integrity\""
@@ -2130,7 +2157,7 @@
       "type": "library",
       "name": "detect-libc",
       "version": "2.1.2",
-      "bom-ref": "@payrail-one/sdk@0.4.0|detect-libc@2.1.2",
+      "bom-ref": "@payrail-one/sdk@0.6.0|detect-libc@2.1.2",
       "author": "Lovell Fuller",
       "description": "Node.js module to detect the C standard library (libc) implementation family and version",
       "licenses": [
@@ -2185,7 +2212,7 @@
       "type": "library",
       "name": "semver",
       "version": "7.8.5",
-      "bom-ref": "@payrail-one/sdk@0.4.0|semver@7.8.5",
+      "bom-ref": "@payrail-one/sdk@0.6.0|semver@7.8.5",
       "author": "GitHub Inc.",
       "description": "The semantic version parser used by npm.",
       "licenses": [
@@ -2241,7 +2268,7 @@
       "name": "colors",
       "group": "@poppinss",
       "version": "4.1.6",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@poppinss/colors@4.1.6",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@poppinss/colors@4.1.6",
       "author": "virk",
       "description": "A wrapper on top of kleur with ability to write test against the color functions",
       "licenses": [
@@ -2297,7 +2324,7 @@
       "name": "dumper",
       "group": "@poppinss",
       "version": "0.6.5",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@poppinss/dumper@0.6.5",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@poppinss/dumper@0.6.5",
       "author": "Harminder Virk",
       "description": "Pretty print JavaScript data types in the terminal and the browser",
       "licenses": [
@@ -2353,7 +2380,7 @@
       "name": "core",
       "group": "@speed-highlight",
       "version": "1.2.24",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@speed-highlight/core@1.2.24",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@speed-highlight/core@1.2.24",
       "author": "matubu",
       "description": "🌈 Light, fast, and easy to use, dependencies free javascript syntax highlighter, with automatic language detection",
       "licenses": [
@@ -2408,7 +2435,7 @@
       "type": "library",
       "name": "cookie",
       "version": "1.1.1",
-      "bom-ref": "@payrail-one/sdk@0.4.0|cookie@1.1.1",
+      "bom-ref": "@payrail-one/sdk@0.6.0|cookie@1.1.1",
       "author": "Roman Shtylman",
       "description": "HTTP server cookie parsing and serialization",
       "licenses": [
@@ -2463,7 +2490,7 @@
       "type": "library",
       "name": "youch-core",
       "version": "0.3.3",
-      "bom-ref": "@payrail-one/sdk@0.4.0|youch-core@0.3.3",
+      "bom-ref": "@payrail-one/sdk@0.6.0|youch-core@0.3.3",
       "author": "Harminder Virk",
       "description": "Error parser to parse an error instance into a collection of frames",
       "licenses": [
@@ -2519,7 +2546,7 @@
       "name": "resolve-uri",
       "group": "@jridgewell",
       "version": "3.1.2",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@jridgewell/resolve-uri@3.1.2",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@jridgewell/resolve-uri@3.1.2",
       "author": "Justin Ridgewell",
       "description": "Resolve a URI relative to an optional base URI",
       "licenses": [
@@ -2575,7 +2602,7 @@
       "name": "sourcemap-codec",
       "group": "@jridgewell",
       "version": "1.6.0",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@jridgewell/sourcemap-codec@1.6.0",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@jridgewell/sourcemap-codec@1.6.0",
       "author": "Justin Ridgewell",
       "description": "Encode/decode sourcemap mappings",
       "licenses": [
@@ -2630,7 +2657,7 @@
       "type": "library",
       "name": "kleur",
       "version": "4.1.5",
-      "bom-ref": "@payrail-one/sdk@0.4.0|kleur@4.1.5",
+      "bom-ref": "@payrail-one/sdk@0.6.0|kleur@4.1.5",
       "author": "Luke Edwards",
       "description": "The fastest Node.js library for formatting terminal text with ANSI colors~!",
       "licenses": [
@@ -2686,7 +2713,7 @@
       "name": "is",
       "group": "@sindresorhus",
       "version": "7.2.0",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@sindresorhus/is@7.2.0",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@sindresorhus/is@7.2.0",
       "author": "Sindre Sorhus",
       "description": "Type check values",
       "licenses": [
@@ -2741,7 +2768,7 @@
       "type": "library",
       "name": "supports-color",
       "version": "10.2.2",
-      "bom-ref": "@payrail-one/sdk@0.4.0|supports-color@10.2.2",
+      "bom-ref": "@payrail-one/sdk@0.6.0|supports-color@10.2.2",
       "author": "Sindre Sorhus",
       "description": "Detect whether a terminal supports color",
       "licenses": [
@@ -2797,7 +2824,7 @@
       "name": "exception",
       "group": "@poppinss",
       "version": "1.2.3",
-      "bom-ref": "@payrail-one/sdk@0.4.0|@poppinss/exception@1.2.3",
+      "bom-ref": "@payrail-one/sdk@0.6.0|@poppinss/exception@1.2.3",
       "author": "Harminder Virk",
       "description": "Utility to create custom exceptions",
       "licenses": [
@@ -2852,7 +2879,7 @@
       "type": "library",
       "name": "error-stack-parser-es",
       "version": "1.0.5",
-      "bom-ref": "@payrail-one/sdk@0.4.0|error-stack-parser-es@1.0.5",
+      "bom-ref": "@payrail-one/sdk@0.6.0|error-stack-parser-es@1.0.5",
       "description": "Cross-browser Error parser",
       "licenses": [
         {
@@ -2905,294 +2932,301 @@
   ],
   "dependencies": [
     {
-      "ref": "@payrail-one/sdk@0.4.0",
+      "ref": "@payrail-one/sdk@0.6.0",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|@emnapi/runtime@1.11.3",
-        "@payrail-one/sdk@0.4.0|@img/sharp-wasm32@0.35.4",
-        "@payrail-one/sdk@0.4.0|@payrail-one/checkout@0.1.0",
-        "@payrail-one/sdk@0.4.0|@payrail-one/sms@0.3.0",
-        "@payrail-one/sdk@0.4.0|@payrail/contracts-sdk@0.1.0",
-        "@payrail-one/sdk@0.4.0|@platform/api-client@0.0.0",
-        "@payrail-one/sdk@0.4.0|@platform/money@0.0.0",
-        "@payrail-one/sdk@0.4.0|@platform/wallet-core@0.0.0",
-        "@payrail-one/sdk@0.4.0|@playwright/test@1.63.0",
-        "@payrail-one/sdk@0.4.0|@scure/base@2.4.0",
-        "@payrail-one/sdk@0.4.0|prettier@3.8.3",
-        "@payrail-one/sdk@0.4.0|tslib@2.8.1",
-        "@payrail-one/sdk@0.4.0|typescript@6.0.3",
-        "@payrail-one/sdk@0.4.0|wrangler@4.147.0"
+        "@payrail-one/sdk@0.6.0|@emnapi/runtime@1.11.3",
+        "@payrail-one/sdk@0.6.0|@img/sharp-wasm32@0.35.5",
+        "@payrail-one/sdk@0.6.0|@payrail-one/checkout@0.1.0",
+        "@payrail-one/sdk@0.6.0|@payrail-one/game-sdk@0.6.0",
+        "@payrail-one/sdk@0.6.0|@payrail-one/sms@0.3.0",
+        "@payrail-one/sdk@0.6.0|@payrail/contracts-sdk@0.1.0",
+        "@payrail-one/sdk@0.6.0|@platform/api-client@0.0.0",
+        "@payrail-one/sdk@0.6.0|@platform/money@0.0.0",
+        "@payrail-one/sdk@0.6.0|@platform/wallet-core@0.0.0",
+        "@payrail-one/sdk@0.6.0|@playwright/test@1.63.0",
+        "@payrail-one/sdk@0.6.0|@scure/base@2.4.0",
+        "@payrail-one/sdk@0.6.0|prettier@3.8.3",
+        "@payrail-one/sdk@0.6.0|tslib@2.8.1",
+        "@payrail-one/sdk@0.6.0|typescript@6.0.3",
+        "@payrail-one/sdk@0.6.0|wrangler@4.151.2"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@emnapi/runtime@1.11.3",
+      "ref": "@payrail-one/sdk@0.6.0|@emnapi/runtime@1.11.3",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|tslib@2.8.1"
+        "@payrail-one/sdk@0.6.0|tslib@2.8.1"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@img/sharp-wasm32@0.35.4",
+      "ref": "@payrail-one/sdk@0.6.0|@img/sharp-wasm32@0.35.5",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|@emnapi/runtime@1.11.3"
+        "@payrail-one/sdk@0.6.0|@emnapi/runtime@1.11.3"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@payrail-one/checkout@0.1.0",
+      "ref": "@payrail-one/sdk@0.6.0|@payrail-one/checkout@0.1.0",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|typescript@6.0.3"
+        "@payrail-one/sdk@0.6.0|typescript@6.0.3"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@payrail-one/sms@0.3.0",
+      "ref": "@payrail-one/sdk@0.6.0|@payrail-one/game-sdk@0.6.0",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|typescript@6.0.3"
+        "@payrail-one/sdk@0.6.0|typescript@6.0.3"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@payrail/contracts-sdk@0.1.0",
+      "ref": "@payrail-one/sdk@0.6.0|@payrail-one/sms@0.3.0",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|@types/node@26.6.2",
-        "@payrail-one/sdk@0.4.0|tsx@4.23.15",
-        "@payrail-one/sdk@0.4.0|typescript@6.0.3"
+        "@payrail-one/sdk@0.6.0|typescript@6.0.3"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@platform/api-client@0.0.0",
+      "ref": "@payrail-one/sdk@0.6.0|@payrail/contracts-sdk@0.1.0",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|typescript@6.0.3"
+        "@payrail-one/sdk@0.6.0|@types/node@26.6.2",
+        "@payrail-one/sdk@0.6.0|tsx@4.23.15",
+        "@payrail-one/sdk@0.6.0|typescript@6.0.3"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@platform/money@0.0.0",
+      "ref": "@payrail-one/sdk@0.6.0|@platform/api-client@0.0.0",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|typescript@6.0.3"
+        "@payrail-one/sdk@0.6.0|typescript@6.0.3"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@platform/wallet-core@0.0.0",
+      "ref": "@payrail-one/sdk@0.6.0|@platform/money@0.0.0",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|@platform/api-client@0.0.0",
-        "@payrail-one/sdk@0.4.0|@scure/base@2.4.0",
-        "@payrail-one/sdk@0.4.0|typescript@6.0.3"
+        "@payrail-one/sdk@0.6.0|typescript@6.0.3"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@playwright/test@1.63.0",
+      "ref": "@payrail-one/sdk@0.6.0|@platform/wallet-core@0.0.0",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|playwright@1.63.0"
+        "@payrail-one/sdk@0.6.0|@platform/api-client@0.0.0",
+        "@payrail-one/sdk@0.6.0|@scure/base@2.4.0",
+        "@payrail-one/sdk@0.6.0|typescript@6.0.3"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@scure/base@2.4.0"
-    },
-    {
-      "ref": "@payrail-one/sdk@0.4.0|prettier@3.8.3"
-    },
-    {
-      "ref": "@payrail-one/sdk@0.4.0|tslib@2.8.1"
-    },
-    {
-      "ref": "@payrail-one/sdk@0.4.0|typescript@6.0.3"
-    },
-    {
-      "ref": "@payrail-one/sdk@0.4.0|wrangler@4.147.0",
+      "ref": "@payrail-one/sdk@0.6.0|@playwright/test@1.63.0",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|@cloudflare/kv-asset-handler@0.5.0",
-        "@payrail-one/sdk@0.4.0|@cloudflare/unenv-preset@2.16.2",
-        "@payrail-one/sdk@0.4.0|blake3-wasm@2.1.5",
-        "@payrail-one/sdk@0.4.0|esbuild@0.28.1",
-        "@payrail-one/sdk@0.4.0|fsevents@2.3.3",
-        "@payrail-one/sdk@0.4.0|miniflare@5.20261001.0-alpha",
-        "@payrail-one/sdk@0.4.0|path-to-regexp@6.3.0",
-        "@payrail-one/sdk@0.4.0|unenv@2.0.0-rc.24",
-        "@payrail-one/sdk@0.4.0|workerd@1.20261001.1"
+        "@payrail-one/sdk@0.6.0|playwright@1.63.0"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@types/node@26.6.2",
+      "ref": "@payrail-one/sdk@0.6.0|@scure/base@2.4.0"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.6.0|prettier@3.8.3"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.6.0|tslib@2.8.1"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.6.0|typescript@6.0.3"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.6.0|wrangler@4.151.2",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|undici-types@8.9.0"
+        "@payrail-one/sdk@0.6.0|@cloudflare/kv-asset-handler@0.5.0",
+        "@payrail-one/sdk@0.6.0|@cloudflare/unenv-preset@2.16.2",
+        "@payrail-one/sdk@0.6.0|blake3-wasm@2.1.5",
+        "@payrail-one/sdk@0.6.0|esbuild@0.28.2",
+        "@payrail-one/sdk@0.6.0|fsevents@2.3.3",
+        "@payrail-one/sdk@0.6.0|miniflare@5.20261019.0-beta",
+        "@payrail-one/sdk@0.6.0|path-to-regexp@6.3.0",
+        "@payrail-one/sdk@0.6.0|unenv@2.0.0-rc.24",
+        "@payrail-one/sdk@0.6.0|workerd@1.20261019.1"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|tsx@4.23.15",
+      "ref": "@payrail-one/sdk@0.6.0|@types/node@26.6.2",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|esbuild@0.28.1",
-        "@payrail-one/sdk@0.4.0|fsevents@2.3.3"
+        "@payrail-one/sdk@0.6.0|undici-types@8.9.0"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|playwright@1.63.0",
+      "ref": "@payrail-one/sdk@0.6.0|tsx@4.23.15",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|playwright-core@1.63.0"
+        "@payrail-one/sdk@0.6.0|esbuild@0.28.2",
+        "@payrail-one/sdk@0.6.0|fsevents@2.3.3"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@cloudflare/kv-asset-handler@0.5.0"
-    },
-    {
-      "ref": "@payrail-one/sdk@0.4.0|@cloudflare/unenv-preset@2.16.2",
+      "ref": "@payrail-one/sdk@0.6.0|playwright@1.63.0",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|unenv@2.0.0-rc.24",
-        "@payrail-one/sdk@0.4.0|workerd@1.20261001.1"
+        "@payrail-one/sdk@0.6.0|playwright-core@1.63.0"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|blake3-wasm@2.1.5"
+      "ref": "@payrail-one/sdk@0.6.0|@cloudflare/kv-asset-handler@0.5.0"
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|esbuild@0.28.1",
+      "ref": "@payrail-one/sdk@0.6.0|@cloudflare/unenv-preset@2.16.2",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|@esbuild/darwin-arm64@0.28.1"
+        "@payrail-one/sdk@0.6.0|unenv@2.0.0-rc.24",
+        "@payrail-one/sdk@0.6.0|workerd@1.20261019.1"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|fsevents@2.3.3"
+      "ref": "@payrail-one/sdk@0.6.0|blake3-wasm@2.1.5"
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|miniflare@5.20261001.0-alpha",
+      "ref": "@payrail-one/sdk@0.6.0|esbuild@0.28.2",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|@cspotcode/source-map-support@0.8.1",
-        "@payrail-one/sdk@0.4.0|sharp@0.35.4",
-        "@payrail-one/sdk@0.4.0|undici@7.29.1",
-        "@payrail-one/sdk@0.4.0|workerd@1.20261001.1",
-        "@payrail-one/sdk@0.4.0|ws@8.21.0",
-        "@payrail-one/sdk@0.4.0|youch@4.1.0-beta.10"
+        "@payrail-one/sdk@0.6.0|@esbuild/darwin-arm64@0.28.2"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|path-to-regexp@6.3.0"
+      "ref": "@payrail-one/sdk@0.6.0|fsevents@2.3.3"
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|unenv@2.0.0-rc.24",
+      "ref": "@payrail-one/sdk@0.6.0|miniflare@5.20261019.0-beta",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|pathe@2.0.3"
+        "@payrail-one/sdk@0.6.0|@cspotcode/source-map-support@0.8.1",
+        "@payrail-one/sdk@0.6.0|sharp@0.35.5",
+        "@payrail-one/sdk@0.6.0|undici@7.29.1",
+        "@payrail-one/sdk@0.6.0|workerd@1.20261019.1",
+        "@payrail-one/sdk@0.6.0|ws@8.21.0",
+        "@payrail-one/sdk@0.6.0|youch@4.1.0-beta.10"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|workerd@1.20261001.1",
+      "ref": "@payrail-one/sdk@0.6.0|path-to-regexp@6.3.0"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.6.0|unenv@2.0.0-rc.24",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|@cloudflare/workerd-darwin-arm64@1.20261001.1"
+        "@payrail-one/sdk@0.6.0|pathe@2.0.3"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|undici-types@8.9.0"
-    },
-    {
-      "ref": "@payrail-one/sdk@0.4.0|playwright-core@1.63.0"
-    },
-    {
-      "ref": "@payrail-one/sdk@0.4.0|@esbuild/darwin-arm64@0.28.1"
-    },
-    {
-      "ref": "@payrail-one/sdk@0.4.0|@cspotcode/source-map-support@0.8.1",
+      "ref": "@payrail-one/sdk@0.6.0|workerd@1.20261019.1",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|@jridgewell/trace-mapping@0.3.9"
+        "@payrail-one/sdk@0.6.0|@cloudflare/workerd-darwin-arm64@1.20261019.1"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|sharp@0.35.4",
+      "ref": "@payrail-one/sdk@0.6.0|undici-types@8.9.0"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.6.0|playwright-core@1.63.0"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.6.0|@esbuild/darwin-arm64@0.28.2"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.6.0|@cspotcode/source-map-support@0.8.1",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|@img/colour@1.1.0",
-        "@payrail-one/sdk@0.4.0|@img/sharp-darwin-arm64@0.35.4",
-        "@payrail-one/sdk@0.4.0|@img/sharp-libvips-darwin-arm64@1.3.3",
-        "@payrail-one/sdk@0.4.0|detect-libc@2.1.2",
-        "@payrail-one/sdk@0.4.0|semver@7.8.5"
+        "@payrail-one/sdk@0.6.0|@jridgewell/trace-mapping@0.3.9"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|undici@7.29.1"
-    },
-    {
-      "ref": "@payrail-one/sdk@0.4.0|ws@8.21.0"
-    },
-    {
-      "ref": "@payrail-one/sdk@0.4.0|youch@4.1.0-beta.10",
+      "ref": "@payrail-one/sdk@0.6.0|sharp@0.35.5",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|@poppinss/colors@4.1.6",
-        "@payrail-one/sdk@0.4.0|@poppinss/dumper@0.6.5",
-        "@payrail-one/sdk@0.4.0|@speed-highlight/core@1.2.24",
-        "@payrail-one/sdk@0.4.0|cookie@1.1.1",
-        "@payrail-one/sdk@0.4.0|youch-core@0.3.3"
+        "@payrail-one/sdk@0.6.0|@img/colour@1.1.0",
+        "@payrail-one/sdk@0.6.0|@img/sharp-darwin-arm64@0.35.5",
+        "@payrail-one/sdk@0.6.0|@img/sharp-libvips-darwin-arm64@1.3.4",
+        "@payrail-one/sdk@0.6.0|detect-libc@2.1.2",
+        "@payrail-one/sdk@0.6.0|semver@7.8.5"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|pathe@2.0.3"
+      "ref": "@payrail-one/sdk@0.6.0|undici@7.29.1"
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@cloudflare/workerd-darwin-arm64@1.20261001.1"
+      "ref": "@payrail-one/sdk@0.6.0|ws@8.21.0"
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@jridgewell/trace-mapping@0.3.9",
+      "ref": "@payrail-one/sdk@0.6.0|youch@4.1.0-beta.10",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|@jridgewell/resolve-uri@3.1.2",
-        "@payrail-one/sdk@0.4.0|@jridgewell/sourcemap-codec@1.6.0"
+        "@payrail-one/sdk@0.6.0|@poppinss/colors@4.1.6",
+        "@payrail-one/sdk@0.6.0|@poppinss/dumper@0.6.5",
+        "@payrail-one/sdk@0.6.0|@speed-highlight/core@1.2.24",
+        "@payrail-one/sdk@0.6.0|cookie@1.1.1",
+        "@payrail-one/sdk@0.6.0|youch-core@0.3.3"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@img/colour@1.1.0"
+      "ref": "@payrail-one/sdk@0.6.0|pathe@2.0.3"
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@img/sharp-darwin-arm64@0.35.4",
+      "ref": "@payrail-one/sdk@0.6.0|@cloudflare/workerd-darwin-arm64@1.20261019.1"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.6.0|@jridgewell/trace-mapping@0.3.9",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|@img/sharp-libvips-darwin-arm64@1.3.3"
+        "@payrail-one/sdk@0.6.0|@jridgewell/resolve-uri@3.1.2",
+        "@payrail-one/sdk@0.6.0|@jridgewell/sourcemap-codec@1.6.0"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@img/sharp-libvips-darwin-arm64@1.3.3"
+      "ref": "@payrail-one/sdk@0.6.0|@img/colour@1.1.0"
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|detect-libc@2.1.2"
-    },
-    {
-      "ref": "@payrail-one/sdk@0.4.0|semver@7.8.5"
-    },
-    {
-      "ref": "@payrail-one/sdk@0.4.0|@poppinss/colors@4.1.6",
+      "ref": "@payrail-one/sdk@0.6.0|@img/sharp-darwin-arm64@0.35.5",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|kleur@4.1.5"
+        "@payrail-one/sdk@0.6.0|@img/sharp-libvips-darwin-arm64@1.3.4"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@poppinss/dumper@0.6.5",
+      "ref": "@payrail-one/sdk@0.6.0|@img/sharp-libvips-darwin-arm64@1.3.4"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.6.0|detect-libc@2.1.2"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.6.0|semver@7.8.5"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.6.0|@poppinss/colors@4.1.6",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|@poppinss/colors@4.1.6",
-        "@payrail-one/sdk@0.4.0|@sindresorhus/is@7.2.0",
-        "@payrail-one/sdk@0.4.0|supports-color@10.2.2"
+        "@payrail-one/sdk@0.6.0|kleur@4.1.5"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@speed-highlight/core@1.2.24"
-    },
-    {
-      "ref": "@payrail-one/sdk@0.4.0|cookie@1.1.1"
-    },
-    {
-      "ref": "@payrail-one/sdk@0.4.0|youch-core@0.3.3",
+      "ref": "@payrail-one/sdk@0.6.0|@poppinss/dumper@0.6.5",
       "dependsOn": [
-        "@payrail-one/sdk@0.4.0|@poppinss/exception@1.2.3",
-        "@payrail-one/sdk@0.4.0|error-stack-parser-es@1.0.5"
+        "@payrail-one/sdk@0.6.0|@poppinss/colors@4.1.6",
+        "@payrail-one/sdk@0.6.0|@sindresorhus/is@7.2.0",
+        "@payrail-one/sdk@0.6.0|supports-color@10.2.2"
       ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@jridgewell/resolve-uri@3.1.2"
+      "ref": "@payrail-one/sdk@0.6.0|@speed-highlight/core@1.2.24"
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@jridgewell/sourcemap-codec@1.6.0"
+      "ref": "@payrail-one/sdk@0.6.0|cookie@1.1.1"
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|kleur@4.1.5"
+      "ref": "@payrail-one/sdk@0.6.0|youch-core@0.3.3",
+      "dependsOn": [
+        "@payrail-one/sdk@0.6.0|@poppinss/exception@1.2.3",
+        "@payrail-one/sdk@0.6.0|error-stack-parser-es@1.0.5"
+      ]
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@sindresorhus/is@7.2.0"
+      "ref": "@payrail-one/sdk@0.6.0|@jridgewell/resolve-uri@3.1.2"
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|supports-color@10.2.2"
+      "ref": "@payrail-one/sdk@0.6.0|@jridgewell/sourcemap-codec@1.6.0"
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|@poppinss/exception@1.2.3"
+      "ref": "@payrail-one/sdk@0.6.0|kleur@4.1.5"
     },
     {
-      "ref": "@payrail-one/sdk@0.4.0|error-stack-parser-es@1.0.5"
+      "ref": "@payrail-one/sdk@0.6.0|@sindresorhus/is@7.2.0"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.6.0|supports-color@10.2.2"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.6.0|@poppinss/exception@1.2.3"
+    },
+    {
+      "ref": "@payrail-one/sdk@0.6.0|error-stack-parser-es@1.0.5"
     }
   ]
 }
