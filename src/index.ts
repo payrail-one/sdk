@@ -52,3 +52,16 @@ export {
   type UnsignedGameTransactionIntent,
   type WaitForGameFinalizationOptions,
 } from '../packages/game-sdk/src/index.js';
+
+export {
+  R1FundingApiError,
+  R1FundingClient,
+  R1FundingInvariantError,
+  fundingTransferInput,
+  type CreateR1FundingQuoteInput,
+  type R1FundingAccount,
+  type R1FundingClientOptions,
+  type R1FundingNetwork,
+  type R1FundingOperation,
+  type R1FundingStatus,
+} from '../packages/r1-funding/src/index.js';

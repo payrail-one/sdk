@@ -14,6 +14,35 @@ strings—never binary floating point.
 > **Development network:** the current public endpoint uses test assets and a
 > four-validator quorum. It is not a production settlement claim.
 
+## Fund native R1 from a Payrail asset
+
+`@payrail-one/sdk/r1-funding` implements the client side of the Payrail-owned
+conversion boundary. It requests an immutable integer quote, constructs the
+exact ordinary Payrail transfer bound to that quote, signs locally and submits
+it for a native R1 payout. R1 never receives or interprets the source asset's
+symbol, contract address or decimal policy.
+
+```ts
+import { R1FundingClient } from '@payrail-one/sdk/r1-funding';
+
+const funding = new R1FundingClient();
+const quote = await funding.quote({
+  inputAmountAtomic: '10000000',
+  r1Destination: 'ab'.repeat(40),
+});
+const completed = await funding.signAndSubmit(
+  quote,
+  wallet,
+  payrailAccount,
+  payrailNetwork,
+);
+console.log(completed.r1TransactionHash);
+```
+
+The SDK refuses a substituted Payrail network, asset, liquidity account,
+amount, quote identifier, expiry or R1 destination. `bigint` and canonical
+decimal strings are used throughout; private keys remain inside the wallet.
+
 ## Platforms
 
 | Runtime           | Package                         | Intended use                                     |
