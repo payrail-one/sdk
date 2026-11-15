@@ -51,7 +51,7 @@
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
     "check": "npm run check --workspaces --if-present",
-    "test": "npm run build && node --experimental-transform-types --test test/*.test.mjs",
+    "test": "npm run build && tsx --test test/*.test.mjs",
     "prepare": "npm run build",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
@@ -59,6 +59,7 @@
   "devDependencies": {
     "@playwright/test": "1.63.0",
     "prettier": "3.8.3",
+    "tsx": "4.23.15",
     "typescript": "6.0.3",
     "wrangler": "4.151.2"
   },
