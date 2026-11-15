@@ -57,7 +57,7 @@
     "format:check": "prettier --check ."
   },
   "devDependencies": {
-    "@payrail-one/asset-connectors-client": "git+ssh://git@github.com/payrail-one/asset-connectors.git#c0fe31090fd562c4a6585c42cfb1d6be9b8e249c",
+    "@payrail-one/asset-connectors-client": "git+ssh://git@github.com/payrail-one/asset-connectors.git#5d356c3d60a3475cbc625d2c6841f3fb31692f19",
     "@playwright/test": "1.63.0",
     "prettier": "3.8.3",
     "tsx": "4.23.15",
