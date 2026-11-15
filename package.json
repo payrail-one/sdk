@@ -51,7 +51,7 @@
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
     "check": "npm run check --workspaces --if-present",
-    "test": "npm run build && node --test test/*.test.mjs",
+    "test": "npm run build && node --experimental-transform-types --test test/*.test.mjs",
     "prepare": "npm run build",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
