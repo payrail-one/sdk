@@ -1,7 +1,7 @@
 import { bech32m } from '@scure/base';
 import { fromHex } from '@platform/api-client';
-import { encodeContractCall, encodeContractDeploy, } from './contract-operation';
-export { MAX_CONTRACT_ARGS_BYTES, MAX_CONTRACT_CODE_BYTES, MAX_CONTRACT_EXECUTION_UNITS, } from './contract-operation';
+import { encodeContractCall, encodeContractDeploy, } from './contract-operation.js';
+export { MAX_CONTRACT_ARGS_BYTES, MAX_CONTRACT_CODE_BYTES, MAX_CONTRACT_EXECUTION_UNITS, } from './contract-operation.js';
 const AUTHORIZATION_DOMAIN = new TextEncoder().encode('ledger.authorization\0');
 const ENVELOPE_DOMAIN = new TextEncoder().encode('ledger.envelope\0');
 const VAULT_DOMAIN = 'payrail.wallet.v1';

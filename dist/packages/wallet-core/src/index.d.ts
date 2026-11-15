@@ -1,6 +1,6 @@
 import { type IssueApprovalCodeRequest } from '@platform/api-client';
-import { type ContractCallInput, type ContractDeployInput } from './contract-operation';
-export { MAX_CONTRACT_ARGS_BYTES, MAX_CONTRACT_CODE_BYTES, MAX_CONTRACT_EXECUTION_UNITS, type ContractCallInput, type ContractDeployInput, } from './contract-operation';
+import { type ContractCallInput, type ContractDeployInput } from './contract-operation.js';
+export { MAX_CONTRACT_ARGS_BYTES, MAX_CONTRACT_CODE_BYTES, MAX_CONTRACT_EXECUTION_UNITS, type ContractCallInput, type ContractDeployInput, } from './contract-operation.js';
 export interface PayrailWallet {
     readonly address: string;
     readonly accountId: string;
