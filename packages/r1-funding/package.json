@@ -1,7 +1,7 @@
 {
   "name": "@payrail-one/r1-funding",
   "private": true,
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Client-side Payrail asset conversion and native R1 funding workflow",
   "license": "Apache-2.0",
   "type": "module",
@@ -9,9 +9,8 @@
   "scripts": {
     "check": "tsc --noEmit"
   },
-  "dependencies": {
-    "@platform/api-client": "0.0.0",
-    "@platform/wallet-core": "0.0.0"
+  "peerDependencies": {
+    "@payrail-one/asset-connectors-client": "0.1.1"
   },
   "devDependencies": {
     "typescript": "6.0.3"

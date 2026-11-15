@@ -20,9 +20,17 @@ The canonical connector and authorized client implementation is maintained in
 the private
 [`payrail-one/asset-connectors`](https://github.com/payrail-one/asset-connectors)
 repository, shared with Richard. This public SDK preserves the public
-`@payrail-one/sdk/r1-funding` facade and must consume/re-export a pinned private
-release rather than independently evolving Ethereum, conversion, recovery, or
-connector rules.
+`@payrail-one/sdk/r1-funding` facade and re-exports the pinned private client
+rather than independently evolving Ethereum, conversion, recovery, or connector
+rules. The funding facade is intentionally not eagerly exported from the SDK
+root, so checkout and game consumers do not need private repository access.
+
+Authorized funding consumers install both packages at exact releases:
+
+```sh
+npm install github:payrail-one/sdk#v0.7.0 \
+  '@payrail-one/asset-connectors-client@git+ssh://git@github.com/payrail-one/asset-connectors.git#v0.1.1'
+```
 
 `@payrail-one/sdk/r1-funding` implements the client side of the Payrail-owned
 conversion boundary. It requests an immutable integer quote, constructs the

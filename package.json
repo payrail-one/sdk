@@ -1,7 +1,7 @@
 {
   "name": "@payrail-one/sdk",
   "private": false,
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Multi-platform Payrail payments, Payrail Code, smart-contract and R1 game SDK.",
   "license": "Apache-2.0",
   "type": "module",
@@ -57,6 +57,7 @@
     "format:check": "prettier --check ."
   },
   "devDependencies": {
+    "@payrail-one/asset-connectors-client": "git+ssh://git@github.com/payrail-one/asset-connectors.git#c0fe31090fd562c4a6585c42cfb1d6be9b8e249c",
     "@playwright/test": "1.63.0",
     "prettier": "3.8.3",
     "tsx": "4.23.15",
@@ -65,5 +66,13 @@
   },
   "dependencies": {
     "@scure/base": "2.4.0"
+  },
+  "peerDependencies": {
+    "@payrail-one/asset-connectors-client": "0.1.1"
+  },
+  "peerDependenciesMeta": {
+    "@payrail-one/asset-connectors-client": {
+      "optional": true
+    }
   }
 }
