@@ -16,6 +16,14 @@ strings—never binary floating point.
 
 ## Fund native R1 from a Payrail asset
 
+The canonical connector and authorized client implementation is maintained in
+the private
+[`payrail-one/asset-connectors`](https://github.com/payrail-one/asset-connectors)
+repository, shared with Richard. This public SDK preserves the public
+`@payrail-one/sdk/r1-funding` facade and must consume/re-export a pinned private
+release rather than independently evolving Ethereum, conversion, recovery, or
+connector rules.
+
 `@payrail-one/sdk/r1-funding` implements the client side of the Payrail-owned
 conversion boundary. It requests an immutable integer quote, constructs the
 exact ordinary Payrail transfer bound to that quote, signs locally and submits

@@ -1,3 +1,6 @@
+// Canonical implementation: private payrail-one/asset-connectors, signed tag
+// v0.1.0. Keep this compatibility surface byte-stable until the authorized
+// private package can be consumed and re-exported without exposing it publicly.
 import { fromHex, toHex } from '@platform/api-client';
 import {
   accountIdFromAddress,
