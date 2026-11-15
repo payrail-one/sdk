@@ -5,7 +5,7 @@ import {
   encodeContractDeploy,
   type ContractCallInput,
   type ContractDeployInput,
-} from './contract-operation';
+} from './contract-operation.js';
 
 export {
   MAX_CONTRACT_ARGS_BYTES,
@@ -13,7 +13,7 @@ export {
   MAX_CONTRACT_EXECUTION_UNITS,
   type ContractCallInput,
   type ContractDeployInput,
-} from './contract-operation';
+} from './contract-operation.js';
 
 const AUTHORIZATION_DOMAIN = new TextEncoder().encode('ledger.authorization\0');
 const ENVELOPE_DOMAIN = new TextEncoder().encode('ledger.envelope\0');
